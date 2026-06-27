@@ -1,0 +1,124 @@
+{
+  "module": "Authentication",
+  "baseUrl": "https://reynard-qa-m7xqu.ondigitalocean.app",
+  "loginPath": "/authentication/sign-in",
+  "credentials": {
+    "validAdmin": {
+      "email": "manan.hathi+2@kiwiqa.com",
+      "password": "Test@1234"
+    }
+  },
+  "testCases": [
+    {
+      "id": "AUTH_TC_001",
+      "title": "Successful login with valid credentials",
+      "enabled": true,
+      "email": "manan.hathi+2@kiwiqa.com",
+      "password": "Test@1234",
+      "expectedResult": "redirect_to_dashboard",
+      "expectedUrlContains": "/client/",
+      "tags": ["smoke", "regression"]
+    },
+    {
+      "id": "AUTH_TC_002",
+      "title": "Login fails with invalid password",
+      "enabled": true,
+      "email": "manan.hathi+2@kiwiqa.com",
+      "password": "WrongPassword123",
+      "expectedResult": "error_message",
+      "expectedErrorContains": ["invalid", "incorrect", "wrong", "failed"],
+      "tags": ["regression", "negative"]
+    },
+    {
+      "id": "AUTH_TC_003",
+      "title": "Login fails with invalid email format",
+      "enabled": true,
+      "email": "notanemail",
+      "password": "Test@1234",
+      "expectedResult": "validation_error",
+      "tags": ["regression", "negative"]
+    },
+    {
+      "id": "AUTH_TC_004",
+      "title": "Login fails with empty email",
+      "enabled": true,
+      "email": "",
+      "password": "Test@1234",
+      "expectedResult": "validation_error",
+      "tags": ["regression", "negative"]
+    },
+    {
+      "id": "AUTH_TC_005",
+      "title": "Login fails with empty password",
+      "enabled": true,
+      "email": "manan.hathi+2@kiwiqa.com",
+      "password": "",
+      "expectedResult": "validation_error",
+      "tags": ["regression", "negative"]
+    },
+    {
+      "id": "AUTH_TC_006",
+      "title": "Login fails with both fields empty",
+      "enabled": true,
+      "email": "",
+      "password": "",
+      "expectedResult": "validation_error",
+      "tags": ["regression", "negative"]
+    },
+    {
+      "id": "AUTH_TC_007",
+      "title": "Login page elements are visible",
+      "enabled": true,
+      "email": null,
+      "password": null,
+      "expectedResult": "page_elements_present",
+      "expectedElements": ["emailField", "passwordField", "loginButton", "forgotPassword"],
+      "tags": ["smoke", "ui"]
+    },
+    {
+      "id": "AUTH_TC_008",
+      "title": "Password field masks input",
+      "enabled": true,
+      "email": null,
+      "password": "Test@1234",
+      "expectedResult": "password_masked",
+      "tags": ["regression", "ui"]
+    },
+    {
+      "id": "AUTH_TC_009",
+      "title": "Remember me checkbox is functional",
+      "enabled": true,
+      "email": "manan.hathi+2@kiwiqa.com",
+      "password": "Test@1234",
+      "expectedResult": "remember_me_checked",
+      "tags": ["regression"]
+    },
+    {
+      "id": "AUTH_TC_010",
+      "title": "Forgot password link is clickable",
+      "enabled": true,
+      "email": null,
+      "password": null,
+      "expectedResult": "navigates_to_forgot_password",
+      "tags": ["regression"]
+    },
+    {
+      "id": "AUTH_TC_011",
+      "title": "Successful logout after login",
+      "enabled": true,
+      "email": "manan.hathi+2@kiwiqa.com",
+      "password": "Test@1234",
+      "expectedResult": "redirected_to_login",
+      "tags": ["smoke", "regression"]
+    },
+    {
+      "id": "AUTH_TC_012",
+      "title": "Login with SQL injection in email field",
+      "enabled": true,
+      "email": "' OR '1'='1",
+      "password": "anything",
+      "expectedResult": "login_fails_or_error",
+      "tags": ["security", "negative"]
+    }
+  ]
+}

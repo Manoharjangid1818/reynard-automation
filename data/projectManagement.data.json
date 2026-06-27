@@ -1,0 +1,132 @@
+{
+  "module": "ProjectManagement",
+  "testCases": [
+    {
+      "id": "PM_TC_001",
+      "title": "Project Management page loads successfully",
+      "enabled": true,
+      "action": "navigate",
+      "expectedResult": "page_loaded",
+      "tags": ["smoke"]
+    },
+    {
+      "id": "PM_TC_002",
+      "title": "Overview banner displays correct text",
+      "enabled": true,
+      "action": "verify_banner",
+      "expectedText": "Overview of Project, Reports and Shifts",
+      "tags": ["smoke", "ui"]
+    },
+    {
+      "id": "PM_TC_003",
+      "title": "Time & Effort Insights tab is active by default",
+      "enabled": true,
+      "action": "verify_active_tab",
+      "expectedTab": "Time & Effort Insights",
+      "tags": ["smoke", "ui"]
+    },
+    {
+      "id": "PM_TC_004",
+      "title": "Progress Overview tab switches view",
+      "enabled": true,
+      "action": "click_tab",
+      "tab": "Progress Overview",
+      "expectedResult": "tab_active",
+      "tags": ["regression"]
+    },
+    {
+      "id": "PM_TC_005",
+      "title": "Project dropdown shows available projects",
+      "enabled": true,
+      "action": "verify_project_dropdown",
+      "expectedResult": "dropdown_has_options",
+      "tags": ["smoke"]
+    },
+    {
+      "id": "PM_TC_006",
+      "title": "String filter dropdown shows All by default",
+      "enabled": true,
+      "action": "verify_filter_default",
+      "filter": "String",
+      "expectedDefault": "All",
+      "tags": ["regression", "ui"]
+    },
+    {
+      "id": "PM_TC_007",
+      "title": "Location filter dropdown shows All by default",
+      "enabled": true,
+      "action": "verify_filter_default",
+      "filter": "Location",
+      "expectedDefault": "All",
+      "tags": ["regression", "ui"]
+    },
+    {
+      "id": "PM_TC_008",
+      "title": "Scope filter dropdown shows All by default",
+      "enabled": true,
+      "action": "verify_filter_default",
+      "filter": "Scope",
+      "expectedDefault": "All",
+      "tags": ["regression", "ui"]
+    },
+    {
+      "id": "PM_TC_009",
+      "title": "No. of Asset per Location filter shows All by default",
+      "enabled": true,
+      "action": "verify_filter_default",
+      "filter": "NoAssetPerLocation",
+      "expectedDefault": "All",
+      "tags": ["regression", "ui"]
+    },
+    {
+      "id": "PM_TC_010",
+      "title": "Reset Filters button clears all filter selections",
+      "enabled": true,
+      "action": "reset_filters",
+      "expectedResult": "all_filters_reset",
+      "tags": ["regression"]
+    },
+    {
+      "id": "PM_TC_011",
+      "title": "Hours Worked section shows empty state when no data",
+      "enabled": true,
+      "action": "verify_empty_state",
+      "section": "HoursWorked",
+      "expectedText": "No hours recorded for this project yet.",
+      "tags": ["regression"]
+    },
+    {
+      "id": "PM_TC_012",
+      "title": "Activity Hours Pivot shows empty state when no data",
+      "enabled": true,
+      "action": "verify_empty_state",
+      "section": "ActivityHoursPivot",
+      "expectedText": "No data available for this project.",
+      "tags": ["regression"]
+    },
+    {
+      "id": "PM_TC_013",
+      "title": "Reset Zoom button is visible on Time & Effort tab",
+      "enabled": true,
+      "action": "verify_element_visible",
+      "element": "resetZoomButton",
+      "tags": ["regression", "ui"]
+    },
+    {
+      "id": "PM_TC_014",
+      "title": "Average hours reference label visible at bottom",
+      "enabled": true,
+      "action": "verify_element_visible",
+      "element": "averageHoursReference",
+      "tags": ["regression", "ui"]
+    },
+    {
+      "id": "PM_TC_015",
+      "title": "Total hours logged label visible at bottom",
+      "enabled": true,
+      "action": "verify_element_visible",
+      "element": "totalHoursLogged",
+      "tags": ["regression", "ui"]
+    }
+  ]
+}

@@ -1,0 +1,125 @@
+{
+  "module": "TrainingMatrix",
+  "testCases": [
+    {
+      "id": "TM_TC_001",
+      "title": "Training Matrix page loads successfully",
+      "enabled": true,
+      "action": "navigate",
+      "expectedResult": "page_loaded",
+      "tags": ["smoke"]
+    },
+    {
+      "id": "TM_TC_002",
+      "title": "Training Matrix displays expected table columns",
+      "enabled": true,
+      "action": "verify_columns",
+      "expectedColumns": ["Function", "No.", "Name", "Rotation"],
+      "tags": ["smoke", "ui"]
+    },
+    {
+      "id": "TM_TC_003",
+      "title": "Filter by Project dropdown works",
+      "enabled": true,
+      "action": "filter_by_project",
+      "projectIndex": 0,
+      "expectedResult": "filtered",
+      "tags": ["regression"]
+    },
+    {
+      "id": "TM_TC_004",
+      "title": "Filter by Certificate Status - All",
+      "enabled": true,
+      "action": "filter_by_cert_status",
+      "status": "All",
+      "expectedResult": "filtered",
+      "tags": ["regression"]
+    },
+    {
+      "id": "TM_TC_005",
+      "title": "Filter by Certificate Status - Valid",
+      "enabled": true,
+      "action": "filter_by_cert_status",
+      "status": "Valid",
+      "expectedResult": "filtered",
+      "tags": ["regression"]
+    },
+    {
+      "id": "TM_TC_006",
+      "title": "Filter by Certificate Status - Expired",
+      "enabled": true,
+      "action": "filter_by_cert_status",
+      "status": "Expired",
+      "expectedResult": "filtered",
+      "tags": ["regression"]
+    },
+    {
+      "id": "TM_TC_007",
+      "title": "Filter by Name works correctly",
+      "enabled": true,
+      "action": "filter_by_name",
+      "name": "Test Man",
+      "expectedResult": "filtered",
+      "tags": ["regression"]
+    },
+    {
+      "id": "TM_TC_008",
+      "title": "Filter by Function works correctly",
+      "enabled": true,
+      "action": "filter_by_function",
+      "functionIndex": 0,
+      "expectedResult": "filtered",
+      "tags": ["regression"]
+    },
+    {
+      "id": "TM_TC_009",
+      "title": "Filter by Rotation works correctly",
+      "enabled": true,
+      "action": "filter_by_rotation",
+      "rotation": "All",
+      "expectedResult": "filtered",
+      "tags": ["regression"]
+    },
+    {
+      "id": "TM_TC_010",
+      "title": "Reset Filter restores full data",
+      "enabled": true,
+      "action": "reset_filter",
+      "expectedResult": "all_data_restored",
+      "tags": ["regression"]
+    },
+    {
+      "id": "TM_TC_011",
+      "title": "Export button triggers file download",
+      "enabled": true,
+      "action": "export",
+      "expectedResult": "file_downloaded",
+      "tags": ["regression"]
+    },
+    {
+      "id": "TM_TC_012",
+      "title": "Eye icon opens user certificate detail",
+      "enabled": true,
+      "action": "view_user_detail",
+      "rowIndex": 0,
+      "expectedResult": "detail_view_opens",
+      "tags": ["regression"]
+    },
+    {
+      "id": "TM_TC_013",
+      "title": "Checkmark icon indicates valid certificate",
+      "enabled": true,
+      "action": "verify_checkmark_meaning",
+      "expectedResult": "checkmark_visible_for_valid",
+      "tags": ["regression", "ui"]
+    },
+    {
+      "id": "TM_TC_014",
+      "title": "N/A indicates no certificate data",
+      "enabled": true,
+      "action": "verify_na_cells",
+      "expectedResult": "na_visible_for_missing",
+      "tags": ["regression", "ui"]
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "module": "Settings",
+  "testCases": [
+    {
+      "id": "SET_TC_001",
+      "title": "Settings page loads with all sections",
+      "enabled": true,
+      "action": "verify_sections",
+      "expectedSections": ["Organization", "Project Management", "Actions", "User Management", "Quality, Health & Safety", "Equipment", "Personal Setting"],
+      "tags": ["smoke"]
+    },
+    {
+      "id": "SET_TC_002",
+      "title": "Organization section shows correct links",
+      "enabled": true,
+      "action": "verify_section_links",
+      "section": "Organization",
+      "expectedLinks": ["Logo & Color", "Company Details", "Setup Licenses"],
+      "tags": ["smoke", "ui"]
+    },
+    {
+      "id": "SET_TC_003",
+      "title": "Project Management section shows correct links",
+      "enabled": true,
+      "action": "verify_section_links",
+      "section": "ProjectManagement",
+      "expectedLinks": ["Project Setup", "Report Setup"],
+      "tags": ["smoke", "ui"]
+    },
+    {
+      "id": "SET_TC_004",
+      "title": "User Management section shows correct links",
+      "enabled": true,
+      "action": "verify_section_links",
+      "section": "UserManagement",
+      "expectedLinks": ["Role Management", "Certificate Management", "Profile Functions"],
+      "tags": ["smoke", "ui"]
+    },
+    {
+      "id": "SET_TC_005",
+      "title": "QHSE section shows correct links",
+      "enabled": true,
+      "action": "verify_section_links",
+      "section": "QualityHealthSafety",
+      "expectedLinks": ["Setup Card Categories", "Medical Management", "Configuration", "General QHSE Documents"],
+      "tags": ["smoke", "ui"]
+    },
+    {
+      "id": "SET_TC_006",
+      "title": "Equipment section shows correct links",
+      "enabled": true,
+      "action": "verify_section_links",
+      "section": "Equipment",
+      "expectedLinks": ["Equipment Setup", "Add Warehouse", "Warehouse"],
+      "tags": ["smoke", "ui"]
+    },
+    {
+      "id": "SET_TC_007",
+      "title": "Personal Setting section shows correct links",
+      "enabled": true,
+      "action": "verify_section_links",
+      "section": "PersonalSetting",
+      "expectedLinks": ["Time format", "Language", "Dark theme"],
+      "tags": ["smoke", "ui"]
+    },
+    {
+      "id": "SET_TC_008",
+      "title": "Sync up time dropdown has valid options",
+      "enabled": true,
+      "action": "verify_sync_dropdown",
+      "expectedDefault": "15min",
+      "expectedOptions": ["5min", "10min", "15min", "30min", "60min"],
+      "tags": ["regression"]
+    },
+    {
+      "id": "SET_TC_009",
+      "title": "Project Status filter shows Open and Completed",
+      "enabled": true,
+      "action": "verify_project_status",
+      "expectedStatuses": ["Open", "Completed"],
+      "tags": ["regression"]
+    },
+    {
+      "id": "SET_TC_010",
+      "title": "Actions section - System Notification link is clickable",
+      "enabled": true,
+      "action": "click_section_link",
+      "section": "Actions",
+      "link": "System Notification",
+      "expectedResult": "navigates_or_opens",
+      "tags": ["regression"]
+    },
+    {
+      "id": "SET_TC_011",
+      "title": "Logo & Color link navigates to correct page",
+      "enabled": true,
+      "action": "click_section_link",
+      "section": "Organization",
+      "link": "Logo & Color",
+      "expectedResult": "navigates",
+      "tags": ["regression"]
+    },
+    {
+      "id": "SET_TC_012",
+      "title": "Role Management link navigates to correct page",
+      "enabled": true,
+      "action": "click_section_link",
+      "section": "UserManagement",
+      "link": "Role Management",
+      "expectedResult": "navigates",
+      "tags": ["regression"]
+    }
+  ]
+}

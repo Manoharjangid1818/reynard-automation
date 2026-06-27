@@ -1,0 +1,27 @@
+{
+  "name": "reynard-automation",
+  "version": "1.0.0",
+  "description": "Playwright automation framework for Reynard application - POM based",
+  "scripts": {
+    "test": "playwright test",
+    "test:auth": "playwright test tests/auth.spec.js --project=chromium",
+    "test:personnel": "playwright test tests/personnel.spec.js",
+    "test:certificates": "playwright test tests/certificates.spec.js",
+    "test:training": "playwright test tests/trainingMatrix.spec.js",
+    "test:settings": "playwright test tests/settings.spec.js",
+    "test:projects": "playwright test tests/projectManagement.spec.js",
+    "test:all": "playwright test --reporter=html,json",
+    "test:headed": "playwright test --headed",
+    "test:auth:headed": "playwright test tests/auth.spec.js --project=chromium --headed",
+    "test:auth:chromium": "playwright test tests/auth.spec.js --project=chromium",
+    "test:auth:headed:chromium": "playwright test tests/auth.spec.js --project=chromium --headed",
+    "test:auth:headed:firefox": "playwright test tests/auth.spec.js --project=firefox --headed",
+    "report": "playwright show-report reports/html"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.44.0",
+    "dotenv": "^16.4.5",
+    "exceljs": "^4.4.0",
+    "fs-extra": "^11.2.0"
+  }
+}
