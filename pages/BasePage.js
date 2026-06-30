@@ -6,7 +6,7 @@ class BasePage {
 
   async navigate(path) {
     await this.page.goto(path);
-    await this.page.waitForLoadState('networkidle');
+    await this.page.waitForLoadState('networkidle', { timeout: 10000 }).catch(() => {});
   }
 
   async getTitle() {

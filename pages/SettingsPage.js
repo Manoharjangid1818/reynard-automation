@@ -5,7 +5,7 @@ class SettingsPage extends BasePage {
   constructor(page) {
     super(page);
 
-    this.path               = '/client/settings';
+    this.path               = '/client/setting';
 
     // Section cards
     this.sections = {
@@ -26,12 +26,16 @@ class SettingsPage extends BasePage {
 
   async goto() {
     await this.navigate(this.path);
-    await this.page.waitForLoadState('networkidle');
+    await this.page.locator('p').filter({ hasText: /^Settings$/ }).first().waitFor({ state: 'visible', timeout: 15000 }).catch(() => {});
+    await this.page.getByText('Project Management', { exact: true }).first().waitFor({ state: 'visible', timeout: 15000 }).catch(() => {});
   }
 
   async isPageLoaded() {
-    const text = await this.page.locator('h1, h2').first().textContent().catch(() => '');
-    return text.toLowerCase().includes('setting');
+    const url = this.page.url();
+    const title = this.page.locator('p').filter({ hasText: /^Settings$/ }).first();
+    await title.waitFor({ state: 'visible', timeout: 10000 }).catch(() => {});
+    const titleVisible = await title.isVisible().catch(() => false);
+    return url.includes('/client/setting') && titleVisible;
   }
 
   async getSectionTitles() {
@@ -53,8 +57,18 @@ class SettingsPage extends BasePage {
   }
 
   async clickSectionLink(sectionName, linkText) {
-    const section = this.page.locator(this.sections[sectionName] || `text=${sectionName}`).first();
-    await section.locator(`text=${linkText}`).first().click();
+    const link = this.page.getByRole('link', { name: linkText }).first();
+    const button = this.page.getByRole('button', { name: linkText }).first();
+
+    if (await link.isVisible().catch(() => false)) {
+      await link.click();
+    } else if (await button.isVisible().catch(() => false)) {
+      await button.click();
+    } else {
+      const section = this.page.locator(this.sections[sectionName] || `text=${sectionName}`).first();
+      await section.locator(`text=${linkText}`).first().click();
+    }
+
     await this.page.waitForLoadState('networkidle').catch(() => {});
   }
 
@@ -88,7 +102,7 @@ class SettingsPage extends BasePage {
   }
 
   async isSettingLinkVisible(text) {
-    return await this.page.locator(`text=${text}`).first().isVisible().catch(() => false);
+    return await this.page.getByText(text, { exact: true }).first().isVisible().catch(() => false);
   }
 }
 

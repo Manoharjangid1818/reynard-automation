@@ -18,12 +18,16 @@ class CertificateApprovalPage extends BasePage {
 
   async goto() {
     await this.navigate(this.path);
-    await this.page.waitForLoadState('networkidle');
+    await this.page.locator('p').filter({ hasText: /^Certificate Approval$/ }).first().waitFor({ state: 'visible', timeout: 20000 }).catch(() => {});
+    await this.page.locator(this.tableHeaders).first().waitFor({ state: 'visible', timeout: 20000 }).catch(() => {});
   }
 
   async isPageLoaded() {
-    const title = await this.page.locator(this.pageTitle).first().textContent().catch(() => '');
-    return title.toLowerCase().includes('certificate');
+    const url = this.page.url();
+    const title = this.page.locator('p').filter({ hasText: /^Certificate Approval$/ }).first();
+    await title.waitFor({ state: 'visible', timeout: 10000 }).catch(() => {});
+    const titleVisible = await title.isVisible().catch(() => false);
+    return url.includes('/client/certificate-approval') && titleVisible;
   }
 
   async getTableHeaders() {

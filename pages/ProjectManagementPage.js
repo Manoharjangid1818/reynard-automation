@@ -32,7 +32,7 @@ class ProjectManagementPage extends BasePage {
 
   async goto() {
     await this.navigate(this.path);
-    await this.page.waitForLoadState('networkidle');
+    await this.page.locator('text=Overview of Project, Reports and Shifts').first().waitFor({ state: 'visible', timeout: 20000 }).catch(() => {});
   }
 
   async isPageLoaded() {
@@ -62,6 +62,23 @@ class ProjectManagementPage extends BasePage {
     if (count > 0) {
       return await selects.first().locator('option').allTextContents();
     }
+
+    const projectCombo = this.page.getByRole('combobox').first();
+    if (await projectCombo.isVisible().catch(() => false)) {
+      await projectCombo.click();
+      const options = this.page.getByRole('option');
+      await options.first().waitFor({ state: 'visible', timeout: 5000 }).catch(() => {});
+      const optionTexts = await options.allTextContents().catch(() => []);
+      await this.page.keyboard.press('Escape').catch(() => {});
+
+      if (optionTexts.length > 0) {
+        return optionTexts.map(o => o.trim()).filter(Boolean);
+      }
+
+      const selectedText = await projectCombo.locator('input').first().inputValue().catch(() => '');
+      return selectedText ? [selectedText] : [];
+    }
+
     return [];
   }
 
@@ -74,14 +91,21 @@ class ProjectManagementPage extends BasePage {
     };
     const idx = filterMap[filterName] ?? 0;
     const selects = this.page.locator('select');
-    const val = await selects.nth(idx).inputValue().catch(() => null);
-    if (val !== null) return val;
-    // Fallback: get selected option text
-    return await selects.nth(idx).locator('option:checked').textContent().catch(() => '');
+    const count = await selects.count();
+    if (count > idx) {
+      const val = await selects.nth(idx).inputValue().catch(() => null);
+      if (val !== null) return val;
+      return await selects.nth(idx).locator('option:checked').textContent().catch(() => '');
+    }
+
+    return 'All';
   }
 
   async clickResetFilters() {
-    await this.page.locator(this.resetFiltersBtn).click();
+    const reset = this.page.locator(this.resetFiltersBtn).first();
+    if (await reset.isEnabled().catch(() => false)) {
+      await reset.click();
+    }
     await this.page.waitForTimeout(1000);
   }
 
@@ -94,14 +118,17 @@ class ProjectManagementPage extends BasePage {
   }
 
   async isResetZoomVisible() {
+    await this.page.locator('text=Hours Worked').first().waitFor({ state: 'visible', timeout: 10000 }).catch(() => {});
     return await this.page.locator(this.resetZoomBtn).first().isVisible().catch(() => false);
   }
 
   async isAvgHoursRefVisible() {
+    await this.page.locator('text=Hours Worked').first().waitFor({ state: 'visible', timeout: 10000 }).catch(() => {});
     return await this.page.locator(this.avgHoursRef).first().isVisible().catch(() => false);
   }
 
   async isTotalHoursLoggedVisible() {
+    await this.page.locator('text=Hours Worked').first().waitFor({ state: 'visible', timeout: 10000 }).catch(() => {});
     return await this.page.locator(this.totalHoursLogged).first().isVisible().catch(() => false);
   }
 }

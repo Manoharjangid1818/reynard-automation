@@ -45,8 +45,20 @@ class TrainingMatrixPage extends BasePage {
 
   async filterByProject(index) {
     const selects = this.page.locator('select');
-    await selects.first().selectOption({ index });
-    await this.page.waitForTimeout(1200);
+    if (await selects.count() > 0) {
+      await selects.first().selectOption({ index });
+    } else {
+      const projectCombo = this.page.getByRole('combobox').first();
+      await projectCombo.waitFor({ state: 'visible', timeout: 10000 });
+      await projectCombo.click();
+
+      const options = this.page.getByRole('option');
+      await options.first().waitFor({ state: 'visible', timeout: 10000 });
+      const optionCount = await options.count();
+      await options.nth(Math.min(index, optionCount - 1)).click();
+    }
+
+    await this.page.waitForLoadState('networkidle').catch(() => {});
   }
 
   async filterByCertStatus(status) {

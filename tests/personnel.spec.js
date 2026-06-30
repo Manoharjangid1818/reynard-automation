@@ -39,11 +39,23 @@ test.describe('Personnel', () => {
 
         // ── Create user (happy path) ───────────────────────────────────────
         case 'create_user': {
+          const userData = { ...tc.userData };
+          if (tc.expectedResult !== 'duplicate_error' && userData.email) {
+            userData.email = userData.email.replace('@', `+${Date.now()}@`);
+          }
+
           await personnelPage.clickNewButton();
           expect(await personnelPage.isModalOpen()).toBeTruthy();
-          await personnelPage.fillNewUserForm(tc.userData);
+          await personnelPage.fillNewUserForm(userData);
           await personnelPage.submitNewUser();
-          // Check for success toast OR modal has closed
+
+          if (tc.expectedResult === 'duplicate_error') {
+            const errMsg = await personnelPage.getCertValidationMessage();
+            const toast  = await personnelPage.waitForToast();
+            expect(errMsg || (toast && (toast.toLowerCase().includes('exist') || toast.toLowerCase().includes('duplicate') || toast.toLowerCase().includes('error')))).toBeTruthy();
+            break;
+          }
+
           const modalStillOpen = await personnelPage.isModalOpen();
           const toast = await personnelPage.waitForToast();
           expect(!modalStillOpen || (toast && (toast.includes('success') || toast.includes('creat')))).toBeTruthy();
@@ -139,18 +151,6 @@ test.describe('Personnel', () => {
         case 'open_new_user_modal': {
           await personnelPage.clickNewButton();
           expect(await personnelPage.isModalOpen()).toBeTruthy();
-          break;
-        }
-
-        // ── Duplicate email ────────────────────────────────────────────────
-        case 'create_user': {  // duplicate email falls here via same action key
-          await personnelPage.clickNewButton();
-          await personnelPage.fillNewUserForm(tc.userData);
-          await personnelPage.submitNewUser();
-          const errMsg = await personnelPage.getCertValidationMessage();
-          const toast  = await personnelPage.waitForToast();
-          // Expect either an error message or a duplicate warning
-          expect(errMsg || (toast && (toast.toLowerCase().includes('exist') || toast.toLowerCase().includes('duplicate') || toast.toLowerCase().includes('error')))).toBeTruthy();
           break;
         }
 

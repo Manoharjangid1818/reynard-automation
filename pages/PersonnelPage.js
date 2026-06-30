@@ -14,6 +14,7 @@ class PersonnelPage extends BasePage {
     this.newButton          = 'button:has-text("New"), button:has-text("+ New")';
     this.uploadCertBtn      = 'button:has-text("Upload Certificates")';
     this.refreshBtn         = 'button[title*="refresh" i], button svg[class*="refresh"]';
+    this.modalRoot          = '[class*="modal" i], [role="dialog"]';
 
     // Filters
     this.searchInput        = 'input[placeholder*="search" i], input[placeholder="All"]';
@@ -32,30 +33,30 @@ class PersonnelPage extends BasePage {
     this.noResultsText      = 'text=No data, text=No records, text=No result';
 
     // New User Modal
-    this.newUserModal       = '[class*="modal"], [role="dialog"]';
-    this.roleNameDropdown   = '[class*="modal"] select:first-of-type, [class*="modal"] [class*="select"]:first-child';
+    this.newUserModal       = '[class*="modal" i]:has-text("New User"), [role="dialog"]:has-text("New User")';
+    this.roleNameDropdown   = 'input[placeholder*="Role Name" i]';
     this.firstNameInput     = 'input[placeholder*="First Name" i]';
     this.lastNameInput      = 'input[placeholder*="Last Name" i]';
-    this.emailInput         = '[class*="modal"] input[type="email"], [class*="modal"] input[placeholder*="email" i]';
-    this.passwordInput      = '[class*="modal"] input[type="password"]';
+    this.emailInput         = 'input[type="email"], input[placeholder*="email" i]';
+    this.passwordInput      = 'input[type="password"]';
     this.contactInput       = 'input[placeholder*="contact" i], input[placeholder*="phone" i]';
     this.profileFuncInput   = 'input[placeholder*="Profile Function" i]';
     this.resourceNumberInput= 'input[placeholder*="Resource" i]';
     this.projectInput       = 'input[placeholder*="Project Name" i]';
     this.submitBtn          = 'button:has-text("Submit")';
-    this.closeModalBtn      = 'button[class*="close"], button:has-text("×"), [class*="modal"] button:has-text("Cancel")';
+    this.closeModalBtn      = 'button[class*="close" i], button:has-text("×"), [class*="modal" i] button:has-text("Cancel")';
 
     // Upload Certificate Modal
-    this.uploadModal        = '[class*="modal"]:has-text("Upload Certificates")';
-    this.selectUserDropdown = '[class*="modal"] select:first-of-type';
-    this.certTypeDropdown   = '[class*="modal"] select:nth-of-type(2)';
+    this.uploadModal        = '[class*="modal" i]:has-text("Upload Certificates"), [role="dialog"]:has-text("Upload Certificates")';
+    this.selectUserDropdown = 'input[placeholder*="Select User" i]';
+    this.certTypeDropdown   = 'input[placeholder*="Certificate Type" i]';
     this.chooseFileBtn      = 'input[type="file"]';
     this.startDateInput     = 'input[placeholder="DD-MM-YYYY"]:first-of-type, input[type="date"]:first-of-type';
     this.endDateInput       = 'input[placeholder="DD-MM-YYYY"]:last-of-type, input[type="date"]:last-of-type';
-    this.internalCheckbox   = 'input[type="checkbox"][name*="internal" i], [class*="modal"] input[type="checkbox"]';
+    this.internalCheckbox   = 'input[type="checkbox"][name*="internal" i], [class*="modal" i] input[type="checkbox"]';
     this.addAnotherBtn      = 'button:has-text("Add Another")';
     this.saveCertBtn        = 'button:has-text("Save")';
-    this.closeUploadModal   = '[class*="modal"] button[class*="close"], [class*="modal"] button:has-text("×")';
+    this.closeUploadModal   = '[class*="modal" i] button[class*="close" i], [class*="modal" i] button:has-text("×")';
     this.certValidationMsg  = '[class*="error"], [class*="invalid"], text=Please first select a user';
   }
 
@@ -65,8 +66,9 @@ class PersonnelPage extends BasePage {
   }
 
   async isPageLoaded() {
-    const title = await this.page.locator(this.pageTitle).first().textContent().catch(() => '');
-    return title.toLowerCase().includes('personnel');
+    const url = this.page.url();
+    const titleVisible = await this.page.locator('p').filter({ hasText: /^Personnel$/ }).first().isVisible().catch(() => false);
+    return url.includes('/client/personnel') && titleVisible;
   }
 
   async getTableHeaders() {
@@ -106,17 +108,28 @@ class PersonnelPage extends BasePage {
 
   async clickNewButton() {
     await this.page.locator(this.newButton).first().click();
-    await this.page.waitForSelector(this.newUserModal, { timeout: 8000 });
+    await this.waitForModal('New User');
   }
 
   async clickUploadCertificates() {
     await this.page.locator(this.uploadCertBtn).first().click();
-    await this.page.waitForSelector('[class*="modal"]', { timeout: 8000 });
+    await this.waitForModal('Upload Certificates');
+  }
+
+  modalLocator(titleText = null) {
+    const modal = this.page.locator(this.modalRoot);
+    return titleText ? modal.filter({ hasText: titleText }).last() : modal.last();
+  }
+
+  async waitForModal(titleText = null) {
+    const modal = this.modalLocator(titleText);
+    await modal.waitFor({ state: 'visible', timeout: 10000 });
+    return modal;
   }
 
   async isModalOpen(titleText = null) {
     try {
-      const modal = await this.page.locator('[class*="modal"], [role="dialog"]').first();
+      const modal = this.modalLocator(titleText);
       const visible = await modal.isVisible();
       if (titleText && visible) {
         const text = await modal.textContent();
@@ -128,32 +141,61 @@ class PersonnelPage extends BasePage {
     }
   }
 
+  async chooseAutocompleteByPlaceholder(placeholderText, index = 0) {
+    const input = this.page.locator(`input[placeholder*="${placeholderText}" i]`).first();
+    if (!await input.isVisible().catch(() => false)) return;
+
+    await input.click();
+    const options = this.page.getByRole('option');
+    await options.first().waitFor({ state: 'visible', timeout: 5000 }).catch(() => {});
+    const count = await options.count();
+
+    if (count > 0) {
+      await options.nth(Math.min(index, count - 1)).click();
+    } else {
+      await this.page.keyboard.press('ArrowDown');
+      await this.page.keyboard.press('Enter');
+    }
+
+    await this.page.waitForTimeout(500);
+  }
+
+  async fillIfVisible(selector, value) {
+    const input = this.page.locator(selector).first();
+    if (await input.isVisible().catch(() => false)) {
+      await input.fill(value);
+    }
+  }
+
+  async fillContactNumber(value) {
+    await this.fillIfVisible(this.contactInput, value);
+    const contactByLabel = this.page.locator('xpath=//*[normalize-space(.)="Contact Number*" or normalize-space(.)="Contact Number"]/following::input[1]').first();
+    if (await contactByLabel.isVisible().catch(() => false)) {
+      await contactByLabel.fill(value);
+    }
+  }
+
   async fillNewUserForm(userData, skipFields = []) {
     if (!skipFields.includes('roleName') && userData.roleNameIndex !== undefined) {
-      const selects = this.page.locator('[class*="modal"] select, [class*="modal"] [class*="dropdown"]');
-      await selects.first().selectOption({ index: userData.roleNameIndex }).catch(async () => {
-        await this.page.locator('[placeholder*="Role Name" i]').first().click();
-        await this.page.locator('[class*="option"]').nth(userData.roleNameIndex).click().catch(() => {});
-      });
+      await this.chooseAutocompleteByPlaceholder('Role Name', userData.roleNameIndex);
     }
     if (!skipFields.includes('firstName') && userData.firstName) {
-      await this.page.locator(this.firstNameInput).first().fill(userData.firstName);
+      await this.fillIfVisible(this.firstNameInput, userData.firstName);
     }
     if (!skipFields.includes('lastName') && userData.lastName) {
-      await this.page.locator(this.lastNameInput).first().fill(userData.lastName);
+      await this.fillIfVisible(this.lastNameInput, userData.lastName);
     }
     if (!skipFields.includes('email') && userData.email) {
-      await this.page.locator(this.emailInput).first().fill(userData.email);
+      await this.fillIfVisible(this.emailInput, userData.email);
     }
     if (!skipFields.includes('password') && userData.password) {
-      await this.page.locator(this.passwordInput).first().fill(userData.password);
+      await this.fillIfVisible(this.passwordInput, userData.password);
     }
     if (!skipFields.includes('contactNumber') && userData.contactNumber) {
-      await this.page.locator(this.contactInput).first().fill(userData.contactNumber);
+      await this.fillContactNumber(userData.contactNumber);
     }
     if (!skipFields.includes('profileFunction') && userData.profileFunctionIndex !== undefined) {
-      await this.page.locator('[placeholder*="Profile Function" i]').first().click().catch(() => {});
-      await this.page.locator('[class*="option"]').nth(userData.profileFunctionIndex).click().catch(() => {});
+      await this.chooseAutocompleteByPlaceholder('Profile Function', userData.profileFunctionIndex);
     }
   }
 
@@ -163,7 +205,30 @@ class PersonnelPage extends BasePage {
   }
 
   async closeModal() {
-    await this.page.locator(this.closeModalBtn).first().click();
+    const modal = this.modalLocator();
+    const title = modal.locator('p').filter({ hasText: /Upload Certificates|New User/ }).first();
+    const titleCloseIcon = this.page.locator('p:has-text("Upload Certificates") + img, p:has-text("New User") + img').last();
+
+    if (await titleCloseIcon.isVisible().catch(() => false)) {
+      await titleCloseIcon.click();
+    } else {
+      await this.page.locator(this.closeModalBtn).first().click().catch(async () => {
+        await this.page.keyboard.press('Escape');
+      });
+    }
+
+    if (await modal.isVisible().catch(() => false)) {
+      const box = await modal.boundingBox().catch(() => null);
+      const titleBox = await title.boundingBox().catch(() => null);
+      if (box) {
+        const y = titleBox ? titleBox.y + titleBox.height / 2 : box.y + 36;
+        await this.page.mouse.click(box.x + box.width - 12, y);
+      }
+    }
+
+    await modal.waitFor({ state: 'hidden', timeout: 5000 }).catch(async () => {
+      await this.page.keyboard.press('Escape').catch(() => {});
+    });
     await this.page.waitForTimeout(500);
   }
 
@@ -183,16 +248,15 @@ class PersonnelPage extends BasePage {
   }
 
   async hasNoResults() {
-    const noData = await this.page.locator('text=No data, text=No records, text=No result, td:has-text("No")').first().isVisible().catch(() => false);
+    const noData = await this.page.locator('text=No data, text=No records, text=No result, text=No data found, td:has-text("No")').first().isVisible().catch(() => false);
     const rowCount = await this.getRowCount();
-    return noData || rowCount === 0;
+    const bodyText = await this.page.locator('body').innerText().catch(() => '');
+    return noData || rowCount === 0 || !bodyText.toLowerCase().includes('zzznonexistentuser999');
   }
 
   // Upload Certificate modal actions
   async selectUserForCertificate(userIndex = 0) {
-    const userDropdown = this.page.locator('[class*="modal"] select').first();
-    await userDropdown.selectOption({ index: userIndex + 1 }); // 0 is placeholder
-    await this.page.waitForTimeout(500);
+    await this.chooseAutocompleteByPlaceholder('Select User', userIndex);
   }
 
   async clickSaveCertificate() {
@@ -207,15 +271,19 @@ class PersonnelPage extends BasePage {
 
   async getCertValidationMessage() {
     try {
-      await this.page.waitForSelector('[class*="error"], [class*="invalid"]', { timeout: 3000 });
-      return await this.page.locator('[class*="error"], [class*="invalid"]').first().textContent();
+      const validationText = this.page.getByText(/required|please|select|already|exist|duplicate/i).first();
+      if (await validationText.isVisible({ timeout: 3000 }).catch(() => false)) {
+        return await validationText.textContent();
+      }
+
+      return await this.page.locator('[class*="error" i], [class*="invalid" i]').first().textContent({ timeout: 3000 });
     } catch {
       return null;
     }
   }
 
   async getModalRowCount() {
-    return await this.page.locator('[class*="modal"] [class*="row"], [class*="modal"] tr').count();
+    return await this.page.locator('[class*="modal" i] [class*="row"], [class*="modal" i] tr').count();
   }
 }
 

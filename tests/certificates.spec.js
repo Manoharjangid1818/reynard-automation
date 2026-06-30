@@ -29,10 +29,12 @@ test.describe('Certificates', () => {
           expect(await personnelPage.isModalOpen()).toBeTruthy();
 
           // Check key elements in the modal
-          const modal = authenticatedPage.locator('[class*="modal"], [role="dialog"]').first();
+          const modal = authenticatedPage.locator('[class*="modal" i], [role="dialog"]').filter({ hasText: 'Upload Certificates' }).last();
           const modalText = await modal.textContent();
           expect(modalText).toContain('Select User');
-          expect(await authenticatedPage.locator('input[type="file"]').isVisible()).toBeTruthy();
+          const hasFileInput = await authenticatedPage.locator('input[type="file"]').count() > 0;
+          const chooseFileVisible = await authenticatedPage.getByRole('button', { name: /choose file/i }).first().isVisible().catch(() => false);
+          expect(hasFileInput || chooseFileVisible).toBeTruthy();
           break;
         }
 
@@ -42,7 +44,7 @@ test.describe('Certificates', () => {
           await personnelPage.clickUploadCertificates();
           await personnelPage.clickSaveCertificate();
           const errMsg = await personnelPage.getCertValidationMessage();
-          const modalText = await authenticatedPage.locator('[class*="modal"], [role="dialog"]').first().textContent().catch(() => '');
+          const modalText = await authenticatedPage.locator('[class*="modal" i], [role="dialog"]').filter({ hasText: 'Upload Certificates' }).last().textContent().catch(() => '');
           expect(
             (errMsg && errMsg.toLowerCase().includes('user')) ||
             modalText.includes('Please first select a user') ||
@@ -69,7 +71,7 @@ test.describe('Certificates', () => {
           await personnelPage.clickUploadCertificates();
           await personnelPage.selectUserForCertificate(tc.userData?.userIndex || 0);
           // Select cert type
-          const selects = authenticatedPage.locator('[class*="modal"] select');
+          const selects = authenticatedPage.locator('[class*="modal" i] select');
           if (await selects.count() > 1) {
             await selects.nth(1).selectOption({ index: 1 }).catch(() => {});
           }
@@ -96,7 +98,7 @@ test.describe('Certificates', () => {
           await personnelPage.clickUploadCertificates();
           await personnelPage.selectUserForCertificate(0);
           // Fill start date only
-          const dateInputs = authenticatedPage.locator('[class*="modal"] input[type="date"], [class*="modal"] input[placeholder*="DD-MM"]');
+          const dateInputs = authenticatedPage.locator('[class*="modal" i] input[type="date"], [class*="modal" i] input[placeholder*="DD-MM"]');
           if (await dateInputs.count() > 0) {
             await dateInputs.first().fill('2025-01-01').catch(() => {});
           }
@@ -123,9 +125,7 @@ test.describe('Certificates', () => {
           await personnelPage.clickUploadCertificates();
           expect(await personnelPage.isModalOpen()).toBeTruthy();
           // Close via X button
-          await authenticatedPage.locator('[class*="modal"] button[class*="close"], [class*="modal"] button:has-text("×"), [class*="modal"] [class*="close"]').first().click().catch(async () => {
-            await authenticatedPage.keyboard.press('Escape');
-          });
+          await personnelPage.closeModal();
           await authenticatedPage.waitForTimeout(800);
           expect(await personnelPage.isModalOpen()).toBeFalsy();
           break;
@@ -157,7 +157,7 @@ test.describe('Certificates', () => {
         case 'toggle_internal_checkbox': {
           await personnelPage.goto();
           await personnelPage.clickUploadCertificates();
-          const checkbox = authenticatedPage.locator('[class*="modal"] input[type="checkbox"]').first();
+          const checkbox = authenticatedPage.locator('[class*="modal" i] input[type="checkbox"]').first();
           const wasChecked = await checkbox.isChecked().catch(() => false);
           await checkbox.click({ force: true });
           await authenticatedPage.waitForTimeout(500);
@@ -171,7 +171,7 @@ test.describe('Certificates', () => {
           await personnelPage.goto();
           await personnelPage.clickUploadCertificates();
           await personnelPage.selectUserForCertificate(0);
-          const dateInputs = authenticatedPage.locator('[class*="modal"] input[type="date"]');
+          const dateInputs = authenticatedPage.locator('[class*="modal" i] input[type="date"]');
           if (await dateInputs.count() >= 2) {
             await dateInputs.first().fill('2025-06-01');
             await dateInputs.nth(1).fill('2025-01-01'); // end before start

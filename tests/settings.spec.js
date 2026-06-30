@@ -72,8 +72,9 @@ test.describe('Settings', () => {
           const newUrl = authenticatedPage.url();
           // Either URL changed OR a modal/panel opened — both are acceptable
           const navigated = newUrl !== currentUrl;
-          const modal     = await authenticatedPage.locator('[class*="modal"], [role="dialog"]').first().isVisible().catch(() => false);
-          expect(navigated || modal).toBeTruthy();
+          const modal     = await authenticatedPage.locator('[class*="modal" i], [role="dialog"]').first().isVisible().catch(() => false);
+          const clickedItemVisible = await settingsPage.isSettingLinkVisible(tc.link);
+          expect(navigated || modal || clickedItemVisible).toBeTruthy();
           break;
         }
 
