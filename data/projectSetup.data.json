@@ -1,0 +1,239 @@
+{
+  "existingProject": "M001 - Test Project",
+  "newProject": {
+    "valid": {
+      "projectName": "Automation Test Project",
+      "projectNumber": "AUTO-0001",
+      "client": "Reynard QA Client",
+      "status": "Open"
+    },
+    "duplicateProjectNumber": {
+      "projectName": "Duplicate Number Project",
+      "projectNumber": "M001",
+      "client": "Reynard QA Client",
+      "status": "Open"
+    },
+    "missingAllFields": {
+      "projectName": "",
+      "projectNumber": "",
+      "client": ""
+    },
+    "specialCharacters": {
+      "projectName": "Test <script>alert(1)</script>",
+      "projectNumber": "AUTO-!@#$%",
+      "client": "Client & Co. \"Ltd\"",
+      "status": "Open"
+    },
+    "specialNumber": {
+      "projectName": "Special Number Project",
+      "projectNumber": "!@#$%",
+      "client": "Reynard QA Client",
+      "status": "Open"
+    },
+    "trimmedWhitespace": {
+      "projectName": "  Trimmed Automation Project  ",
+      "projectNumber": "AUTO-TRIM-1",
+      "client": "Reynard QA Client",
+      "status": "Open"
+    },
+    "missingClient": {
+      "projectName": "Missing Client Project",
+      "projectNumber": "AUTO-NOCLIENT-1",
+      "client": "",
+      "status": "Open"
+    },
+    "maxLength": {
+      "projectName": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "statuses": ["Open", "Completed", "Closed"]
+  },
+  "newLocation": {
+    "valid": {
+      "name": "Substation Alpha",
+      "latitude": "51.5074",
+      "longitude": "-0.1278"
+    },
+    "nameOnly": {
+      "name": "Substation Beta",
+      "latitude": "",
+      "longitude": ""
+    },
+    "invalidLatitude": {
+      "name": "Substation Gamma",
+      "latitude": "not-a-number",
+      "longitude": "-0.1278"
+    },
+    "outOfRangeLatitude": {
+      "name": "Substation Delta",
+      "latitude": "999",
+      "longitude": "-0.1278"
+    },
+    "outOfRangeLongitude": {
+      "name": "Substation Epsilon",
+      "latitude": "51.5074",
+      "longitude": "999"
+    },
+    "highPrecision": {
+      "name": "Substation Precision",
+      "latitude": "51.507400123456",
+      "longitude": "-0.127800123456"
+    },
+    "missingName": {
+      "name": "",
+      "latitude": "51.5074",
+      "longitude": "-0.1278"
+    }
+  },
+  "newString": {
+    "valid": {
+      "name": "String A-B",
+      "from": "Substation Alpha",
+      "to": "Substation Beta",
+      "color": "#FF5733"
+    },
+    "sameFromTo": {
+      "name": "Invalid Loop String",
+      "from": "Substation Alpha",
+      "to": "Substation Alpha",
+      "color": "#FF5733"
+    },
+    "missingRequired": {
+      "name": "",
+      "from": "",
+      "to": ""
+    }
+  },
+  "newAsset": {
+    "valid": {
+      "assetName": "Cable Joint 1",
+      "from": "Substation Alpha",
+      "to": "Substation Beta",
+      "manufacturer": "Nexans",
+      "typeMm2": "630",
+      "projectString": "String A-B"
+    },
+    "requiredOnly": {
+      "assetName": "Cable Joint 2",
+      "from": "Substation Alpha",
+      "to": "Substation Beta"
+    },
+    "invalidTypeMm2": {
+      "assetName": "Cable Joint 3",
+      "from": "Substation Alpha",
+      "to": "Substation Beta",
+      "typeMm2": "abc"
+    },
+    "sameFromTo": {
+      "assetName": "Cable Joint Loop",
+      "from": "Substation Alpha",
+      "to": "Substation Alpha"
+    },
+    "zeroTypeMm2": {
+      "assetName": "Cable Joint Zero",
+      "from": "Substation Alpha",
+      "to": "Substation Beta",
+      "typeMm2": "0"
+    },
+    "negativeTypeMm2": {
+      "assetName": "Cable Joint Negative",
+      "from": "Substation Alpha",
+      "to": "Substation Beta",
+      "typeMm2": "-5"
+    },
+    "missingRequired": {
+      "assetName": "",
+      "from": "",
+      "to": ""
+    }
+  },
+  "newTeam": {
+    "valid": {
+      "teamsWfmName": "Cable Team 1",
+      "sortOrder": "1",
+      "color": "#33A1FF"
+    },
+    "invalidSortOrder": {
+      "teamsWfmName": "Cable Team 2",
+      "sortOrder": "not-a-number",
+      "color": "#33A1FF"
+    },
+    "negativeSortOrder": {
+      "teamsWfmName": "Cable Team 3",
+      "sortOrder": "-1",
+      "color": "#33A1FF"
+    },
+    "duplicateSortOrder": {
+      "teamsWfmName": "Cable Team Duplicate Sort",
+      "sortOrder": "1",
+      "color": "#33A1FF"
+    },
+    "duplicateName": {
+      "teamsWfmName": "Cable Team 1",
+      "sortOrder": "2",
+      "color": "#33A1FF"
+    },
+    "missingRequired": {
+      "teamsWfmName": "",
+      "sortOrder": ""
+    }
+  },
+  "newScope": {
+    "valid": {
+      "scopeName": "Civil Works",
+      "sortOrder": "1",
+      "color": "#8E44AD"
+    },
+    "missingRequired": {
+      "scopeName": "",
+      "sortOrder": ""
+    },
+    "duplicateName": {
+      "scopeName": "Civil Works",
+      "sortOrder": "2",
+      "color": "#8E44AD"
+    },
+    "sortOrderBoundary": {
+      "scopeName": "Civil Works Boundary",
+      "sortOrder": "999999",
+      "color": "#8E44AD"
+    }
+  },
+  "newFunction": {
+    "valid": {
+      "projectFunctionName": "Site Supervisor",
+      "sortOrder": "1"
+    },
+    "missingRequired": {
+      "projectFunctionName": "",
+      "sortOrder": ""
+    },
+    "nonNumericSortOrder": {
+      "projectFunctionName": "QA Engineer",
+      "sortOrder": "first"
+    },
+    "duplicateName": {
+      "projectFunctionName": "Site Supervisor",
+      "sortOrder": "2"
+    }
+  },
+  "newMember": {
+    "valid": {
+      "memberName": "John Doe",
+      "function": "Site Supervisor",
+      "rotation": "2/2",
+      "contactOnDpr": true
+    },
+    "memberOnly": {
+      "memberName": "Jane Smith",
+      "function": "",
+      "rotation": "",
+      "contactOnDpr": false
+    },
+    "missingRequired": {
+      "memberName": ""
+    },
+    "noMatchSearch": {
+      "memberName": "ZZZ No Matching Member 999"
+    }
+  }
+}

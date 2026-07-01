@@ -5,7 +5,7 @@ class BasePage {
   }
 
   async navigate(path) {
-    await this.page.goto(path);
+    await this.page.goto(path, { waitUntil: 'domcontentloaded', timeout: 45000 });
     await this.page.waitForLoadState('networkidle', { timeout: 10000 }).catch(() => {});
   }
 

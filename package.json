@@ -10,6 +10,7 @@
     "test:training": "playwright test tests/trainingMatrix.spec.js",
     "test:settings": "playwright test tests/settings.spec.js",
     "test:projects": "playwright test tests/projectManagement.spec.js",
+    "test:project-setup": "playwright test tests/projectSetup.spec.js",
     "test:all": "playwright test --reporter=html,json",
     "test:headed": "playwright test --headed",
     "test:auth:headed": "playwright test tests/auth.spec.js --project=chromium --headed",

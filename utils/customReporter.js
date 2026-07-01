@@ -63,7 +63,7 @@ class CustomReporter {
   }
 
   _extractId(title) {
-    const match = title.match(/\[([A-Z]+_TC_\d+)\]/);
+    const match = title.match(/\[([A-Z]+_TC_\d+)\]/) || title.match(/\b(TC-[A-Z]+-\d+)\b/);
     return match ? match[1] : null;
   }
 
