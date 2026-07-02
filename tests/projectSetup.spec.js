@@ -74,6 +74,55 @@ async function expectModalOpenOrPageStable(projectSetupPage, modalTitle) {
   }
 }
 
+const seeded = {
+  locations: false,
+  string: false,
+  function: false,
+};
+
+async function closeIfOpen(projectSetupPage, modalTitle) {
+  if (await projectSetupPage.modalByTitle(modalTitle).isVisible().catch(() => false)) {
+    await projectSetupPage.closeModal(modalTitle);
+  }
+}
+
+async function ensureBaseLocations(projectSetupPage) {
+  if (seeded.locations) return;
+
+  for (const location of [testData.newLocation.valid, testData.newLocation.nameOnly]) {
+    await projectSetupPage.openNewLocationModal();
+    await projectSetupPage.fillNewLocationForm(location);
+    await projectSetupPage.submit('New Location');
+    await expectModalOpenOrPageStable(projectSetupPage, 'New Location');
+    await closeIfOpen(projectSetupPage, 'New Location');
+  }
+
+  seeded.locations = true;
+}
+
+async function ensureBaseString(projectSetupPage) {
+  if (seeded.string) return;
+
+  await ensureBaseLocations(projectSetupPage);
+  await projectSetupPage.openNewStringModal();
+  await projectSetupPage.fillNewStringForm(testData.newString.valid);
+  await projectSetupPage.submit('New String');
+  await expectModalOpenOrPageStable(projectSetupPage, 'New String');
+  await closeIfOpen(projectSetupPage, 'New String');
+  seeded.string = true;
+}
+
+async function ensureBaseFunction(projectSetupPage) {
+  if (seeded.function) return;
+
+  await projectSetupPage.openNewFunctionModal();
+  await projectSetupPage.fillNewFunctionForm(testData.newFunction.valid);
+  await projectSetupPage.submit('New Function');
+  await expectModalOpenOrPageStable(projectSetupPage, 'New Function');
+  await closeIfOpen(projectSetupPage, 'New Function');
+  seeded.function = true;
+}
+
 test.describe('Project Setup - Page Level', () => {
   let projectSetupPage;
 
@@ -285,7 +334,7 @@ test.describe('Project Setup - New Location modal', () => {
   test('TC-LOC-005: Non-numeric Latitude is rejected or sanitized', async () => {
     await projectSetupPage.fillNewLocationForm(testData.newLocation.invalidLatitude);
     await projectSetupPage.submit('New Location');
-    await expect(projectSetupPage.modalByTitle('New Location')).toBeVisible();
+    await expectModalOpenOrPageStable(projectSetupPage, 'New Location');
   });
 
   test('TC-LOC-006: Out-of-range Latitude is rejected or sanitized', async () => {
@@ -332,6 +381,7 @@ test.describe('Project Setup - New String modal', () => {
     projectSetupPage = new ProjectSetupPage(authenticatedPage);
     await projectSetupPage.goto();
     await projectSetupPage.selectProject(testData.existingProject);
+    await ensureBaseLocations(projectSetupPage);
     await projectSetupPage.openNewStringModal();
   });
 
@@ -350,7 +400,7 @@ test.describe('Project Setup - New String modal', () => {
 
   test('TC-STR-003: From and To dropdowns are populated from existing Locations', async () => {
     const modal = projectSetupPage.modalByTitle('New String');
-    await modal.locator('label', { hasText: 'From*' }).locator('xpath=following-sibling::div[1]').click();
+    await projectSetupPage.openComboDropdown(modal, 'From*');
     await expect(projectSetupPage.page.getByText(testData.newString.valid.from)).toBeVisible();
   });
 
@@ -369,7 +419,7 @@ test.describe('Project Setup - New String modal', () => {
   test('TC-STR-006: Color swatch opens a color picker on click', async ({ authenticatedPage }) => {
     const modal = projectSetupPage.modalByTitle('New String');
     await projectSetupPage.openColorPicker(modal, 'Color*');
-    await expect(authenticatedPage.locator('.color-picker, [class*="picker"]').first()).toBeVisible();
+    await expect(authenticatedPage.getByRole('button', { name: /Select color/i }).first()).toBeVisible();
   });
 
   test('TC-STR-007: From/To selected with no Locations handles empty dropdown state', async ({ authenticatedPage }) => {
@@ -386,9 +436,8 @@ test.describe('Project Setup - New String modal', () => {
     await projectSetupPage.openNewStringModal();
 
     const modal = projectSetupPage.modalByTitle('New String');
-    await modal.locator('label', { hasText: 'From*' }).locator('xpath=following-sibling::div[1]').click();
-    const noOptionsVisible = await authenticatedPage.getByText('No options').isVisible().catch(() => false);
-    expect(noOptionsVisible || await modal.isVisible()).toBeTruthy();
+    await projectSetupPage.openComboDropdown(modal, 'From*');
+    await expect(authenticatedPage.getByText(/Please create a Location|No data available/).first()).toBeVisible();
   });
 
   test('TC-STR-008: Duplicate String name in same project is rejected', async () => {
@@ -409,6 +458,7 @@ test.describe('Project Setup - New Asset modal', () => {
     projectSetupPage = new ProjectSetupPage(authenticatedPage);
     await projectSetupPage.goto();
     await projectSetupPage.selectProject(testData.existingProject);
+    await ensureBaseString(projectSetupPage);
     await projectSetupPage.openNewAssetModal();
   });
 
@@ -632,7 +682,7 @@ test.describe('Project Setup - New Function modal', () => {
     await projectSetupPage.submit('New Function');
     await projectSetupPage.openNewMemberModal();
     const modal = projectSetupPage.modalByTitle('New Member');
-    await modal.locator('label', { hasText: 'Select Function' }).locator('xpath=following-sibling::div[1]').click();
+    await projectSetupPage.openComboDropdown(modal, 'Select Function');
     await expect(projectSetupPage.page.getByText(memberDropdownFunction.projectFunctionName)).toBeVisible();
   });
 
@@ -658,6 +708,7 @@ test.describe('Project Setup - New Member modal', () => {
     projectSetupPage = new ProjectSetupPage(authenticatedPage);
     await projectSetupPage.goto();
     await projectSetupPage.selectProject(testData.existingProject);
+    await ensureBaseFunction(projectSetupPage);
     await projectSetupPage.openNewMemberModal();
   });
 

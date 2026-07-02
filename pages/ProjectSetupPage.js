@@ -58,10 +58,11 @@ class ProjectSetupPage extends BasePage {
       await this.selectProjectInput.click();
       await this.selectProjectInput.press('Control+A').catch(() => {});
       await this.selectProjectInput.fill(term);
-      await this.page.waitForTimeout(500);
+      await this.page.waitForTimeout(750);
 
       for (const display of [...new Set(displayCandidates)]) {
         const option = this.page.getByText(display, { exact: true }).last();
+        await option.waitFor({ state: 'visible', timeout: 3000 }).catch(() => {});
         if (await option.isVisible().catch(() => false)) {
           await option.click();
           await this.page.waitForLoadState('networkidle').catch(() => {});
@@ -70,6 +71,7 @@ class ProjectSetupPage extends BasePage {
       }
 
       const firstOption = this.page.locator('[role="option"], .select__option, [id*="-option-"]').first();
+      await firstOption.waitFor({ state: 'visible', timeout: 3000 }).catch(() => {});
       if (await firstOption.isVisible().catch(() => false)) {
         await firstOption.click();
         await this.page.waitForLoadState('networkidle').catch(() => {});
@@ -90,10 +92,8 @@ class ProjectSetupPage extends BasePage {
 
   card(cardTitle) {
     return this.page
-      .locator('[class*="card" i], [class*="box" i], [class*="section" i], div')
-      .filter({ hasText: cardTitle })
-      .filter({ has: this.page.getByRole('button', { name: 'Add', exact: true }) })
-      .last();
+      .getByRole('heading', { name: cardTitle, exact: true })
+      .locator('xpath=ancestor::div[.//button[normalize-space()="Add" or .//p[normalize-space()="Add"]]][1]');
   }
 
   addButton(cardTitle) {
@@ -186,9 +186,22 @@ class ProjectSetupPage extends BasePage {
   }
 
   async selectComboOption(modal, fieldLabel, optionText) {
-    const field = modal.locator('label', { hasText: fieldLabel }).locator('xpath=following-sibling::div[1]');
+    await this.openComboDropdown(modal, fieldLabel);
+
+    const exactOption = this.page.getByText(optionText, { exact: true }).last();
+    if (await exactOption.isVisible({ timeout: 5000 }).catch(() => false)) {
+      await exactOption.click();
+      return;
+    }
+
+    await this.page.getByText(optionText, { exact: false }).last().click();
+  }
+
+  async openComboDropdown(modal, fieldLabel) {
+    const field = modal
+      .getByText(fieldLabel, { exact: true })
+      .locator('xpath=following-sibling::*[1]');
     await field.click();
-    await this.page.getByText(optionText, { exact: true }).click();
   }
 
   async fillNewStringForm({ name, from, to, color }) {
@@ -196,7 +209,7 @@ class ProjectSetupPage extends BasePage {
     if (name !== undefined) await modal.getByPlaceholder('Name').fill(name);
     if (from) await this.selectComboOption(modal, 'From*', from);
     if (to) await this.selectComboOption(modal, 'To*', to);
-    if (color) await this.openColorPicker(modal, 'Color*');
+    if (color) await this.chooseColor(modal, 'Color*', color);
   }
 
   async createNewString(data) {
@@ -233,7 +246,7 @@ class ProjectSetupPage extends BasePage {
     const modal = this.modalByTitle('New Team');
     if (teamsWfmName !== undefined) await modal.getByPlaceholder('Teams WFM Name').fill(teamsWfmName);
     if (sortOrder !== undefined) await modal.getByPlaceholder('Sort Order').fill(sortOrder);
-    if (color) await this.openColorPicker(modal, 'Color');
+    if (color) await this.chooseColor(modal, 'Color', color);
   }
 
   async createNewTeam(data) {
@@ -250,7 +263,7 @@ class ProjectSetupPage extends BasePage {
     const modal = this.modalByTitle('New Scope');
     if (scopeName !== undefined) await modal.getByPlaceholder('Scope Name*').fill(scopeName);
     if (sortOrder !== undefined) await modal.getByPlaceholder('Sort Order*').fill(sortOrder);
-    if (color) await this.openColorPicker(modal, 'Color*');
+    if (color) await this.chooseColor(modal, 'Color*', color);
   }
 
   async createNewScope(data) {
@@ -298,7 +311,23 @@ class ProjectSetupPage extends BasePage {
   }
 
   async openColorPicker(modal, fieldLabel) {
-    await modal.locator('label', { hasText: fieldLabel }).locator('xpath=following-sibling::div[1]').click();
+    await modal
+      .getByText(fieldLabel, { exact: true })
+      .locator('xpath=following-sibling::*[1]')
+      .click();
+  }
+
+  async chooseColor(modal, fieldLabel, color) {
+    await this.openColorPicker(modal, fieldLabel);
+
+    const normalized = color.toLowerCase();
+    const exactColor = this.page.getByRole('button', { name: new RegExp(`Select color ${normalized}`, 'i') }).first();
+    if (await exactColor.isVisible({ timeout: 1000 }).catch(() => false)) {
+      await exactColor.click();
+      return;
+    }
+
+    await this.page.getByRole('button', { name: /Select color/i }).first().click();
   }
 
   fieldError(modalTitle, fieldPlaceholder) {
