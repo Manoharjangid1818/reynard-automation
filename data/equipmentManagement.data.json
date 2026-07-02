@@ -1,0 +1,276 @@
+{
+  "module": "Equipment Management",
+  "testCases": [
+    {
+      "id": "SC-062",
+      "title": "Verify Equipment page loads.",
+      "enabled": true,
+      "action": "sanity_page_load",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/equipment-management",
+      "expectedTexts": [
+        "Equipment Management"
+      ]
+    },
+    {
+      "id": "SC-064",
+      "title": "Verify Add Equipment.",
+      "enabled": true,
+      "action": "sanity_create_available",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/equipment-management",
+      "expectedTexts": [
+        "Equipment Management"
+      ],
+      "labels": [
+        "Add Equipment",
+        "New",
+        "Add"
+      ]
+    },
+    {
+      "id": "SC-065",
+      "title": "Verify Edit Equipment.",
+      "enabled": true,
+      "action": "sanity_row_action_available",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/inventory",
+      "expectedTexts": [
+        "Inventory"
+      ],
+      "labels": [
+        "Edit"
+      ]
+    },
+    {
+      "id": "SC-066",
+      "title": "Verify Equipment Search.",
+      "enabled": true,
+      "action": "sanity_search_available",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/inventory",
+      "expectedTexts": [
+        "Inventory"
+      ]
+    },
+    {
+      "id": "SC-067",
+      "title": "Verify mandatory field validation while adding equipment.",
+      "enabled": true,
+      "action": "sanity_create_available",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/equipment-management",
+      "expectedTexts": [
+        "Equipment Management"
+      ],
+      "labels": [
+        "Add Equipment",
+        "New",
+        "Add"
+      ]
+    },
+    {
+      "id": "SC-069",
+      "title": "Verify Equipment Filters.",
+      "enabled": true,
+      "action": "sanity_filters_available",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/inventory",
+      "expectedTexts": [
+        "Inventory"
+      ]
+    },
+    {
+      "id": "SC-070",
+      "title": "Verify Equipment Status update.",
+      "enabled": true,
+      "action": "sanity_status_control",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/inventory",
+      "expectedTexts": [
+        "Inventory"
+      ]
+    },
+    {
+      "id": "SC-071",
+      "title": "Verify Inventory Summary page loads.",
+      "enabled": true,
+      "action": "sanity_page_load",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/inventory-summary",
+      "expectedTexts": [
+        "Inventory Summary"
+      ]
+    },
+    {
+      "id": "SC-072",
+      "title": "Verify filters in summary.",
+      "enabled": true,
+      "action": "sanity_filters_available",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/inventory-summary",
+      "expectedTexts": [
+        "Inventory Summary"
+      ]
+    },
+    {
+      "id": "SC-073",
+      "title": "Verify register works in Inventory Summary",
+      "enabled": true,
+      "action": "sanity_create_available",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/inventory-summary",
+      "expectedTexts": [
+        "Inventory Summary"
+      ],
+      "labels": [
+        "Register",
+        "New",
+        "Add"
+      ]
+    },
+    {
+      "id": "SC-074",
+      "title": "Verify Project Orders page loads.",
+      "enabled": true,
+      "action": "sanity_page_load",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/project-orders",
+      "expectedTexts": [
+        "Project Orders"
+      ]
+    },
+    {
+      "id": "SC-075",
+      "title": "Verify request Project Order.",
+      "enabled": true,
+      "action": "sanity_create_available",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/project-orders",
+      "expectedTexts": [
+        "Project Orders"
+      ],
+      "labels": [
+        "Request",
+        "New",
+        "Add"
+      ]
+    },
+    {
+      "id": "SC-076",
+      "title": "Verify edit Project Order",
+      "enabled": true,
+      "action": "sanity_row_action_available",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/project-orders",
+      "expectedTexts": [
+        "Project Orders"
+      ],
+      "labels": [
+        "Edit"
+      ]
+    },
+    {
+      "id": "SC-077",
+      "title": "Verify order status updates.",
+      "enabled": true,
+      "action": "sanity_status_control",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/project-orders",
+      "expectedTexts": [
+        "Project Orders"
+      ]
+    },
+    {
+      "id": "SC-078",
+      "title": "Verify Return Cart page loads.",
+      "enabled": true,
+      "action": "sanity_page_load",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/return-cart",
+      "expectedTexts": [
+        "Return Cart"
+      ]
+    },
+    {
+      "id": "SC-079",
+      "title": "Verify add/remove items in shopping list.",
+      "enabled": true,
+      "action": "sanity_create_available",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/return-cart",
+      "expectedTexts": [
+        "Return Cart"
+      ],
+      "labels": [
+        "Add",
+        "Remove",
+        "New"
+      ]
+    }
+  ]
+}

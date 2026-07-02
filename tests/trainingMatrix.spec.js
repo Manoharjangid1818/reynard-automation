@@ -2,6 +2,7 @@
 const { test, expect }       = require('../utils/authFixture');
 const { TrainingMatrixPage } = require('../pages/TrainingMatrixPage');
 const { loadTestData, getEnabledTests, tcTitle } = require('../utils/testHelpers');
+const { runGenericSanityCase } = require('../utils/sanityHelpers');
 const path = require('path');
 
 const data = loadTestData('trainingMatrix');
@@ -117,6 +118,10 @@ test.describe('Training Matrix', () => {
         }
 
         default:
+          if (tc.action && tc.action.startsWith('sanity_')) {
+            await runGenericSanityCase(authenticatedPage, tc);
+            break;
+          }
           test.skip(true, `Handler for "${tc.action}" not implemented`);
       }
     });

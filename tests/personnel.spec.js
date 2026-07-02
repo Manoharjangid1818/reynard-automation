@@ -2,6 +2,7 @@
 const { test, expect }    = require('../utils/authFixture');
 const { PersonnelPage }   = require('../pages/PersonnelPage');
 const { loadTestData, getEnabledTests, tcTitle } = require('../utils/testHelpers');
+const { runGenericSanityCase } = require('../utils/sanityHelpers');
 
 const data = loadTestData('personnel');
 
@@ -155,6 +156,10 @@ test.describe('Personnel', () => {
         }
 
         default:
+          if (tc.action && tc.action.startsWith('sanity_')) {
+            await runGenericSanityCase(authenticatedPage, tc);
+            break;
+          }
           test.skip(true, `Handler for "${tc.action}" not implemented`);
       }
     });

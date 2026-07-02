@@ -6,8 +6,18 @@
       "title": "Settings page loads with all sections",
       "enabled": true,
       "action": "verify_sections",
-      "expectedSections": ["Organization", "Project Management", "Actions", "User Management", "Quality, Health & Safety", "Equipment", "Personal Setting"],
-      "tags": ["smoke"]
+      "expectedSections": [
+        "Organization",
+        "Project Management",
+        "Actions",
+        "User Management",
+        "Quality, Health & Safety",
+        "Equipment",
+        "Personal Setting"
+      ],
+      "tags": [
+        "smoke"
+      ]
     },
     {
       "id": "SET_TC_002",
@@ -15,8 +25,15 @@
       "enabled": true,
       "action": "verify_section_links",
       "section": "Organization",
-      "expectedLinks": ["Logo & Color", "Company Details", "Setup Licenses"],
-      "tags": ["smoke", "ui"]
+      "expectedLinks": [
+        "Logo & Color",
+        "Company Details",
+        "Setup Licenses"
+      ],
+      "tags": [
+        "smoke",
+        "ui"
+      ]
     },
     {
       "id": "SET_TC_003",
@@ -24,8 +41,14 @@
       "enabled": true,
       "action": "verify_section_links",
       "section": "ProjectManagement",
-      "expectedLinks": ["Project Setup", "Report Setup"],
-      "tags": ["smoke", "ui"]
+      "expectedLinks": [
+        "Project Setup",
+        "Report Setup"
+      ],
+      "tags": [
+        "smoke",
+        "ui"
+      ]
     },
     {
       "id": "SET_TC_004",
@@ -33,8 +56,15 @@
       "enabled": true,
       "action": "verify_section_links",
       "section": "UserManagement",
-      "expectedLinks": ["Role Management", "Certificate Management", "Profile Functions"],
-      "tags": ["smoke", "ui"]
+      "expectedLinks": [
+        "Role Management",
+        "Certificate Management",
+        "Profile Functions"
+      ],
+      "tags": [
+        "smoke",
+        "ui"
+      ]
     },
     {
       "id": "SET_TC_005",
@@ -42,8 +72,16 @@
       "enabled": true,
       "action": "verify_section_links",
       "section": "QualityHealthSafety",
-      "expectedLinks": ["Setup Card Categories", "Medical Management", "Configuration", "General QHSE Documents"],
-      "tags": ["smoke", "ui"]
+      "expectedLinks": [
+        "Setup Card Categories",
+        "Medical Management",
+        "Configuration",
+        "General QHSE Documents"
+      ],
+      "tags": [
+        "smoke",
+        "ui"
+      ]
     },
     {
       "id": "SET_TC_006",
@@ -51,8 +89,15 @@
       "enabled": true,
       "action": "verify_section_links",
       "section": "Equipment",
-      "expectedLinks": ["Equipment Setup", "Add Warehouse", "Warehouse"],
-      "tags": ["smoke", "ui"]
+      "expectedLinks": [
+        "Equipment Setup",
+        "Add Warehouse",
+        "Warehouse"
+      ],
+      "tags": [
+        "smoke",
+        "ui"
+      ]
     },
     {
       "id": "SET_TC_007",
@@ -60,8 +105,15 @@
       "enabled": true,
       "action": "verify_section_links",
       "section": "PersonalSetting",
-      "expectedLinks": ["Time format", "Language", "Dark theme"],
-      "tags": ["smoke", "ui"]
+      "expectedLinks": [
+        "Time format",
+        "Language",
+        "Dark theme"
+      ],
+      "tags": [
+        "smoke",
+        "ui"
+      ]
     },
     {
       "id": "SET_TC_008",
@@ -69,16 +121,29 @@
       "enabled": true,
       "action": "verify_sync_dropdown",
       "expectedDefault": "15min",
-      "expectedOptions": ["5min", "10min", "15min", "30min", "60min"],
-      "tags": ["regression"]
+      "expectedOptions": [
+        "5min",
+        "10min",
+        "15min",
+        "30min",
+        "60min"
+      ],
+      "tags": [
+        "regression"
+      ]
     },
     {
       "id": "SET_TC_009",
       "title": "Project Status filter shows Open and Completed",
       "enabled": true,
       "action": "verify_project_status",
-      "expectedStatuses": ["Open", "Completed"],
-      "tags": ["regression"]
+      "expectedStatuses": [
+        "Open",
+        "Completed"
+      ],
+      "tags": [
+        "regression"
+      ]
     },
     {
       "id": "SET_TC_010",
@@ -88,7 +153,9 @@
       "section": "Actions",
       "link": "System Notification",
       "expectedResult": "navigates_or_opens",
-      "tags": ["regression"]
+      "tags": [
+        "regression"
+      ]
     },
     {
       "id": "SET_TC_011",
@@ -98,7 +165,9 @@
       "section": "Organization",
       "link": "Logo & Color",
       "expectedResult": "navigates",
-      "tags": ["regression"]
+      "tags": [
+        "regression"
+      ]
     },
     {
       "id": "SET_TC_012",
@@ -108,7 +177,548 @@
       "section": "UserManagement",
       "link": "Role Management",
       "expectedResult": "navigates",
-      "tags": ["regression"]
+      "tags": [
+        "regression"
+      ]
+    },
+    {
+      "id": "SC-011",
+      "title": "Verify Settings page loads successfully.",
+      "enabled": true,
+      "action": "verify_sections",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "expectedSections": [
+        "Organization",
+        "Project Management",
+        "Actions",
+        "User Management",
+        "Quality, Health & Safety",
+        "Equipment",
+        "Personal Setting"
+      ]
+    },
+    {
+      "id": "SC-012",
+      "title": "Verify Organization section displays (Logo & Color, Company Details, Setup Licenses, Sync up time).",
+      "enabled": true,
+      "action": "verify_section_links",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "section": "Organization",
+      "expectedLinks": [
+        "Logo & Color",
+        "Company Details",
+        "Setup Licenses"
+      ]
+    },
+    {
+      "id": "SC-013",
+      "title": "Verify Project Management section displays (Project Setup, Report Setup).",
+      "enabled": true,
+      "action": "verify_section_links",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "section": "ProjectManagement",
+      "expectedLinks": [
+        "Project Setup",
+        "Report Setup"
+      ]
+    },
+    {
+      "id": "SC-014",
+      "title": "Verify Actions section displays (System Notification, Send Notification).",
+      "enabled": true,
+      "action": "verify_section_links",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "section": "Actions",
+      "expectedLinks": [
+        "System Notification",
+        "Send Notification"
+      ]
+    },
+    {
+      "id": "SC-016",
+      "title": "Verify Quality, Health & Safety section displays (Setup Card Categories, Medical Management, Configuration, General QHSE Documents).",
+      "enabled": true,
+      "action": "verify_section_links",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "section": "QualityHealthSafety",
+      "expectedLinks": [
+        "Setup Card Categories",
+        "Medical Management",
+        "Configuration",
+        "General QHSE Documents"
+      ]
+    },
+    {
+      "id": "SC-017",
+      "title": "Verify Equipment section displays (Equipment Setup, Add Warehouse, Warehouse).",
+      "enabled": true,
+      "action": "verify_section_links",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "section": "Equipment",
+      "expectedLinks": [
+        "Equipment Setup",
+        "Add Warehouse",
+        "Warehouse"
+      ]
+    },
+    {
+      "id": "SC-019",
+      "title": "Verify Project Status dropdown shows Open/Completed options.",
+      "enabled": true,
+      "action": "verify_project_status",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "expectedStatuses": [
+        "Open",
+        "Completed"
+      ]
+    },
+    {
+      "id": "SC-020",
+      "title": "Verify Sync up time dropdown is functional (default 15min).",
+      "enabled": true,
+      "action": "verify_sync_dropdown",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "expectedDefault": "15min",
+      "expectedOptions": [
+        "5min",
+        "10min",
+        "15min",
+        "30min",
+        "60min"
+      ]
+    },
+    {
+      "id": "SC-021",
+      "title": "Verify Home dashboard loads correctly.",
+      "enabled": true,
+      "action": "sanity_page_load",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/setting",
+      "expectedTexts": [
+        "Settings"
+      ]
+    },
+    {
+      "id": "SC-024",
+      "title": "Verify notification icon functionality.",
+      "enabled": true,
+      "action": "sanity_control_available",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/setting",
+      "labels": [
+        "comments",
+        "Notification"
+      ]
+    },
+    {
+      "id": "SC-086",
+      "title": "Verify Settings page loads successfully.",
+      "enabled": true,
+      "action": "verify_sections",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "expectedSections": [
+        "Organization",
+        "Project Management",
+        "Actions",
+        "User Management",
+        "Quality, Health & Safety",
+        "Equipment",
+        "Personal Setting"
+      ]
+    },
+    {
+      "id": "SC-088",
+      "title": "Verify data persistence after refresh.",
+      "enabled": true,
+      "action": "sanity_refresh_persistence",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/setting",
+      "expectedTexts": [
+        "Settings"
+      ]
+    },
+    {
+      "id": "SC-089",
+      "title": "Verify update/save functionality in settings.",
+      "enabled": true,
+      "action": "sanity_control_available",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/setting",
+      "labels": [
+        "DARK",
+        "TRANSPARENT",
+        "WHITE"
+      ]
+    },
+    {
+      "id": "SC-090",
+      "title": "Verify Company Details page.",
+      "enabled": true,
+      "action": "click_section_link",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "section": "Organization",
+      "link": "Company Details",
+      "expectedResult": "navigates_or_opens"
+    },
+    {
+      "id": "SC-093",
+      "title": "Verify Setup License navigation successfully.",
+      "enabled": true,
+      "action": "click_section_link",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "section": "Organization",
+      "link": "Setup Licenses",
+      "expectedResult": "navigates_or_opens"
+    },
+    {
+      "id": "SC-094",
+      "title": "Verify Edit License permissions successfully.",
+      "enabled": true,
+      "action": "sanity_row_action_available",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/setting/wizard-licenses",
+      "expectedTexts": [
+        "Licenses"
+      ],
+      "labels": [
+        "Edit"
+      ]
+    },
+    {
+      "id": "SC-095",
+      "title": "Verify Sync Time settings update successfully.",
+      "enabled": true,
+      "action": "verify_sync_dropdown",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "expectedDefault": "15min",
+      "expectedOptions": [
+        "5min",
+        "10min",
+        "15min",
+        "30min",
+        "60min"
+      ]
+    },
+    {
+      "id": "SC-096",
+      "title": "Verify Project Setup navigation successfully.",
+      "enabled": true,
+      "action": "click_section_link",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "section": "ProjectManagement",
+      "link": "Project Setup",
+      "expectedResult": "navigates_or_opens"
+    },
+    {
+      "id": "SC-097",
+      "title": "Verify Report Setup navigation successfully.",
+      "enabled": true,
+      "action": "click_section_link",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "section": "ProjectManagement",
+      "link": "Report Setup",
+      "expectedResult": "navigates_or_opens"
+    },
+    {
+      "id": "SC-098",
+      "title": "Verify Action Card displays successfully.",
+      "enabled": true,
+      "action": "verify_section_links",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "section": "Actions",
+      "expectedLinks": [
+        "System Notification",
+        "Send Notification"
+      ]
+    },
+    {
+      "id": "SC-100",
+      "title": "Verify User Management setup loads successfully.",
+      "enabled": true,
+      "action": "verify_section_links",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "section": "UserManagement",
+      "expectedLinks": [
+        "Role Management",
+        "Certificate Management",
+        "Profile Functions"
+      ]
+    },
+    {
+      "id": "SC-101",
+      "title": "Verify Role Management navigation successfully.",
+      "enabled": true,
+      "action": "click_section_link",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "section": "UserManagement",
+      "link": "Role Management",
+      "expectedResult": "navigates_or_opens"
+    },
+    {
+      "id": "SC-102",
+      "title": "Verify Certificate Management navigation successfully.",
+      "enabled": true,
+      "action": "click_section_link",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "section": "UserManagement",
+      "link": "Certificate Management",
+      "expectedResult": "navigates_or_opens"
+    },
+    {
+      "id": "SC-103",
+      "title": "Verify Profile Function navigation successfully.",
+      "enabled": true,
+      "action": "click_section_link",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "section": "UserManagement",
+      "link": "Profile Functions",
+      "expectedResult": "navigates_or_opens"
+    },
+    {
+      "id": "SC-104",
+      "title": "Verify Quality, Health & Safety Card displays successfully.",
+      "enabled": true,
+      "action": "verify_section_links",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "section": "QualityHealthSafety",
+      "expectedLinks": [
+        "Setup Card Categories",
+        "Medical Management",
+        "Configuration",
+        "General QHSE Documents"
+      ]
+    },
+    {
+      "id": "SC-105",
+      "title": "Verify Setup card categories display successfully.",
+      "enabled": true,
+      "action": "click_section_link",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "section": "QualityHealthSafety",
+      "link": "Setup Card Categories",
+      "expectedResult": "navigates_or_opens"
+    },
+    {
+      "id": "SC-106",
+      "title": "Verify Medical Management section loads successfully.",
+      "enabled": true,
+      "action": "click_section_link",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "section": "QualityHealthSafety",
+      "link": "Medical Management",
+      "expectedResult": "navigates_or_opens"
+    },
+    {
+      "id": "SC-107",
+      "title": "Verify Configuration page loads successfully.",
+      "enabled": true,
+      "action": "click_section_link",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "section": "QualityHealthSafety",
+      "link": "Configuration",
+      "expectedResult": "navigates_or_opens"
+    },
+    {
+      "id": "SC-108",
+      "title": "Verify General QHSE module loads successfully.",
+      "enabled": true,
+      "action": "click_section_link",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "section": "QualityHealthSafety",
+      "link": "General QHSE Documents",
+      "expectedResult": "navigates_or_opens"
+    },
+    {
+      "id": "SC-109",
+      "title": "Verify Equipment Card displays successfully.",
+      "enabled": true,
+      "action": "verify_section_links",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "section": "Equipment",
+      "expectedLinks": [
+        "Equipment Setup",
+        "Add Warehouse",
+        "Warehouse"
+      ]
+    },
+    {
+      "id": "SC-110",
+      "title": "Verify Equipment Setup navigation successfully.",
+      "enabled": true,
+      "action": "click_section_link",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "section": "Equipment",
+      "link": "Equipment Setup",
+      "expectedResult": "navigates_or_opens"
+    },
+    {
+      "id": "SC-111",
+      "title": "Verify Add Warehouse navigation successfully.",
+      "enabled": true,
+      "action": "click_section_link",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "section": "Equipment",
+      "link": "Add Warehouse",
+      "expectedResult": "navigates_or_opens"
+    },
+    {
+      "id": "SC-112",
+      "title": "Verify Warehouse navigation successfully.",
+      "enabled": true,
+      "action": "click_section_link",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "section": "Equipment",
+      "link": "Warehouse",
+      "expectedResult": "navigates_or_opens"
+    },
+    {
+      "id": "SC-113",
+      "title": "Verify Personal Settings page loads successfully.",
+      "enabled": true,
+      "action": "verify_section_links",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "section": "PersonalSetting",
+      "expectedLinks": [
+        "Time format",
+        "Language",
+        "Dark theme"
+      ]
     }
   ]
 }

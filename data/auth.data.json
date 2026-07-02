@@ -17,7 +17,10 @@
       "password": "Test@1234",
       "expectedResult": "redirect_to_dashboard",
       "expectedUrlContains": "/client/",
-      "tags": ["smoke", "regression"]
+      "tags": [
+        "smoke",
+        "regression"
+      ]
     },
     {
       "id": "AUTH_TC_002",
@@ -26,8 +29,16 @@
       "email": "manan.hathi+2@kiwiqa.com",
       "password": "WrongPassword123",
       "expectedResult": "error_message",
-      "expectedErrorContains": ["invalid", "incorrect", "wrong", "failed"],
-      "tags": ["regression", "negative"]
+      "expectedErrorContains": [
+        "invalid",
+        "incorrect",
+        "wrong",
+        "failed"
+      ],
+      "tags": [
+        "regression",
+        "negative"
+      ]
     },
     {
       "id": "AUTH_TC_003",
@@ -36,7 +47,10 @@
       "email": "notanemail",
       "password": "Test@1234",
       "expectedResult": "validation_error",
-      "tags": ["regression", "negative"]
+      "tags": [
+        "regression",
+        "negative"
+      ]
     },
     {
       "id": "AUTH_TC_004",
@@ -45,7 +59,10 @@
       "email": "",
       "password": "Test@1234",
       "expectedResult": "validation_error",
-      "tags": ["regression", "negative"]
+      "tags": [
+        "regression",
+        "negative"
+      ]
     },
     {
       "id": "AUTH_TC_005",
@@ -54,7 +71,10 @@
       "email": "manan.hathi+2@kiwiqa.com",
       "password": "",
       "expectedResult": "validation_error",
-      "tags": ["regression", "negative"]
+      "tags": [
+        "regression",
+        "negative"
+      ]
     },
     {
       "id": "AUTH_TC_006",
@@ -63,7 +83,10 @@
       "email": "",
       "password": "",
       "expectedResult": "validation_error",
-      "tags": ["regression", "negative"]
+      "tags": [
+        "regression",
+        "negative"
+      ]
     },
     {
       "id": "AUTH_TC_007",
@@ -72,8 +95,16 @@
       "email": null,
       "password": null,
       "expectedResult": "page_elements_present",
-      "expectedElements": ["emailField", "passwordField", "loginButton", "forgotPassword"],
-      "tags": ["smoke", "ui"]
+      "expectedElements": [
+        "emailField",
+        "passwordField",
+        "loginButton",
+        "forgotPassword"
+      ],
+      "tags": [
+        "smoke",
+        "ui"
+      ]
     },
     {
       "id": "AUTH_TC_008",
@@ -82,7 +113,10 @@
       "email": null,
       "password": "Test@1234",
       "expectedResult": "password_masked",
-      "tags": ["regression", "ui"]
+      "tags": [
+        "regression",
+        "ui"
+      ]
     },
     {
       "id": "AUTH_TC_009",
@@ -91,7 +125,9 @@
       "email": "manan.hathi+2@kiwiqa.com",
       "password": "Test@1234",
       "expectedResult": "remember_me_checked",
-      "tags": ["regression"]
+      "tags": [
+        "regression"
+      ]
     },
     {
       "id": "AUTH_TC_010",
@@ -100,7 +136,9 @@
       "email": null,
       "password": null,
       "expectedResult": "navigates_to_forgot_password",
-      "tags": ["regression"]
+      "tags": [
+        "regression"
+      ]
     },
     {
       "id": "AUTH_TC_011",
@@ -109,7 +147,10 @@
       "email": "manan.hathi+2@kiwiqa.com",
       "password": "Test@1234",
       "expectedResult": "redirected_to_login",
-      "tags": ["smoke", "regression"]
+      "tags": [
+        "smoke",
+        "regression"
+      ]
     },
     {
       "id": "AUTH_TC_012",
@@ -118,7 +159,82 @@
       "email": "' OR '1'='1",
       "password": "anything",
       "expectedResult": "login_fails_or_error",
-      "tags": ["security", "negative"]
+      "tags": [
+        "security",
+        "negative"
+      ]
+    },
+    {
+      "id": "SC-004",
+      "title": "Verify Login page loads successfully.",
+      "enabled": true,
+      "expectedResult": "page_elements_present",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ]
+    },
+    {
+      "id": "SC-005",
+      "title": "Verify all login page controls are displayed.",
+      "enabled": true,
+      "expectedResult": "page_elements_present",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ]
+    },
+    {
+      "id": "SC-006",
+      "title": "Verify login with valid credentials.",
+      "enabled": true,
+      "expectedResult": "redirect_to_dashboard",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "email": "manan.hathi+2@kiwiqa.com",
+      "password": "Test@1234"
+    },
+    {
+      "id": "SC-007",
+      "title": "Verify invalid login validation.",
+      "enabled": true,
+      "expectedResult": "error_message",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "email": "manan.hathi+2@kiwiqa.com",
+      "password": "WrongPassword123"
+    },
+    {
+      "id": "SC-008",
+      "title": "Verify mandatory field validation.",
+      "enabled": true,
+      "expectedResult": "validation_error",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "email": "",
+      "password": ""
+    },
+    {
+      "id": "SC-009",
+      "title": "Verify Forgot Password navigation.",
+      "enabled": true,
+      "expectedResult": "navigates_to_forgot_password",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ]
     }
   ]
 }

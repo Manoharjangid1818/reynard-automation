@@ -1,0 +1,83 @@
+{
+  "module": "License Approval",
+  "testCases": [
+    {
+      "id": "SC-081",
+      "title": "Verify License Approval page loads.",
+      "enabled": true,
+      "action": "sanity_page_load",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/setting/wizard-licenses",
+      "expectedTexts": [
+        "Licenses"
+      ]
+    },
+    {
+      "id": "SC-082",
+      "title": "Verify pending license requests display correctly.",
+      "enabled": true,
+      "action": "sanity_table_or_list",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/setting/wizard-licenses",
+      "expectedTexts": [
+        "Licenses"
+      ]
+    },
+    {
+      "id": "SC-083",
+      "title": "Verify Filters.",
+      "enabled": true,
+      "action": "sanity_filters_available",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/setting/wizard-licenses",
+      "expectedTexts": [
+        "Licenses"
+      ]
+    },
+    {
+      "id": "SC-084",
+      "title": "Verify license edit functionality.",
+      "enabled": true,
+      "action": "sanity_row_action_available",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/setting/wizard-licenses",
+      "expectedTexts": [
+        "Licenses"
+      ],
+      "labels": [
+        "Edit"
+      ]
+    },
+    {
+      "id": "SC-085",
+      "title": "Verify license status (Active/Inactive).",
+      "enabled": true,
+      "action": "sanity_status_control",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/setting/wizard-licenses",
+      "expectedTexts": [
+        "Licenses"
+      ]
+    }
+  ]
+}

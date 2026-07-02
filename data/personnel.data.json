@@ -7,15 +7,32 @@
       "enabled": true,
       "action": "navigate",
       "expectedResult": "page_loaded",
-      "tags": ["smoke"]
+      "tags": [
+        "smoke"
+      ]
     },
     {
       "id": "PERS_TC_002",
       "title": "Personnel list displays table with columns",
       "enabled": true,
       "action": "verify_table_columns",
-      "expectedColumns": ["No.", "Name", "Email", "Contact", "Profile Function", "Rating", "Assigned Projects", "Role", "Access Type", "Is Active", "Action"],
-      "tags": ["smoke", "ui"]
+      "expectedColumns": [
+        "No.",
+        "Name",
+        "Email",
+        "Contact",
+        "Profile Function",
+        "Rating",
+        "Assigned Projects",
+        "Role",
+        "Access Type",
+        "Is Active",
+        "Action"
+      ],
+      "tags": [
+        "smoke",
+        "ui"
+      ]
     },
     {
       "id": "PERS_TC_003",
@@ -32,7 +49,10 @@
         "profileFunctionIndex": 0
       },
       "expectedResult": "user_created_success",
-      "tags": ["regression", "smoke"]
+      "tags": [
+        "regression",
+        "smoke"
+      ]
     },
     {
       "id": "PERS_TC_004",
@@ -49,7 +69,10 @@
         "profileFunctionIndex": 0
       },
       "expectedResult": "validation_error",
-      "tags": ["regression", "negative"]
+      "tags": [
+        "regression",
+        "negative"
+      ]
     },
     {
       "id": "PERS_TC_005",
@@ -66,7 +89,10 @@
         "profileFunctionIndex": 0
       },
       "expectedResult": "validation_error",
-      "tags": ["regression", "negative"]
+      "tags": [
+        "regression",
+        "negative"
+      ]
     },
     {
       "id": "PERS_TC_006",
@@ -83,7 +109,10 @@
         "profileFunctionIndex": 0
       },
       "expectedResult": "validation_error",
-      "tags": ["regression", "negative"]
+      "tags": [
+        "regression",
+        "negative"
+      ]
     },
     {
       "id": "PERS_TC_007",
@@ -92,7 +121,9 @@
       "action": "search",
       "searchTerm": "Rey Nard",
       "expectedResult": "filtered_results",
-      "tags": ["regression"]
+      "tags": [
+        "regression"
+      ]
     },
     {
       "id": "PERS_TC_008",
@@ -101,7 +132,9 @@
       "action": "filter_by_project",
       "project": "All",
       "expectedResult": "filtered_results",
-      "tags": ["regression"]
+      "tags": [
+        "regression"
+      ]
     },
     {
       "id": "PERS_TC_009",
@@ -110,7 +143,9 @@
       "action": "filter_by_status",
       "status": "Active",
       "expectedResult": "filtered_results",
-      "tags": ["regression"]
+      "tags": [
+        "regression"
+      ]
     },
     {
       "id": "PERS_TC_010",
@@ -119,7 +154,9 @@
       "action": "filter_by_status",
       "status": "Inactive",
       "expectedResult": "filtered_results",
-      "tags": ["regression"]
+      "tags": [
+        "regression"
+      ]
     },
     {
       "id": "PERS_TC_011",
@@ -127,7 +164,9 @@
       "enabled": true,
       "action": "reset_filter",
       "expectedResult": "all_data_visible",
-      "tags": ["regression"]
+      "tags": [
+        "regression"
+      ]
     },
     {
       "id": "PERS_TC_012",
@@ -136,7 +175,9 @@
       "action": "view_personnel",
       "rowIndex": 0,
       "expectedResult": "detail_view_opens",
-      "tags": ["regression"]
+      "tags": [
+        "regression"
+      ]
     },
     {
       "id": "PERS_TC_013",
@@ -145,7 +186,9 @@
       "action": "toggle_active_status",
       "rowIndex": 6,
       "expectedResult": "status_toggled",
-      "tags": ["regression"]
+      "tags": [
+        "regression"
+      ]
     },
     {
       "id": "PERS_TC_014",
@@ -153,7 +196,10 @@
       "enabled": true,
       "action": "open_upload_certificates",
       "expectedResult": "modal_opens",
-      "tags": ["smoke", "regression"]
+      "tags": [
+        "smoke",
+        "regression"
+      ]
     },
     {
       "id": "PERS_TC_015",
@@ -161,7 +207,10 @@
       "enabled": true,
       "action": "open_new_user_modal",
       "expectedResult": "modal_opens",
-      "tags": ["smoke", "regression"]
+      "tags": [
+        "smoke",
+        "regression"
+      ]
     },
     {
       "id": "PERS_TC_016",
@@ -170,7 +219,10 @@
       "action": "search",
       "searchTerm": "ZZZNONEXISTENTUSER999",
       "expectedResult": "no_results",
-      "tags": ["regression", "negative"]
+      "tags": [
+        "regression",
+        "negative"
+      ]
     },
     {
       "id": "PERS_TC_017",
@@ -187,7 +239,178 @@
         "profileFunctionIndex": 0
       },
       "expectedResult": "duplicate_error",
-      "tags": ["regression", "negative"]
+      "tags": [
+        "regression",
+        "negative"
+      ]
+    },
+    {
+      "id": "SC-042",
+      "title": "Verify Personnel page loads.",
+      "enabled": true,
+      "action": "navigate",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "expectedResult": "page_loaded"
+    },
+    {
+      "id": "SC-043",
+      "title": "Verify Add Personnel.",
+      "enabled": true,
+      "action": "open_new_user_modal",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "expectedResult": "modal_opens"
+    },
+    {
+      "id": "SC-044",
+      "title": "Verify Edit Personnel.",
+      "enabled": true,
+      "action": "sanity_row_action_available",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/personnel",
+      "expectedTexts": [
+        "Personnel"
+      ],
+      "labels": [
+        "Edit"
+      ]
+    },
+    {
+      "id": "SC-045",
+      "title": "Verify duplicate personnel (email/ID) is restricted.",
+      "enabled": true,
+      "action": "create_user",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "userData": {
+        "roleNameIndex": 0,
+        "firstName": "Duplicate",
+        "lastName": "Email",
+        "email": "nard@kiwiqa.com",
+        "password": "Test@1234",
+        "contactNumber": "9999999999",
+        "profileFunctionIndex": 0
+      },
+      "expectedResult": "duplicate_error"
+    },
+    {
+      "id": "SC-046",
+      "title": "Verify inactive personnel cannot login/use system.",
+      "enabled": true,
+      "action": "sanity_status_control",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/personnel",
+      "expectedTexts": [
+        "Personnel"
+      ]
+    },
+    {
+      "id": "SC-047",
+      "title": "Verify Search Personnel.",
+      "enabled": true,
+      "action": "search",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "searchTerm": "Rey Nard",
+      "expectedResult": "filtered_results"
+    },
+    {
+      "id": "SC-048",
+      "title": "Verify Personnel filters.",
+      "enabled": true,
+      "action": "sanity_filters_available",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/personnel",
+      "expectedTexts": [
+        "Personnel"
+      ]
+    },
+    {
+      "id": "SC-050",
+      "title": "Verify Personnel details page.",
+      "enabled": true,
+      "action": "view_personnel",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "rowIndex": 0,
+      "expectedResult": "detail_view_opens"
+    },
+    {
+      "id": "SC-051",
+      "title": "Personnel Verify status change (Active/Inactive).",
+      "enabled": true,
+      "action": "toggle_active_status",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "rowIndex": 6,
+      "expectedResult": "status_toggled"
+    },
+    {
+      "id": "SC-052",
+      "title": "Verify mandatory field validation while adding personnel.",
+      "enabled": true,
+      "action": "create_user_missing_field",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "missingField": "email",
+      "userData": {
+        "roleNameIndex": 0,
+        "firstName": "AutoTest",
+        "lastName": "NoEmail",
+        "password": "Test@1234",
+        "contactNumber": "9999999904",
+        "profileFunctionIndex": 0
+      },
+      "expectedResult": "validation_error"
+    },
+    {
+      "id": "SC-061",
+      "title": "Verify Pagination.",
+      "enabled": true,
+      "action": "sanity_pagination",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/personnel",
+      "expectedTexts": [
+        "Personnel"
+      ]
     }
   ]
 }

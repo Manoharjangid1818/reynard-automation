@@ -35,7 +35,9 @@ test.describe('Authentication', () => {
     test(tcTitle(tc), async ({ page }) => {
       loginPage = new LoginPage(page);
 
-      switch (tc.expectedResult) {
+      const scenario = tc.action || tc.expectedResult;
+
+      switch (scenario) {
 
         // ── Positive: successful login ─────────────────────────────────────
         case 'redirect_to_dashboard': {
@@ -132,7 +134,7 @@ test.describe('Authentication', () => {
         }
 
         default:
-          test.skip(true, `Handler for "${tc.expectedResult}" not implemented yet`);
+          test.skip(true, `Handler for "${scenario}" not implemented yet`);
       }
     });
   }

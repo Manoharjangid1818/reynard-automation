@@ -6,8 +6,19 @@
       "title": "Upload Certificate modal has all required fields",
       "enabled": true,
       "action": "verify_modal_fields",
-      "expectedFields": ["selectUser", "certificateType", "certificateFile", "startDate", "endDate", "internalCheckbox", "projectDropdown"],
-      "tags": ["smoke", "ui"]
+      "expectedFields": [
+        "selectUser",
+        "certificateType",
+        "certificateFile",
+        "startDate",
+        "endDate",
+        "internalCheckbox",
+        "projectDropdown"
+      ],
+      "tags": [
+        "smoke",
+        "ui"
+      ]
     },
     {
       "id": "CERT_TC_002",
@@ -16,34 +27,55 @@
       "action": "save_without_user",
       "expectedResult": "validation_error",
       "expectedError": "Please first select a user",
-      "tags": ["regression", "negative"]
+      "tags": [
+        "regression",
+        "negative"
+      ]
     },
     {
       "id": "CERT_TC_003",
       "title": "Upload Certificate - save without certificate type shows error",
       "enabled": true,
       "action": "save_missing_cert_type",
-      "userData": { "userIndex": 0 },
+      "userData": {
+        "userIndex": 0
+      },
       "expectedResult": "validation_error",
-      "tags": ["regression", "negative"]
+      "tags": [
+        "regression",
+        "negative"
+      ]
     },
     {
       "id": "CERT_TC_004",
       "title": "Upload Certificate - save without file shows error",
       "enabled": true,
       "action": "save_missing_file",
-      "userData": { "userIndex": 0, "certTypeIndex": 0 },
+      "userData": {
+        "userIndex": 0,
+        "certTypeIndex": 0
+      },
       "expectedResult": "validation_error",
-      "tags": ["regression", "negative"]
+      "tags": [
+        "regression",
+        "negative"
+      ]
     },
     {
       "id": "CERT_TC_005",
       "title": "Upload Certificate - save without start date shows error",
       "enabled": true,
       "action": "save_missing_start_date",
-      "userData": { "userIndex": 0, "certTypeIndex": 0, "hasFile": true },
+      "userData": {
+        "userIndex": 0,
+        "certTypeIndex": 0,
+        "hasFile": true
+      },
       "expectedResult": "validation_error",
-      "tags": ["regression", "negative"]
+      "tags": [
+        "regression",
+        "negative"
+      ]
     },
     {
       "id": "CERT_TC_006",
@@ -57,7 +89,10 @@
         "startDate": "01-01-2025"
       },
       "expectedResult": "validation_error",
-      "tags": ["regression", "negative"]
+      "tags": [
+        "regression",
+        "negative"
+      ]
     },
     {
       "id": "CERT_TC_007",
@@ -65,7 +100,9 @@
       "enabled": true,
       "action": "click_add_another",
       "expectedResult": "new_row_added",
-      "tags": ["regression"]
+      "tags": [
+        "regression"
+      ]
     },
     {
       "id": "CERT_TC_008",
@@ -73,15 +110,27 @@
       "enabled": true,
       "action": "close_modal",
       "expectedResult": "modal_closed",
-      "tags": ["regression", "ui"]
+      "tags": [
+        "regression",
+        "ui"
+      ]
     },
     {
       "id": "CERT_TC_009",
       "title": "Certificate Approval page loads with correct columns",
       "enabled": true,
       "action": "verify_approval_page",
-      "expectedColumns": ["Name", "Email", "Certificates", "Start Date", "End Date", "Action"],
-      "tags": ["smoke"]
+      "expectedColumns": [
+        "Name",
+        "Email",
+        "Certificates",
+        "Start Date",
+        "End Date",
+        "Action"
+      ],
+      "tags": [
+        "smoke"
+      ]
     },
     {
       "id": "CERT_TC_010",
@@ -90,7 +139,9 @@
       "action": "search_approval",
       "searchTerm": "Test",
       "expectedResult": "search_executed",
-      "tags": ["regression"]
+      "tags": [
+        "regression"
+      ]
     },
     {
       "id": "CERT_TC_011",
@@ -98,7 +149,10 @@
       "enabled": true,
       "action": "toggle_internal_checkbox",
       "expectedResult": "project_field_toggled",
-      "tags": ["regression", "ui"]
+      "tags": [
+        "regression",
+        "ui"
+      ]
     },
     {
       "id": "CERT_TC_012",
@@ -113,7 +167,48 @@
         "endDate": "01-01-2025"
       },
       "expectedResult": "validation_error",
-      "tags": ["regression", "negative"]
+      "tags": [
+        "regression",
+        "negative"
+      ]
+    },
+    {
+      "id": "SC-055",
+      "title": "Verify Certificate Approval page loads.",
+      "enabled": true,
+      "action": "verify_approval_page",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "expectedColumns": [
+        "Name",
+        "Certificate Type",
+        "Status",
+        "Action"
+      ]
+    },
+    {
+      "id": "SC-056",
+      "title": "Verify certificate rejection flow.",
+      "enabled": true,
+      "action": "sanity_row_action_available",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/certificate-approval",
+      "expectedTexts": [
+        "Certificate Approval"
+      ],
+      "labels": [
+        "Reject",
+        "Decline",
+        "View",
+        "Edit"
+      ]
     }
   ]
 }

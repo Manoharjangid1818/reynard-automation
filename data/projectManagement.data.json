@@ -7,7 +7,9 @@
       "enabled": true,
       "action": "navigate",
       "expectedResult": "page_loaded",
-      "tags": ["smoke"]
+      "tags": [
+        "smoke"
+      ]
     },
     {
       "id": "PM_TC_002",
@@ -15,7 +17,10 @@
       "enabled": true,
       "action": "verify_banner",
       "expectedText": "Overview of Project, Reports and Shifts",
-      "tags": ["smoke", "ui"]
+      "tags": [
+        "smoke",
+        "ui"
+      ]
     },
     {
       "id": "PM_TC_003",
@@ -23,7 +28,10 @@
       "enabled": true,
       "action": "verify_active_tab",
       "expectedTab": "Time & Effort Insights",
-      "tags": ["smoke", "ui"]
+      "tags": [
+        "smoke",
+        "ui"
+      ]
     },
     {
       "id": "PM_TC_004",
@@ -32,7 +40,9 @@
       "action": "click_tab",
       "tab": "Progress Overview",
       "expectedResult": "tab_active",
-      "tags": ["regression"]
+      "tags": [
+        "regression"
+      ]
     },
     {
       "id": "PM_TC_005",
@@ -40,7 +50,9 @@
       "enabled": true,
       "action": "verify_project_dropdown",
       "expectedResult": "dropdown_has_options",
-      "tags": ["smoke"]
+      "tags": [
+        "smoke"
+      ]
     },
     {
       "id": "PM_TC_006",
@@ -49,7 +61,10 @@
       "action": "verify_filter_default",
       "filter": "String",
       "expectedDefault": "All",
-      "tags": ["regression", "ui"]
+      "tags": [
+        "regression",
+        "ui"
+      ]
     },
     {
       "id": "PM_TC_007",
@@ -58,7 +73,10 @@
       "action": "verify_filter_default",
       "filter": "Location",
       "expectedDefault": "All",
-      "tags": ["regression", "ui"]
+      "tags": [
+        "regression",
+        "ui"
+      ]
     },
     {
       "id": "PM_TC_008",
@@ -67,7 +85,10 @@
       "action": "verify_filter_default",
       "filter": "Scope",
       "expectedDefault": "All",
-      "tags": ["regression", "ui"]
+      "tags": [
+        "regression",
+        "ui"
+      ]
     },
     {
       "id": "PM_TC_009",
@@ -76,7 +97,10 @@
       "action": "verify_filter_default",
       "filter": "NoAssetPerLocation",
       "expectedDefault": "All",
-      "tags": ["regression", "ui"]
+      "tags": [
+        "regression",
+        "ui"
+      ]
     },
     {
       "id": "PM_TC_010",
@@ -84,7 +108,9 @@
       "enabled": true,
       "action": "reset_filters",
       "expectedResult": "all_filters_reset",
-      "tags": ["regression"]
+      "tags": [
+        "regression"
+      ]
     },
     {
       "id": "PM_TC_011",
@@ -93,7 +119,9 @@
       "action": "verify_empty_state",
       "section": "HoursWorked",
       "expectedText": "No hours recorded for this project yet.",
-      "tags": ["regression"]
+      "tags": [
+        "regression"
+      ]
     },
     {
       "id": "PM_TC_012",
@@ -102,7 +130,9 @@
       "action": "verify_empty_state",
       "section": "ActivityHoursPivot",
       "expectedText": "No data available for this project.",
-      "tags": ["regression"]
+      "tags": [
+        "regression"
+      ]
     },
     {
       "id": "PM_TC_013",
@@ -110,7 +140,10 @@
       "enabled": true,
       "action": "verify_element_visible",
       "element": "resetZoomButton",
-      "tags": ["regression", "ui"]
+      "tags": [
+        "regression",
+        "ui"
+      ]
     },
     {
       "id": "PM_TC_014",
@@ -118,7 +151,10 @@
       "enabled": true,
       "action": "verify_element_visible",
       "element": "averageHoursReference",
-      "tags": ["regression", "ui"]
+      "tags": [
+        "regression",
+        "ui"
+      ]
     },
     {
       "id": "PM_TC_015",
@@ -126,7 +162,438 @@
       "enabled": true,
       "action": "verify_element_visible",
       "element": "totalHoursLogged",
-      "tags": ["regression", "ui"]
+      "tags": [
+        "regression",
+        "ui"
+      ]
+    },
+    {
+      "id": "SC-115",
+      "title": "Verify Project dropdown functions successfully.",
+      "enabled": true,
+      "action": "sanity_filters_available",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/project-management",
+      "expectedTexts": [
+        "Project Management"
+      ]
+    },
+    {
+      "id": "SC-116",
+      "title": "Verify Report Type dropdown functions successfully.",
+      "enabled": true,
+      "action": "sanity_filters_available",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/project-management",
+      "expectedTexts": [
+        "Project Management"
+      ]
+    },
+    {
+      "id": "SC-122",
+      "title": "Verify Shift Details page loads successfully.",
+      "enabled": true,
+      "action": "sanity_page_load",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/shifts",
+      "expectedTexts": [
+        "Shift Details"
+      ]
+    },
+    {
+      "id": "SC-123",
+      "title": "Verify Shift Details filter functions successfully.",
+      "enabled": true,
+      "action": "sanity_filters_available",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/shifts",
+      "expectedTexts": [
+        "Shift Details"
+      ]
+    },
+    {
+      "id": "SC-124",
+      "title": "Verify Create New Shift card functions successfully.",
+      "enabled": true,
+      "action": "sanity_create_available",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/shifts",
+      "expectedTexts": [
+        "Shift Details"
+      ],
+      "labels": [
+        "Create New Shift",
+        "New Shift",
+        "New",
+        "Create"
+      ]
+    },
+    {
+      "id": "SC-125",
+      "title": "Verify View action on Shift Details record successfully.",
+      "enabled": true,
+      "action": "sanity_row_action_available",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/shifts",
+      "expectedTexts": [
+        "Shift Details"
+      ],
+      "labels": [
+        "View"
+      ]
+    },
+    {
+      "id": "SC-126",
+      "title": "Verify Edit action on Shift Details record successfully.",
+      "enabled": true,
+      "action": "sanity_row_action_available",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/shifts",
+      "expectedTexts": [
+        "Shift Details"
+      ],
+      "labels": [
+        "Edit"
+      ]
+    },
+    {
+      "id": "SC-127",
+      "title": "Verify Delete action on Shift Details record successfully.",
+      "enabled": true,
+      "action": "sanity_row_action_available",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/shifts",
+      "expectedTexts": [
+        "Shift Details"
+      ],
+      "labels": [
+        "Delete"
+      ]
+    },
+    {
+      "id": "SC-128",
+      "title": "Verify Reset Filter functionality successfully.",
+      "enabled": true,
+      "action": "sanity_reset_filter",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/shifts",
+      "expectedTexts": [
+        "Shift Details"
+      ]
+    },
+    {
+      "id": "SC-130",
+      "title": "Verify Toolbox Talk page loads successfully.",
+      "enabled": true,
+      "action": "sanity_page_load",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/toolbox-talk",
+      "expectedTexts": [
+        "Toolbox Talk"
+      ]
+    },
+    {
+      "id": "SC-131",
+      "title": "Verify filters (Project, Date, Location, Team) function successfully.",
+      "enabled": true,
+      "action": "sanity_filters_available",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/toolbox-talk",
+      "expectedTexts": [
+        "Toolbox Talk"
+      ]
+    },
+    {
+      "id": "SC-132",
+      "title": "Verify Reset Filter functionality successfully.",
+      "enabled": true,
+      "action": "sanity_reset_filter",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/toolbox-talk",
+      "expectedTexts": [
+        "Toolbox Talk"
+      ]
+    },
+    {
+      "id": "SC-134",
+      "title": "Verify View action on Toolbox Talk record successfully.",
+      "enabled": true,
+      "action": "sanity_row_action_available",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/toolbox-talk",
+      "expectedTexts": [
+        "Toolbox Talk"
+      ],
+      "labels": [
+        "View"
+      ]
+    },
+    {
+      "id": "SC-135",
+      "title": "Verify Delete action on Toolbox Talk record successfully.",
+      "enabled": true,
+      "action": "sanity_row_action_available",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/toolbox-talk",
+      "expectedTexts": [
+        "Toolbox Talk"
+      ],
+      "labels": [
+        "Delete"
+      ]
+    },
+    {
+      "id": "SC-137",
+      "title": "Verify Report page loads successfully.",
+      "enabled": true,
+      "action": "sanity_page_load",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/report",
+      "expectedTexts": [
+        "Report"
+      ]
+    },
+    {
+      "id": "SC-138",
+      "title": "Verify filters (Project, Title, Location, Asset, Status) function successfully.",
+      "enabled": true,
+      "action": "sanity_filters_available",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/report",
+      "expectedTexts": [
+        "Report"
+      ]
+    },
+    {
+      "id": "SC-139",
+      "title": "Verify View Report functionality successfully.",
+      "enabled": true,
+      "action": "sanity_row_action_available",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/report",
+      "expectedTexts": [
+        "Report"
+      ],
+      "labels": [
+        "View"
+      ]
+    },
+    {
+      "id": "SC-140",
+      "title": "Verify Project Tracker page loads successfully.",
+      "enabled": true,
+      "action": "sanity_page_load",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/project-tracker",
+      "expectedTexts": [
+        "Project Tracker"
+      ]
+    },
+    {
+      "id": "SC-141",
+      "title": "Verify Project filter functions successfully.",
+      "enabled": true,
+      "action": "sanity_filters_available",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/project-tracker",
+      "expectedTexts": [
+        "Project Tracker"
+      ]
+    },
+    {
+      "id": "SC-144",
+      "title": "Verify Reset Filter functionality successfully.",
+      "enabled": true,
+      "action": "sanity_reset_filter",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/project-tracker",
+      "expectedTexts": [
+        "Project Tracker"
+      ]
+    },
+    {
+      "id": "SC-152",
+      "title": "Verify DPR page loads successfully.",
+      "enabled": true,
+      "action": "sanity_page_load",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/dpr",
+      "expectedTexts": [
+        "DPR"
+      ]
+    },
+    {
+      "id": "SC-153",
+      "title": "Verify Create DPR functionality successfully.",
+      "enabled": true,
+      "action": "sanity_create_available",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/dpr",
+      "expectedTexts": [
+        "DPR"
+      ],
+      "labels": [
+        "Create DPR",
+        "New",
+        "Create"
+      ]
+    },
+    {
+      "id": "SC-154",
+      "title": "Verify filters (Project, Date, Status) function successfully.",
+      "enabled": true,
+      "action": "sanity_filters_available",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/dpr",
+      "expectedTexts": [
+        "DPR"
+      ]
+    },
+    {
+      "id": "SC-156",
+      "title": "Verify View action on DPR record successfully.",
+      "enabled": true,
+      "action": "sanity_row_action_available",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/dpr",
+      "expectedTexts": [
+        "DPR"
+      ],
+      "labels": [
+        "View"
+      ]
+    },
+    {
+      "id": "SC-157",
+      "title": "Verify Edit action on DPR record successfully.",
+      "enabled": true,
+      "action": "sanity_row_action_available",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/dpr",
+      "expectedTexts": [
+        "DPR"
+      ],
+      "labels": [
+        "Edit"
+      ]
+    },
+    {
+      "id": "SC-159",
+      "title": "Verify Delete action on DPR record successfully.",
+      "enabled": true,
+      "action": "sanity_row_action_available",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/dpr",
+      "expectedTexts": [
+        "DPR"
+      ],
+      "labels": [
+        "Delete"
+      ]
     }
   ]
 }

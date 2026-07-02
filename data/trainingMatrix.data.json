@@ -7,15 +7,25 @@
       "enabled": true,
       "action": "navigate",
       "expectedResult": "page_loaded",
-      "tags": ["smoke"]
+      "tags": [
+        "smoke"
+      ]
     },
     {
       "id": "TM_TC_002",
       "title": "Training Matrix displays expected table columns",
       "enabled": true,
       "action": "verify_columns",
-      "expectedColumns": ["Function", "No.", "Name", "Rotation"],
-      "tags": ["smoke", "ui"]
+      "expectedColumns": [
+        "Function",
+        "No.",
+        "Name",
+        "Rotation"
+      ],
+      "tags": [
+        "smoke",
+        "ui"
+      ]
     },
     {
       "id": "TM_TC_003",
@@ -24,7 +34,9 @@
       "action": "filter_by_project",
       "projectIndex": 0,
       "expectedResult": "filtered",
-      "tags": ["regression"]
+      "tags": [
+        "regression"
+      ]
     },
     {
       "id": "TM_TC_004",
@@ -33,7 +45,9 @@
       "action": "filter_by_cert_status",
       "status": "All",
       "expectedResult": "filtered",
-      "tags": ["regression"]
+      "tags": [
+        "regression"
+      ]
     },
     {
       "id": "TM_TC_005",
@@ -42,7 +56,9 @@
       "action": "filter_by_cert_status",
       "status": "Valid",
       "expectedResult": "filtered",
-      "tags": ["regression"]
+      "tags": [
+        "regression"
+      ]
     },
     {
       "id": "TM_TC_006",
@@ -51,7 +67,9 @@
       "action": "filter_by_cert_status",
       "status": "Expired",
       "expectedResult": "filtered",
-      "tags": ["regression"]
+      "tags": [
+        "regression"
+      ]
     },
     {
       "id": "TM_TC_007",
@@ -60,7 +78,9 @@
       "action": "filter_by_name",
       "name": "Test Man",
       "expectedResult": "filtered",
-      "tags": ["regression"]
+      "tags": [
+        "regression"
+      ]
     },
     {
       "id": "TM_TC_008",
@@ -69,7 +89,9 @@
       "action": "filter_by_function",
       "functionIndex": 0,
       "expectedResult": "filtered",
-      "tags": ["regression"]
+      "tags": [
+        "regression"
+      ]
     },
     {
       "id": "TM_TC_009",
@@ -78,7 +100,9 @@
       "action": "filter_by_rotation",
       "rotation": "All",
       "expectedResult": "filtered",
-      "tags": ["regression"]
+      "tags": [
+        "regression"
+      ]
     },
     {
       "id": "TM_TC_010",
@@ -86,7 +110,9 @@
       "enabled": true,
       "action": "reset_filter",
       "expectedResult": "all_data_restored",
-      "tags": ["regression"]
+      "tags": [
+        "regression"
+      ]
     },
     {
       "id": "TM_TC_011",
@@ -94,7 +120,9 @@
       "enabled": true,
       "action": "export",
       "expectedResult": "file_downloaded",
-      "tags": ["regression"]
+      "tags": [
+        "regression"
+      ]
     },
     {
       "id": "TM_TC_012",
@@ -103,7 +131,9 @@
       "action": "view_user_detail",
       "rowIndex": 0,
       "expectedResult": "detail_view_opens",
-      "tags": ["regression"]
+      "tags": [
+        "regression"
+      ]
     },
     {
       "id": "TM_TC_013",
@@ -111,7 +141,10 @@
       "enabled": true,
       "action": "verify_checkmark_meaning",
       "expectedResult": "checkmark_visible_for_valid",
-      "tags": ["regression", "ui"]
+      "tags": [
+        "regression",
+        "ui"
+      ]
     },
     {
       "id": "TM_TC_014",
@@ -119,7 +152,37 @@
       "enabled": true,
       "action": "verify_na_cells",
       "expectedResult": "na_visible_for_missing",
-      "tags": ["regression", "ui"]
+      "tags": [
+        "regression",
+        "ui"
+      ]
+    },
+    {
+      "id": "SC-057",
+      "title": "Verify Training Matrix page loads.",
+      "enabled": true,
+      "action": "navigate",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "expectedResult": "page_loaded"
+    },
+    {
+      "id": "SC-058",
+      "title": "Verify filters (Project, Function, Status).",
+      "enabled": true,
+      "action": "sanity_filters_available",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/training-matrix",
+      "expectedTexts": [
+        "Training Matrix"
+      ]
     }
   ]
 }

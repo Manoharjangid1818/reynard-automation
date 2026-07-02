@@ -1,0 +1,217 @@
+{
+  "module": "QHSE Management",
+  "testCases": [
+    {
+      "id": "SC-164",
+      "title": "Verify Reset Filter Restores Default Dashboard Data",
+      "enabled": true,
+      "action": "sanity_reset_filter",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/qhse-management",
+      "expectedTexts": [
+        "QHSE Management"
+      ]
+    },
+    {
+      "id": "SC-166",
+      "title": "Verify Navigation to QHSE Cards Page",
+      "enabled": true,
+      "action": "sanity_page_load",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/qhse-cards",
+      "expectedTexts": [
+        "QHSE Cards"
+      ]
+    },
+    {
+      "id": "SC-167",
+      "title": "Verify QHSE Cards filtering.",
+      "enabled": true,
+      "action": "sanity_filters_available",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/qhse-cards",
+      "expectedTexts": [
+        "QHSE Cards"
+      ]
+    },
+    {
+      "id": "SC-168",
+      "title": "Verify creating new QHSE Cards - Safe",
+      "enabled": true,
+      "action": "sanity_create_available",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/qhse-cards",
+      "expectedTexts": [
+        "QHSE Cards"
+      ],
+      "labels": [
+        "Safe",
+        "New",
+        "Create"
+      ]
+    },
+    {
+      "id": "SC-169",
+      "title": "Verify creating new QHSE Cards - Unsafe",
+      "enabled": true,
+      "action": "sanity_create_available",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/qhse-cards",
+      "expectedTexts": [
+        "QHSE Cards"
+      ],
+      "labels": [
+        "Unsafe",
+        "New",
+        "Create"
+      ]
+    },
+    {
+      "id": "SC-170",
+      "title": "Verify creating new QHSE Cards - NCR",
+      "enabled": true,
+      "action": "sanity_create_available",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/qhse-cards",
+      "expectedTexts": [
+        "QHSE Cards"
+      ],
+      "labels": [
+        "NCR",
+        "New",
+        "Create"
+      ]
+    },
+    {
+      "id": "SC-171",
+      "title": "Verify creating new QHSE Cards - Incident",
+      "enabled": true,
+      "action": "sanity_create_available",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/qhse-cards",
+      "expectedTexts": [
+        "QHSE Cards"
+      ],
+      "labels": [
+        "Incident",
+        "New",
+        "Create"
+      ]
+    },
+    {
+      "id": "SC-172",
+      "title": "Verify QHSE Card Actions - View",
+      "enabled": true,
+      "action": "sanity_row_action_available",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/qhse-cards",
+      "expectedTexts": [
+        "QHSE Cards"
+      ],
+      "labels": [
+        "View"
+      ]
+    },
+    {
+      "id": "SC-173",
+      "title": "Verify QHSE Card Actions - Edit",
+      "enabled": true,
+      "action": "sanity_row_action_available",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/qhse-cards",
+      "expectedTexts": [
+        "QHSE Cards"
+      ],
+      "labels": [
+        "Edit"
+      ]
+    },
+    {
+      "id": "SC-174",
+      "title": "Verify QHSE Card Actions - Delete",
+      "enabled": true,
+      "action": "sanity_row_action_available",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/qhse-cards",
+      "expectedTexts": [
+        "QHSE Cards"
+      ],
+      "labels": [
+        "Delete"
+      ]
+    },
+    {
+      "id": "SC-177",
+      "title": "Verify the Safety Alert page.",
+      "enabled": true,
+      "action": "sanity_page_load",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/safety-alert",
+      "expectedTexts": [
+        "Safety Alert"
+      ]
+    },
+    {
+      "id": "SC-182",
+      "title": "Verify the Safety Alert actions - Delete",
+      "enabled": true,
+      "action": "sanity_row_action_available",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/safety-alert",
+      "expectedTexts": [
+        "Safety Alert"
+      ],
+      "labels": [
+        "Delete"
+      ]
+    }
+  ]
+}

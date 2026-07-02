@@ -1,0 +1,182 @@
+{
+  "module": "Common",
+  "testCases": [
+    {
+      "id": "SC-191",
+      "title": "Verify Search functionality across modules.",
+      "enabled": true,
+      "action": "sanity_search_available",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/personnel",
+      "expectedTexts": [
+        "Personnel"
+      ]
+    },
+    {
+      "id": "SC-192",
+      "title": "Verify Sorting functionality.",
+      "enabled": true,
+      "action": "sanity_sorting_available",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/personnel",
+      "expectedTexts": [
+        "Personnel"
+      ]
+    },
+    {
+      "id": "SC-193",
+      "title": "Verify Pagination functionality.",
+      "enabled": true,
+      "action": "sanity_pagination",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/personnel",
+      "expectedTexts": [
+        "Personnel"
+      ]
+    },
+    {
+      "id": "SC-194",
+      "title": "Verify Success messages.",
+      "enabled": true,
+      "action": "sanity_success_message",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/setting",
+      "expectedTexts": [
+        "Settings"
+      ]
+    },
+    {
+      "id": "SC-195",
+      "title": "Verify Error messages.",
+      "enabled": true,
+      "action": "sanity_invalid_login_error",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "email": "wrong@example.com",
+      "password": "WrongPassword123"
+    },
+    {
+      "id": "SC-196",
+      "title": "Verify Mandatory field validations.",
+      "enabled": true,
+      "action": "sanity_mandatory_login_validation",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ]
+    },
+    {
+      "id": "SC-198",
+      "title": "Verify Logout functionality.",
+      "enabled": true,
+      "action": "sanity_logout",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ]
+    },
+    {
+      "id": "SC-199",
+      "title": "Verify data persistence after refresh/re-login.",
+      "enabled": true,
+      "action": "sanity_refresh_persistence",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/setting",
+      "expectedTexts": [
+        "Settings"
+      ]
+    },
+    {
+      "id": "SC-200",
+      "title": "Verify Field format validations (Email, Phone, URL, etc.).",
+      "enabled": true,
+      "action": "sanity_invalid_login_error",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "email": "notanemail",
+      "password": "Test@1234"
+    },
+    {
+      "id": "SC-201",
+      "title": "Verify Date field validations.",
+      "enabled": true,
+      "action": "sanity_page_load",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/setting/project-setup",
+      "expectedTexts": [
+        "Project Setup"
+      ]
+    },
+    {
+      "id": "SC-202",
+      "title": "Verify Numeric field validations.",
+      "enabled": true,
+      "action": "sanity_page_load",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/setting/project-setup",
+      "expectedTexts": [
+        "Project Setup"
+      ]
+    },
+    {
+      "id": "SC-204",
+      "title": "Verify Access restriction to unauthorized pages.",
+      "enabled": true,
+      "action": "sanity_access_restriction",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/personnel"
+    },
+    {
+      "id": "SC-206",
+      "title": "Verify Direct URL access restrictions.",
+      "enabled": true,
+      "action": "sanity_access_restriction",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/setting"
+    }
+  ]
+}

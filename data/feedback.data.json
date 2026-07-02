@@ -1,0 +1,113 @@
+{
+  "module": "Feedback",
+  "testCases": [
+    {
+      "id": "SC-184",
+      "title": "Verify Feedback page loads.",
+      "enabled": true,
+      "action": "sanity_page_load",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/feedback",
+      "expectedTexts": [
+        "Feedback"
+      ]
+    },
+    {
+      "id": "SC-185",
+      "title": "Verify Feedback list.",
+      "enabled": true,
+      "action": "sanity_table_or_list",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/feedback",
+      "expectedTexts": [
+        "Feedback"
+      ]
+    },
+    {
+      "id": "SC-186",
+      "title": "Verify Type filter.",
+      "enabled": true,
+      "action": "sanity_filters_available",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/feedback",
+      "expectedTexts": [
+        "Feedback"
+      ]
+    },
+    {
+      "id": "SC-187",
+      "title": "Verify Subject filter.",
+      "enabled": true,
+      "action": "sanity_filters_available",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/feedback",
+      "expectedTexts": [
+        "Feedback"
+      ]
+    },
+    {
+      "id": "SC-188",
+      "title": "Verify Submitted By filter.",
+      "enabled": true,
+      "action": "sanity_filters_available",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/feedback",
+      "expectedTexts": [
+        "Feedback"
+      ]
+    },
+    {
+      "id": "SC-189",
+      "title": "Verify Reset Filter.",
+      "enabled": true,
+      "action": "sanity_reset_filter",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/feedback",
+      "expectedTexts": [
+        "Feedback"
+      ]
+    },
+    {
+      "id": "SC-190",
+      "title": "Verify Feedback details page.",
+      "enabled": true,
+      "action": "sanity_row_action_available",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/feedback",
+      "expectedTexts": [
+        "Feedback"
+      ],
+      "labels": [
+        "View"
+      ]
+    }
+  ]
+}
