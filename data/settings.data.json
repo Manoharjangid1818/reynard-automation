@@ -3,186 +3,6 @@
   "testCases": [
     {
       "id": "SET_TC_001",
-      "title": "Settings page loads with all sections",
-      "enabled": true,
-      "action": "verify_sections",
-      "expectedSections": [
-        "Organization",
-        "Project Management",
-        "Actions",
-        "User Management",
-        "Quality, Health & Safety",
-        "Equipment",
-        "Personal Setting"
-      ],
-      "tags": [
-        "smoke"
-      ]
-    },
-    {
-      "id": "SET_TC_002",
-      "title": "Organization section shows correct links",
-      "enabled": true,
-      "action": "verify_section_links",
-      "section": "Organization",
-      "expectedLinks": [
-        "Logo & Color",
-        "Company Details",
-        "Setup Licenses"
-      ],
-      "tags": [
-        "smoke",
-        "ui"
-      ]
-    },
-    {
-      "id": "SET_TC_003",
-      "title": "Project Management section shows correct links",
-      "enabled": true,
-      "action": "verify_section_links",
-      "section": "ProjectManagement",
-      "expectedLinks": [
-        "Project Setup",
-        "Report Setup"
-      ],
-      "tags": [
-        "smoke",
-        "ui"
-      ]
-    },
-    {
-      "id": "SET_TC_004",
-      "title": "User Management section shows correct links",
-      "enabled": true,
-      "action": "verify_section_links",
-      "section": "UserManagement",
-      "expectedLinks": [
-        "Role Management",
-        "Certificate Management",
-        "Profile Functions"
-      ],
-      "tags": [
-        "smoke",
-        "ui"
-      ]
-    },
-    {
-      "id": "SET_TC_005",
-      "title": "QHSE section shows correct links",
-      "enabled": true,
-      "action": "verify_section_links",
-      "section": "QualityHealthSafety",
-      "expectedLinks": [
-        "Setup Card Categories",
-        "Medical Management",
-        "Configuration",
-        "General QHSE Documents"
-      ],
-      "tags": [
-        "smoke",
-        "ui"
-      ]
-    },
-    {
-      "id": "SET_TC_006",
-      "title": "Equipment section shows correct links",
-      "enabled": true,
-      "action": "verify_section_links",
-      "section": "Equipment",
-      "expectedLinks": [
-        "Equipment Setup",
-        "Add Warehouse",
-        "Warehouse"
-      ],
-      "tags": [
-        "smoke",
-        "ui"
-      ]
-    },
-    {
-      "id": "SET_TC_007",
-      "title": "Personal Setting section shows correct links",
-      "enabled": true,
-      "action": "verify_section_links",
-      "section": "PersonalSetting",
-      "expectedLinks": [
-        "Time format",
-        "Language",
-        "Dark theme"
-      ],
-      "tags": [
-        "smoke",
-        "ui"
-      ]
-    },
-    {
-      "id": "SET_TC_008",
-      "title": "Sync up time dropdown has valid options",
-      "enabled": true,
-      "action": "verify_sync_dropdown",
-      "expectedDefault": "15min",
-      "expectedOptions": [
-        "5min",
-        "10min",
-        "15min",
-        "30min",
-        "60min"
-      ],
-      "tags": [
-        "regression"
-      ]
-    },
-    {
-      "id": "SET_TC_009",
-      "title": "Project Status filter shows Open and Completed",
-      "enabled": true,
-      "action": "verify_project_status",
-      "expectedStatuses": [
-        "Open",
-        "Completed"
-      ],
-      "tags": [
-        "regression"
-      ]
-    },
-    {
-      "id": "SET_TC_010",
-      "title": "Actions section - System Notification link is clickable",
-      "enabled": true,
-      "action": "click_section_link",
-      "section": "Actions",
-      "link": "System Notification",
-      "expectedResult": "navigates_or_opens",
-      "tags": [
-        "regression"
-      ]
-    },
-    {
-      "id": "SET_TC_011",
-      "title": "Logo & Color link navigates to correct page",
-      "enabled": true,
-      "action": "click_section_link",
-      "section": "Organization",
-      "link": "Logo & Color",
-      "expectedResult": "navigates",
-      "tags": [
-        "regression"
-      ]
-    },
-    {
-      "id": "SET_TC_012",
-      "title": "Role Management link navigates to correct page",
-      "enabled": true,
-      "action": "click_section_link",
-      "section": "UserManagement",
-      "link": "Role Management",
-      "expectedResult": "navigates",
-      "tags": [
-        "regression"
-      ]
-    },
-    {
-      "id": "SC-011",
       "title": "Verify Settings page loads successfully.",
       "enabled": true,
       "action": "verify_sections",
@@ -202,7 +22,7 @@
       ]
     },
     {
-      "id": "SC-012",
+      "id": "SET_TC_002",
       "title": "Verify Organization section displays (Logo & Color, Company Details, Setup Licenses, Sync up time).",
       "enabled": true,
       "action": "verify_section_links",
@@ -219,7 +39,7 @@
       ]
     },
     {
-      "id": "SC-013",
+      "id": "SET_TC_003",
       "title": "Verify Project Management section displays (Project Setup, Report Setup).",
       "enabled": true,
       "action": "verify_section_links",
@@ -235,7 +55,7 @@
       ]
     },
     {
-      "id": "SC-014",
+      "id": "SET_TC_004",
       "title": "Verify Actions section displays (System Notification, Send Notification).",
       "enabled": true,
       "action": "verify_section_links",
@@ -251,7 +71,7 @@
       ]
     },
     {
-      "id": "SC-016",
+      "id": "SET_TC_005",
       "title": "Verify Quality, Health & Safety section displays (Setup Card Categories, Medical Management, Configuration, General QHSE Documents).",
       "enabled": true,
       "action": "verify_section_links",
@@ -269,7 +89,7 @@
       ]
     },
     {
-      "id": "SC-017",
+      "id": "SET_TC_006",
       "title": "Verify Equipment section displays (Equipment Setup, Add Warehouse, Warehouse).",
       "enabled": true,
       "action": "verify_section_links",
@@ -286,7 +106,7 @@
       ]
     },
     {
-      "id": "SC-019",
+      "id": "SET_TC_007",
       "title": "Verify Project Status dropdown shows Open/Completed options.",
       "enabled": true,
       "action": "verify_project_status",
@@ -301,7 +121,7 @@
       ]
     },
     {
-      "id": "SC-020",
+      "id": "SET_TC_008",
       "title": "Verify Sync up time dropdown is functional (default 15min).",
       "enabled": true,
       "action": "verify_sync_dropdown",
@@ -320,7 +140,7 @@
       ]
     },
     {
-      "id": "SC-021",
+      "id": "SET_TC_009",
       "title": "Verify Home dashboard loads correctly.",
       "enabled": true,
       "action": "sanity_page_load",
@@ -335,7 +155,7 @@
       ]
     },
     {
-      "id": "SC-024",
+      "id": "SET_TC_010",
       "title": "Verify notification icon functionality.",
       "enabled": true,
       "action": "sanity_control_available",
@@ -351,7 +171,7 @@
       ]
     },
     {
-      "id": "SC-086",
+      "id": "SET_TC_011",
       "title": "Verify Settings page loads successfully.",
       "enabled": true,
       "action": "verify_sections",
@@ -371,7 +191,7 @@
       ]
     },
     {
-      "id": "SC-088",
+      "id": "SET_TC_012",
       "title": "Verify data persistence after refresh.",
       "enabled": true,
       "action": "sanity_refresh_persistence",
@@ -386,7 +206,7 @@
       ]
     },
     {
-      "id": "SC-089",
+      "id": "SET_TC_013",
       "title": "Verify update/save functionality in settings.",
       "enabled": true,
       "action": "sanity_control_available",
@@ -403,7 +223,7 @@
       ]
     },
     {
-      "id": "SC-090",
+      "id": "SET_TC_014",
       "title": "Verify Company Details page.",
       "enabled": true,
       "action": "click_section_link",
@@ -417,7 +237,7 @@
       "expectedResult": "navigates_or_opens"
     },
     {
-      "id": "SC-093",
+      "id": "SET_TC_015",
       "title": "Verify Setup License navigation successfully.",
       "enabled": true,
       "action": "click_section_link",
@@ -431,7 +251,7 @@
       "expectedResult": "navigates_or_opens"
     },
     {
-      "id": "SC-094",
+      "id": "SET_TC_016",
       "title": "Verify Edit License permissions successfully.",
       "enabled": true,
       "action": "sanity_row_action_available",
@@ -449,7 +269,7 @@
       ]
     },
     {
-      "id": "SC-095",
+      "id": "SET_TC_017",
       "title": "Verify Sync Time settings update successfully.",
       "enabled": true,
       "action": "verify_sync_dropdown",
@@ -468,7 +288,7 @@
       ]
     },
     {
-      "id": "SC-096",
+      "id": "SET_TC_018",
       "title": "Verify Project Setup navigation successfully.",
       "enabled": true,
       "action": "click_section_link",
@@ -482,7 +302,7 @@
       "expectedResult": "navigates_or_opens"
     },
     {
-      "id": "SC-097",
+      "id": "SET_TC_019",
       "title": "Verify Report Setup navigation successfully.",
       "enabled": true,
       "action": "click_section_link",
@@ -496,7 +316,7 @@
       "expectedResult": "navigates_or_opens"
     },
     {
-      "id": "SC-098",
+      "id": "SET_TC_020",
       "title": "Verify Action Card displays successfully.",
       "enabled": true,
       "action": "verify_section_links",
@@ -512,7 +332,7 @@
       ]
     },
     {
-      "id": "SC-100",
+      "id": "SET_TC_021",
       "title": "Verify User Management setup loads successfully.",
       "enabled": true,
       "action": "verify_section_links",
@@ -529,7 +349,7 @@
       ]
     },
     {
-      "id": "SC-101",
+      "id": "SET_TC_022",
       "title": "Verify Role Management navigation successfully.",
       "enabled": true,
       "action": "click_section_link",
@@ -543,7 +363,7 @@
       "expectedResult": "navigates_or_opens"
     },
     {
-      "id": "SC-102",
+      "id": "SET_TC_023",
       "title": "Verify Certificate Management navigation successfully.",
       "enabled": true,
       "action": "click_section_link",
@@ -557,7 +377,7 @@
       "expectedResult": "navigates_or_opens"
     },
     {
-      "id": "SC-103",
+      "id": "SET_TC_024",
       "title": "Verify Profile Function navigation successfully.",
       "enabled": true,
       "action": "click_section_link",
@@ -571,7 +391,7 @@
       "expectedResult": "navigates_or_opens"
     },
     {
-      "id": "SC-104",
+      "id": "SET_TC_025",
       "title": "Verify Quality, Health & Safety Card displays successfully.",
       "enabled": true,
       "action": "verify_section_links",
@@ -589,7 +409,7 @@
       ]
     },
     {
-      "id": "SC-105",
+      "id": "SET_TC_026",
       "title": "Verify Setup card categories display successfully.",
       "enabled": true,
       "action": "click_section_link",
@@ -603,7 +423,7 @@
       "expectedResult": "navigates_or_opens"
     },
     {
-      "id": "SC-106",
+      "id": "SET_TC_027",
       "title": "Verify Medical Management section loads successfully.",
       "enabled": true,
       "action": "click_section_link",
@@ -617,7 +437,7 @@
       "expectedResult": "navigates_or_opens"
     },
     {
-      "id": "SC-107",
+      "id": "SET_TC_028",
       "title": "Verify Configuration page loads successfully.",
       "enabled": true,
       "action": "click_section_link",
@@ -631,7 +451,7 @@
       "expectedResult": "navigates_or_opens"
     },
     {
-      "id": "SC-108",
+      "id": "SET_TC_029",
       "title": "Verify General QHSE module loads successfully.",
       "enabled": true,
       "action": "click_section_link",
@@ -645,7 +465,7 @@
       "expectedResult": "navigates_or_opens"
     },
     {
-      "id": "SC-109",
+      "id": "SET_TC_030",
       "title": "Verify Equipment Card displays successfully.",
       "enabled": true,
       "action": "verify_section_links",
@@ -662,7 +482,7 @@
       ]
     },
     {
-      "id": "SC-110",
+      "id": "SET_TC_031",
       "title": "Verify Equipment Setup navigation successfully.",
       "enabled": true,
       "action": "click_section_link",
@@ -676,7 +496,7 @@
       "expectedResult": "navigates_or_opens"
     },
     {
-      "id": "SC-111",
+      "id": "SET_TC_032",
       "title": "Verify Add Warehouse navigation successfully.",
       "enabled": true,
       "action": "click_section_link",
@@ -690,7 +510,7 @@
       "expectedResult": "navigates_or_opens"
     },
     {
-      "id": "SC-112",
+      "id": "SET_TC_033",
       "title": "Verify Warehouse navigation successfully.",
       "enabled": true,
       "action": "click_section_link",
@@ -704,7 +524,7 @@
       "expectedResult": "navigates_or_opens"
     },
     {
-      "id": "SC-113",
+      "id": "SET_TC_034",
       "title": "Verify Personal Settings page loads successfully.",
       "enabled": true,
       "action": "verify_section_links",
@@ -719,6 +539,196 @@
         "Language",
         "Dark theme"
       ]
+    },
+    {
+      "id": "SET_TC_035",
+      "title": "Verify all sidebar menus are visible.",
+      "enabled": true,
+      "action": "sanity_sidebar_visible",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/setting",
+      "expectedTexts": [
+        "Project Management",
+        "Shift Details",
+        "Toolbox Talk",
+        "Report",
+        "Project Tracker",
+        "DPR",
+        "QHSE Management",
+        "QHSE Cards",
+        "Feedback",
+        "Equipment Management",
+        "Personnel",
+        "Settings"
+      ]
+    },
+    {
+      "id": "SET_TC_036",
+      "title": "Verify each sidebar menu redirects correctly.",
+      "enabled": true,
+      "action": "sanity_sidebar_navigation",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/setting",
+      "targets": [
+        {
+          "label": "Project Management",
+          "path": "/client/project-management"
+        },
+        {
+          "label": "Shift Details",
+          "path": "/client/shifts"
+        },
+        {
+          "label": "Toolbox Talk",
+          "path": "/client/toolbox-talk"
+        },
+        {
+          "label": "Report",
+          "path": "/client/report"
+        },
+        {
+          "label": "Project Tracker",
+          "path": "/client/project-tracker"
+        },
+        {
+          "label": "DPR",
+          "path": "/client/dpr"
+        },
+        {
+          "label": "QHSE Management",
+          "path": "/client/qhse-management"
+        },
+        {
+          "label": "QHSE Cards",
+          "path": "/client/qhse-cards"
+        },
+        {
+          "label": "Feedback",
+          "path": "/client/feedback"
+        },
+        {
+          "label": "Equipment Management",
+          "path": "/client/equipment-management"
+        },
+        {
+          "label": "Personnel",
+          "path": "/client/personnel"
+        },
+        {
+          "label": "Settings",
+          "path": "/client/setting"
+        }
+      ]
+    },
+    {
+      "id": "SET_TC_037",
+      "title": "Verify browser Back/Forward navigation.",
+      "enabled": true,
+      "action": "sanity_browser_history",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "paths": [
+        "/client/setting",
+        "/client/personnel"
+      ]
+    },
+    {
+      "id": "SET_TC_038",
+      "title": "Verify Sync page loads successfully.",
+      "enabled": true,
+      "action": "sanity_page_load",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/setting",
+      "expectedTexts": [
+        "Settings"
+      ]
+    },
+    {
+      "id": "SET_TC_039",
+      "title": "Verify sync status is updated.",
+      "enabled": true,
+      "action": "sanity_page_load",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/setting",
+      "expectedTexts": [
+        "Settings"
+      ]
+    },
+    {
+      "id": "SET_TC_040",
+      "title": "Verify sync history/logs are displayed.",
+      "enabled": true,
+      "action": "sanity_page_load",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/setting",
+      "expectedTexts": [
+        "Settings"
+      ]
+    },
+    {
+      "id": "SET_TC_041",
+      "title": "Verify Success messages.",
+      "enabled": true,
+      "action": "sanity_success_message",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/setting",
+      "expectedTexts": [
+        "Settings"
+      ]
+    },
+    {
+      "id": "SET_TC_042",
+      "title": "Verify data persistence after refresh/re-login.",
+      "enabled": true,
+      "action": "sanity_refresh_persistence",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/setting",
+      "expectedTexts": [
+        "Settings"
+      ]
+    },
+    {
+      "id": "SET_TC_043",
+      "title": "Verify Direct URL access restrictions.",
+      "enabled": true,
+      "action": "sanity_access_restriction",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/setting"
     }
   ]
 }

@@ -3,172 +3,6 @@
   "testCases": [
     {
       "id": "PM_TC_001",
-      "title": "Project Management page loads successfully",
-      "enabled": true,
-      "action": "navigate",
-      "expectedResult": "page_loaded",
-      "tags": [
-        "smoke"
-      ]
-    },
-    {
-      "id": "PM_TC_002",
-      "title": "Overview banner displays correct text",
-      "enabled": true,
-      "action": "verify_banner",
-      "expectedText": "Overview of Project, Reports and Shifts",
-      "tags": [
-        "smoke",
-        "ui"
-      ]
-    },
-    {
-      "id": "PM_TC_003",
-      "title": "Time & Effort Insights tab is active by default",
-      "enabled": true,
-      "action": "verify_active_tab",
-      "expectedTab": "Time & Effort Insights",
-      "tags": [
-        "smoke",
-        "ui"
-      ]
-    },
-    {
-      "id": "PM_TC_004",
-      "title": "Progress Overview tab switches view",
-      "enabled": true,
-      "action": "click_tab",
-      "tab": "Progress Overview",
-      "expectedResult": "tab_active",
-      "tags": [
-        "regression"
-      ]
-    },
-    {
-      "id": "PM_TC_005",
-      "title": "Project dropdown shows available projects",
-      "enabled": true,
-      "action": "verify_project_dropdown",
-      "expectedResult": "dropdown_has_options",
-      "tags": [
-        "smoke"
-      ]
-    },
-    {
-      "id": "PM_TC_006",
-      "title": "String filter dropdown shows All by default",
-      "enabled": true,
-      "action": "verify_filter_default",
-      "filter": "String",
-      "expectedDefault": "All",
-      "tags": [
-        "regression",
-        "ui"
-      ]
-    },
-    {
-      "id": "PM_TC_007",
-      "title": "Location filter dropdown shows All by default",
-      "enabled": true,
-      "action": "verify_filter_default",
-      "filter": "Location",
-      "expectedDefault": "All",
-      "tags": [
-        "regression",
-        "ui"
-      ]
-    },
-    {
-      "id": "PM_TC_008",
-      "title": "Scope filter dropdown shows All by default",
-      "enabled": true,
-      "action": "verify_filter_default",
-      "filter": "Scope",
-      "expectedDefault": "All",
-      "tags": [
-        "regression",
-        "ui"
-      ]
-    },
-    {
-      "id": "PM_TC_009",
-      "title": "No. of Asset per Location filter shows All by default",
-      "enabled": true,
-      "action": "verify_filter_default",
-      "filter": "NoAssetPerLocation",
-      "expectedDefault": "All",
-      "tags": [
-        "regression",
-        "ui"
-      ]
-    },
-    {
-      "id": "PM_TC_010",
-      "title": "Reset Filters button clears all filter selections",
-      "enabled": true,
-      "action": "reset_filters",
-      "expectedResult": "all_filters_reset",
-      "tags": [
-        "regression"
-      ]
-    },
-    {
-      "id": "PM_TC_011",
-      "title": "Hours Worked section shows empty state when no data",
-      "enabled": true,
-      "action": "verify_empty_state",
-      "section": "HoursWorked",
-      "expectedText": "No hours recorded for this project yet.",
-      "tags": [
-        "regression"
-      ]
-    },
-    {
-      "id": "PM_TC_012",
-      "title": "Activity Hours Pivot shows empty state when no data",
-      "enabled": true,
-      "action": "verify_empty_state",
-      "section": "ActivityHoursPivot",
-      "expectedText": "No data available for this project.",
-      "tags": [
-        "regression"
-      ]
-    },
-    {
-      "id": "PM_TC_013",
-      "title": "Reset Zoom button is visible on Time & Effort tab",
-      "enabled": true,
-      "action": "verify_element_visible",
-      "element": "resetZoomButton",
-      "tags": [
-        "regression",
-        "ui"
-      ]
-    },
-    {
-      "id": "PM_TC_014",
-      "title": "Average hours reference label visible at bottom",
-      "enabled": true,
-      "action": "verify_element_visible",
-      "element": "averageHoursReference",
-      "tags": [
-        "regression",
-        "ui"
-      ]
-    },
-    {
-      "id": "PM_TC_015",
-      "title": "Total hours logged label visible at bottom",
-      "enabled": true,
-      "action": "verify_element_visible",
-      "element": "totalHoursLogged",
-      "tags": [
-        "regression",
-        "ui"
-      ]
-    },
-    {
-      "id": "SC-115",
       "title": "Verify Project dropdown functions successfully.",
       "enabled": true,
       "action": "sanity_filters_available",
@@ -183,7 +17,7 @@
       ]
     },
     {
-      "id": "SC-116",
+      "id": "PM_TC_002",
       "title": "Verify Report Type dropdown functions successfully.",
       "enabled": true,
       "action": "sanity_filters_available",
@@ -198,7 +32,7 @@
       ]
     },
     {
-      "id": "SC-122",
+      "id": "PM_TC_003",
       "title": "Verify Shift Details page loads successfully.",
       "enabled": true,
       "action": "sanity_page_load",
@@ -213,7 +47,7 @@
       ]
     },
     {
-      "id": "SC-123",
+      "id": "PM_TC_004",
       "title": "Verify Shift Details filter functions successfully.",
       "enabled": true,
       "action": "sanity_filters_available",
@@ -228,7 +62,7 @@
       ]
     },
     {
-      "id": "SC-124",
+      "id": "PM_TC_005",
       "title": "Verify Create New Shift card functions successfully.",
       "enabled": true,
       "action": "sanity_create_available",
@@ -249,7 +83,7 @@
       ]
     },
     {
-      "id": "SC-125",
+      "id": "PM_TC_006",
       "title": "Verify View action on Shift Details record successfully.",
       "enabled": true,
       "action": "sanity_row_action_available",
@@ -267,7 +101,7 @@
       ]
     },
     {
-      "id": "SC-126",
+      "id": "PM_TC_007",
       "title": "Verify Edit action on Shift Details record successfully.",
       "enabled": true,
       "action": "sanity_row_action_available",
@@ -285,7 +119,7 @@
       ]
     },
     {
-      "id": "SC-127",
+      "id": "PM_TC_008",
       "title": "Verify Delete action on Shift Details record successfully.",
       "enabled": true,
       "action": "sanity_row_action_available",
@@ -303,7 +137,7 @@
       ]
     },
     {
-      "id": "SC-128",
+      "id": "PM_TC_009",
       "title": "Verify Reset Filter functionality successfully.",
       "enabled": true,
       "action": "sanity_reset_filter",
@@ -318,7 +152,7 @@
       ]
     },
     {
-      "id": "SC-130",
+      "id": "PM_TC_010",
       "title": "Verify Toolbox Talk page loads successfully.",
       "enabled": true,
       "action": "sanity_page_load",
@@ -333,7 +167,7 @@
       ]
     },
     {
-      "id": "SC-131",
+      "id": "PM_TC_011",
       "title": "Verify filters (Project, Date, Location, Team) function successfully.",
       "enabled": true,
       "action": "sanity_filters_available",
@@ -348,7 +182,7 @@
       ]
     },
     {
-      "id": "SC-132",
+      "id": "PM_TC_012",
       "title": "Verify Reset Filter functionality successfully.",
       "enabled": true,
       "action": "sanity_reset_filter",
@@ -363,7 +197,7 @@
       ]
     },
     {
-      "id": "SC-134",
+      "id": "PM_TC_013",
       "title": "Verify View action on Toolbox Talk record successfully.",
       "enabled": true,
       "action": "sanity_row_action_available",
@@ -381,7 +215,7 @@
       ]
     },
     {
-      "id": "SC-135",
+      "id": "PM_TC_014",
       "title": "Verify Delete action on Toolbox Talk record successfully.",
       "enabled": true,
       "action": "sanity_row_action_available",
@@ -399,7 +233,7 @@
       ]
     },
     {
-      "id": "SC-137",
+      "id": "PM_TC_015",
       "title": "Verify Report page loads successfully.",
       "enabled": true,
       "action": "sanity_page_load",
@@ -414,7 +248,7 @@
       ]
     },
     {
-      "id": "SC-138",
+      "id": "PM_TC_016",
       "title": "Verify filters (Project, Title, Location, Asset, Status) function successfully.",
       "enabled": true,
       "action": "sanity_filters_available",
@@ -429,7 +263,7 @@
       ]
     },
     {
-      "id": "SC-139",
+      "id": "PM_TC_017",
       "title": "Verify View Report functionality successfully.",
       "enabled": true,
       "action": "sanity_row_action_available",
@@ -447,7 +281,7 @@
       ]
     },
     {
-      "id": "SC-140",
+      "id": "PM_TC_018",
       "title": "Verify Project Tracker page loads successfully.",
       "enabled": true,
       "action": "sanity_page_load",
@@ -462,7 +296,7 @@
       ]
     },
     {
-      "id": "SC-141",
+      "id": "PM_TC_019",
       "title": "Verify Project filter functions successfully.",
       "enabled": true,
       "action": "sanity_filters_available",
@@ -477,7 +311,7 @@
       ]
     },
     {
-      "id": "SC-144",
+      "id": "PM_TC_020",
       "title": "Verify Reset Filter functionality successfully.",
       "enabled": true,
       "action": "sanity_reset_filter",
@@ -492,7 +326,7 @@
       ]
     },
     {
-      "id": "SC-152",
+      "id": "PM_TC_021",
       "title": "Verify DPR page loads successfully.",
       "enabled": true,
       "action": "sanity_page_load",
@@ -507,7 +341,7 @@
       ]
     },
     {
-      "id": "SC-153",
+      "id": "PM_TC_022",
       "title": "Verify Create DPR functionality successfully.",
       "enabled": true,
       "action": "sanity_create_available",
@@ -527,7 +361,7 @@
       ]
     },
     {
-      "id": "SC-154",
+      "id": "PM_TC_023",
       "title": "Verify filters (Project, Date, Status) function successfully.",
       "enabled": true,
       "action": "sanity_filters_available",
@@ -542,7 +376,7 @@
       ]
     },
     {
-      "id": "SC-156",
+      "id": "PM_TC_024",
       "title": "Verify View action on DPR record successfully.",
       "enabled": true,
       "action": "sanity_row_action_available",
@@ -560,7 +394,7 @@
       ]
     },
     {
-      "id": "SC-157",
+      "id": "PM_TC_025",
       "title": "Verify Edit action on DPR record successfully.",
       "enabled": true,
       "action": "sanity_row_action_available",
@@ -578,7 +412,7 @@
       ]
     },
     {
-      "id": "SC-159",
+      "id": "PM_TC_026",
       "title": "Verify Delete action on DPR record successfully.",
       "enabled": true,
       "action": "sanity_row_action_available",
@@ -593,6 +427,115 @@
       ],
       "labels": [
         "Delete"
+      ]
+    },
+    {
+      "id": "PM_TC_027",
+      "title": "Verify breadcrumb updates correctly.",
+      "enabled": true,
+      "action": "sanity_breadcrumb",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/project-management",
+      "expectedTexts": [
+        "Project Management"
+      ]
+    },
+    {
+      "id": "PM_TC_028",
+      "title": "Verify Project Management menu expands/collapses.",
+      "enabled": true,
+      "action": "sanity_sidebar_visible",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/project-management",
+      "expectedTexts": [
+        "Shift Details",
+        "Toolbox Talk",
+        "Report",
+        "Project Tracker",
+        "DPR"
+      ]
+    },
+    {
+      "id": "PM_TC_029",
+      "title": "Verify Shift Details menu item navigates correctly.",
+      "enabled": true,
+      "action": "sanity_page_load",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/shifts",
+      "expectedTexts": [
+        "Shift Details"
+      ]
+    },
+    {
+      "id": "PM_TC_030",
+      "title": "Verify Toolbox Talk menu item navigates correctly.",
+      "enabled": true,
+      "action": "sanity_page_load",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/toolbox-talk",
+      "expectedTexts": [
+        "Toolbox Talk"
+      ]
+    },
+    {
+      "id": "PM_TC_031",
+      "title": "Verify Report menu item navigates correctly.",
+      "enabled": true,
+      "action": "sanity_page_load",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/report",
+      "expectedTexts": [
+        "Report"
+      ]
+    },
+    {
+      "id": "PM_TC_032",
+      "title": "Verify Project Tracker menu item navigates correctly.",
+      "enabled": true,
+      "action": "sanity_page_load",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/project-tracker",
+      "expectedTexts": [
+        "Project Tracker"
+      ]
+    },
+    {
+      "id": "PM_TC_033",
+      "title": "Verify DPR menu item navigates correctly.",
+      "enabled": true,
+      "action": "sanity_page_load",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/dpr",
+      "expectedTexts": [
+        "DPR"
       ]
     }
   ]

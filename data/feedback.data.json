@@ -2,7 +2,7 @@
   "module": "Feedback",
   "testCases": [
     {
-      "id": "SC-184",
+      "id": "FB_TC_001",
       "title": "Verify Feedback page loads.",
       "enabled": true,
       "action": "sanity_page_load",
@@ -17,7 +17,7 @@
       ]
     },
     {
-      "id": "SC-185",
+      "id": "FB_TC_002",
       "title": "Verify Feedback list.",
       "enabled": true,
       "action": "sanity_table_or_list",
@@ -32,7 +32,7 @@
       ]
     },
     {
-      "id": "SC-186",
+      "id": "FB_TC_003",
       "title": "Verify Type filter.",
       "enabled": true,
       "action": "sanity_filters_available",
@@ -47,7 +47,7 @@
       ]
     },
     {
-      "id": "SC-187",
+      "id": "FB_TC_004",
       "title": "Verify Subject filter.",
       "enabled": true,
       "action": "sanity_filters_available",
@@ -62,7 +62,7 @@
       ]
     },
     {
-      "id": "SC-188",
+      "id": "FB_TC_005",
       "title": "Verify Submitted By filter.",
       "enabled": true,
       "action": "sanity_filters_available",
@@ -77,7 +77,7 @@
       ]
     },
     {
-      "id": "SC-189",
+      "id": "FB_TC_006",
       "title": "Verify Reset Filter.",
       "enabled": true,
       "action": "sanity_reset_filter",
@@ -92,7 +92,7 @@
       ]
     },
     {
-      "id": "SC-190",
+      "id": "FB_TC_007",
       "title": "Verify Feedback details page.",
       "enabled": true,
       "action": "sanity_row_action_available",

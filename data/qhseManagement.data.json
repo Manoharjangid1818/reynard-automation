@@ -2,7 +2,7 @@
   "module": "QHSE Management",
   "testCases": [
     {
-      "id": "SC-164",
+      "id": "QHSE_TC_001",
       "title": "Verify Reset Filter Restores Default Dashboard Data",
       "enabled": true,
       "action": "sanity_reset_filter",
@@ -17,7 +17,7 @@
       ]
     },
     {
-      "id": "SC-166",
+      "id": "QHSE_TC_002",
       "title": "Verify Navigation to QHSE Cards Page",
       "enabled": true,
       "action": "sanity_page_load",
@@ -32,7 +32,7 @@
       ]
     },
     {
-      "id": "SC-167",
+      "id": "QHSE_TC_003",
       "title": "Verify QHSE Cards filtering.",
       "enabled": true,
       "action": "sanity_filters_available",
@@ -47,7 +47,7 @@
       ]
     },
     {
-      "id": "SC-168",
+      "id": "QHSE_TC_004",
       "title": "Verify creating new QHSE Cards - Safe",
       "enabled": true,
       "action": "sanity_create_available",
@@ -67,7 +67,7 @@
       ]
     },
     {
-      "id": "SC-169",
+      "id": "QHSE_TC_005",
       "title": "Verify creating new QHSE Cards - Unsafe",
       "enabled": true,
       "action": "sanity_create_available",
@@ -87,7 +87,7 @@
       ]
     },
     {
-      "id": "SC-170",
+      "id": "QHSE_TC_006",
       "title": "Verify creating new QHSE Cards - NCR",
       "enabled": true,
       "action": "sanity_create_available",
@@ -107,7 +107,7 @@
       ]
     },
     {
-      "id": "SC-171",
+      "id": "QHSE_TC_007",
       "title": "Verify creating new QHSE Cards - Incident",
       "enabled": true,
       "action": "sanity_create_available",
@@ -127,7 +127,7 @@
       ]
     },
     {
-      "id": "SC-172",
+      "id": "QHSE_TC_008",
       "title": "Verify QHSE Card Actions - View",
       "enabled": true,
       "action": "sanity_row_action_available",
@@ -145,7 +145,7 @@
       ]
     },
     {
-      "id": "SC-173",
+      "id": "QHSE_TC_009",
       "title": "Verify QHSE Card Actions - Edit",
       "enabled": true,
       "action": "sanity_row_action_available",
@@ -163,7 +163,7 @@
       ]
     },
     {
-      "id": "SC-174",
+      "id": "QHSE_TC_010",
       "title": "Verify QHSE Card Actions - Delete",
       "enabled": true,
       "action": "sanity_row_action_available",
@@ -181,7 +181,7 @@
       ]
     },
     {
-      "id": "SC-177",
+      "id": "QHSE_TC_011",
       "title": "Verify the Safety Alert page.",
       "enabled": true,
       "action": "sanity_page_load",
@@ -196,7 +196,7 @@
       ]
     },
     {
-      "id": "SC-182",
+      "id": "QHSE_TC_012",
       "title": "Verify the Safety Alert actions - Delete",
       "enabled": true,
       "action": "sanity_row_action_available",
@@ -211,6 +211,36 @@
       ],
       "labels": [
         "Delete"
+      ]
+    },
+    {
+      "id": "QHSE_TC_013",
+      "title": "Verify QHSE Management menu item navigates correctly.",
+      "enabled": true,
+      "action": "sanity_page_load",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/qhse-management",
+      "expectedTexts": [
+        "QHSE Management"
+      ]
+    },
+    {
+      "id": "QHSE_TC_014",
+      "title": "Verify QHSE Cards menu item navigates correctly.",
+      "enabled": true,
+      "action": "sanity_page_load",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/qhse-cards",
+      "expectedTexts": [
+        "QHSE Cards"
       ]
     }
   ]

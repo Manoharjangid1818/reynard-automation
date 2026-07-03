@@ -2,7 +2,7 @@
   "module": "License Approval",
   "testCases": [
     {
-      "id": "SC-081",
+      "id": "LIC_TC_001",
       "title": "Verify License Approval page loads.",
       "enabled": true,
       "action": "sanity_page_load",
@@ -17,7 +17,7 @@
       ]
     },
     {
-      "id": "SC-082",
+      "id": "LIC_TC_002",
       "title": "Verify pending license requests display correctly.",
       "enabled": true,
       "action": "sanity_table_or_list",
@@ -32,7 +32,7 @@
       ]
     },
     {
-      "id": "SC-083",
+      "id": "LIC_TC_003",
       "title": "Verify Filters.",
       "enabled": true,
       "action": "sanity_filters_available",
@@ -47,7 +47,7 @@
       ]
     },
     {
-      "id": "SC-084",
+      "id": "LIC_TC_004",
       "title": "Verify license edit functionality.",
       "enabled": true,
       "action": "sanity_row_action_available",
@@ -65,7 +65,7 @@
       ]
     },
     {
-      "id": "SC-085",
+      "id": "LIC_TC_005",
       "title": "Verify license status (Active/Inactive).",
       "enabled": true,
       "action": "sanity_status_control",

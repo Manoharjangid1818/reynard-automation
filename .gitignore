@@ -1,5 +1,6 @@
 node_modules/
-reports/
+reports/*
+!reports/README.md
 .env
 *.log
 .DS_Store

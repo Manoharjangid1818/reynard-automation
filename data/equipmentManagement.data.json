@@ -2,7 +2,7 @@
   "module": "Equipment Management",
   "testCases": [
     {
-      "id": "SC-062",
+      "id": "EQUIP_TC_001",
       "title": "Verify Equipment page loads.",
       "enabled": true,
       "action": "sanity_page_load",
@@ -17,7 +17,7 @@
       ]
     },
     {
-      "id": "SC-064",
+      "id": "EQUIP_TC_002",
       "title": "Verify Add Equipment.",
       "enabled": true,
       "action": "sanity_create_available",
@@ -37,7 +37,7 @@
       ]
     },
     {
-      "id": "SC-065",
+      "id": "EQUIP_TC_003",
       "title": "Verify Edit Equipment.",
       "enabled": true,
       "action": "sanity_row_action_available",
@@ -55,7 +55,7 @@
       ]
     },
     {
-      "id": "SC-066",
+      "id": "EQUIP_TC_004",
       "title": "Verify Equipment Search.",
       "enabled": true,
       "action": "sanity_search_available",
@@ -70,7 +70,7 @@
       ]
     },
     {
-      "id": "SC-067",
+      "id": "EQUIP_TC_005",
       "title": "Verify mandatory field validation while adding equipment.",
       "enabled": true,
       "action": "sanity_create_available",
@@ -90,7 +90,7 @@
       ]
     },
     {
-      "id": "SC-069",
+      "id": "EQUIP_TC_006",
       "title": "Verify Equipment Filters.",
       "enabled": true,
       "action": "sanity_filters_available",
@@ -105,7 +105,7 @@
       ]
     },
     {
-      "id": "SC-070",
+      "id": "EQUIP_TC_007",
       "title": "Verify Equipment Status update.",
       "enabled": true,
       "action": "sanity_status_control",
@@ -120,7 +120,7 @@
       ]
     },
     {
-      "id": "SC-071",
+      "id": "EQUIP_TC_008",
       "title": "Verify Inventory Summary page loads.",
       "enabled": true,
       "action": "sanity_page_load",
@@ -135,7 +135,7 @@
       ]
     },
     {
-      "id": "SC-072",
+      "id": "EQUIP_TC_009",
       "title": "Verify filters in summary.",
       "enabled": true,
       "action": "sanity_filters_available",
@@ -150,7 +150,7 @@
       ]
     },
     {
-      "id": "SC-073",
+      "id": "EQUIP_TC_010",
       "title": "Verify register works in Inventory Summary",
       "enabled": true,
       "action": "sanity_create_available",
@@ -170,7 +170,7 @@
       ]
     },
     {
-      "id": "SC-074",
+      "id": "EQUIP_TC_011",
       "title": "Verify Project Orders page loads.",
       "enabled": true,
       "action": "sanity_page_load",
@@ -185,7 +185,7 @@
       ]
     },
     {
-      "id": "SC-075",
+      "id": "EQUIP_TC_012",
       "title": "Verify request Project Order.",
       "enabled": true,
       "action": "sanity_create_available",
@@ -205,7 +205,7 @@
       ]
     },
     {
-      "id": "SC-076",
+      "id": "EQUIP_TC_013",
       "title": "Verify edit Project Order",
       "enabled": true,
       "action": "sanity_row_action_available",
@@ -223,7 +223,7 @@
       ]
     },
     {
-      "id": "SC-077",
+      "id": "EQUIP_TC_014",
       "title": "Verify order status updates.",
       "enabled": true,
       "action": "sanity_status_control",
@@ -238,7 +238,7 @@
       ]
     },
     {
-      "id": "SC-078",
+      "id": "EQUIP_TC_015",
       "title": "Verify Return Cart page loads.",
       "enabled": true,
       "action": "sanity_page_load",
@@ -253,7 +253,7 @@
       ]
     },
     {
-      "id": "SC-079",
+      "id": "EQUIP_TC_016",
       "title": "Verify add/remove items in shopping list.",
       "enabled": true,
       "action": "sanity_create_available",

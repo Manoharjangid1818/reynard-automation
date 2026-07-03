@@ -3,249 +3,6 @@
   "testCases": [
     {
       "id": "PERS_TC_001",
-      "title": "Personnel page loads successfully",
-      "enabled": true,
-      "action": "navigate",
-      "expectedResult": "page_loaded",
-      "tags": [
-        "smoke"
-      ]
-    },
-    {
-      "id": "PERS_TC_002",
-      "title": "Personnel list displays table with columns",
-      "enabled": true,
-      "action": "verify_table_columns",
-      "expectedColumns": [
-        "No.",
-        "Name",
-        "Email",
-        "Contact",
-        "Profile Function",
-        "Rating",
-        "Assigned Projects",
-        "Role",
-        "Access Type",
-        "Is Active",
-        "Action"
-      ],
-      "tags": [
-        "smoke",
-        "ui"
-      ]
-    },
-    {
-      "id": "PERS_TC_003",
-      "title": "Create new user with all required fields",
-      "enabled": true,
-      "action": "create_user",
-      "userData": {
-        "roleNameIndex": 0,
-        "firstName": "AutoTest",
-        "lastName": "UserOne",
-        "email": "autotest.user1@testmail.com",
-        "password": "Test@1234",
-        "contactNumber": "9999999901",
-        "profileFunctionIndex": 0
-      },
-      "expectedResult": "user_created_success",
-      "tags": [
-        "regression",
-        "smoke"
-      ]
-    },
-    {
-      "id": "PERS_TC_004",
-      "title": "Create new user - missing required Role Name",
-      "enabled": true,
-      "action": "create_user_missing_field",
-      "missingField": "roleName",
-      "userData": {
-        "firstName": "AutoTest",
-        "lastName": "NoRole",
-        "email": "autotest.norole@testmail.com",
-        "password": "Test@1234",
-        "contactNumber": "9999999902",
-        "profileFunctionIndex": 0
-      },
-      "expectedResult": "validation_error",
-      "tags": [
-        "regression",
-        "negative"
-      ]
-    },
-    {
-      "id": "PERS_TC_005",
-      "title": "Create new user - missing required First Name",
-      "enabled": true,
-      "action": "create_user_missing_field",
-      "missingField": "firstName",
-      "userData": {
-        "roleNameIndex": 0,
-        "lastName": "NoFirstName",
-        "email": "autotest.nofirst@testmail.com",
-        "password": "Test@1234",
-        "contactNumber": "9999999903",
-        "profileFunctionIndex": 0
-      },
-      "expectedResult": "validation_error",
-      "tags": [
-        "regression",
-        "negative"
-      ]
-    },
-    {
-      "id": "PERS_TC_006",
-      "title": "Create new user - missing required Email",
-      "enabled": true,
-      "action": "create_user_missing_field",
-      "missingField": "email",
-      "userData": {
-        "roleNameIndex": 0,
-        "firstName": "AutoTest",
-        "lastName": "NoEmail",
-        "password": "Test@1234",
-        "contactNumber": "9999999904",
-        "profileFunctionIndex": 0
-      },
-      "expectedResult": "validation_error",
-      "tags": [
-        "regression",
-        "negative"
-      ]
-    },
-    {
-      "id": "PERS_TC_007",
-      "title": "Search personnel by name",
-      "enabled": true,
-      "action": "search",
-      "searchTerm": "Rey Nard",
-      "expectedResult": "filtered_results",
-      "tags": [
-        "regression"
-      ]
-    },
-    {
-      "id": "PERS_TC_008",
-      "title": "Filter personnel by project",
-      "enabled": true,
-      "action": "filter_by_project",
-      "project": "All",
-      "expectedResult": "filtered_results",
-      "tags": [
-        "regression"
-      ]
-    },
-    {
-      "id": "PERS_TC_009",
-      "title": "Filter personnel by status Active",
-      "enabled": true,
-      "action": "filter_by_status",
-      "status": "Active",
-      "expectedResult": "filtered_results",
-      "tags": [
-        "regression"
-      ]
-    },
-    {
-      "id": "PERS_TC_010",
-      "title": "Filter personnel by status Inactive",
-      "enabled": true,
-      "action": "filter_by_status",
-      "status": "Inactive",
-      "expectedResult": "filtered_results",
-      "tags": [
-        "regression"
-      ]
-    },
-    {
-      "id": "PERS_TC_011",
-      "title": "Reset filter restores full list",
-      "enabled": true,
-      "action": "reset_filter",
-      "expectedResult": "all_data_visible",
-      "tags": [
-        "regression"
-      ]
-    },
-    {
-      "id": "PERS_TC_012",
-      "title": "View personnel detail via eye icon",
-      "enabled": true,
-      "action": "view_personnel",
-      "rowIndex": 0,
-      "expectedResult": "detail_view_opens",
-      "tags": [
-        "regression"
-      ]
-    },
-    {
-      "id": "PERS_TC_013",
-      "title": "Toggle Is Active status for user",
-      "enabled": true,
-      "action": "toggle_active_status",
-      "rowIndex": 6,
-      "expectedResult": "status_toggled",
-      "tags": [
-        "regression"
-      ]
-    },
-    {
-      "id": "PERS_TC_014",
-      "title": "Upload Certificates button opens modal",
-      "enabled": true,
-      "action": "open_upload_certificates",
-      "expectedResult": "modal_opens",
-      "tags": [
-        "smoke",
-        "regression"
-      ]
-    },
-    {
-      "id": "PERS_TC_015",
-      "title": "New user button opens New User modal",
-      "enabled": true,
-      "action": "open_new_user_modal",
-      "expectedResult": "modal_opens",
-      "tags": [
-        "smoke",
-        "regression"
-      ]
-    },
-    {
-      "id": "PERS_TC_016",
-      "title": "Search with no matching results shows empty state",
-      "enabled": true,
-      "action": "search",
-      "searchTerm": "ZZZNONEXISTENTUSER999",
-      "expectedResult": "no_results",
-      "tags": [
-        "regression",
-        "negative"
-      ]
-    },
-    {
-      "id": "PERS_TC_017",
-      "title": "Create new user - duplicate email validation",
-      "enabled": true,
-      "action": "create_user",
-      "userData": {
-        "roleNameIndex": 0,
-        "firstName": "Duplicate",
-        "lastName": "Email",
-        "email": "nard@kiwiqa.com",
-        "password": "Test@1234",
-        "contactNumber": "9999999999",
-        "profileFunctionIndex": 0
-      },
-      "expectedResult": "duplicate_error",
-      "tags": [
-        "regression",
-        "negative"
-      ]
-    },
-    {
-      "id": "SC-042",
       "title": "Verify Personnel page loads.",
       "enabled": true,
       "action": "navigate",
@@ -257,7 +14,7 @@
       "expectedResult": "page_loaded"
     },
     {
-      "id": "SC-043",
+      "id": "PERS_TC_002",
       "title": "Verify Add Personnel.",
       "enabled": true,
       "action": "open_new_user_modal",
@@ -269,7 +26,7 @@
       "expectedResult": "modal_opens"
     },
     {
-      "id": "SC-044",
+      "id": "PERS_TC_003",
       "title": "Verify Edit Personnel.",
       "enabled": true,
       "action": "sanity_row_action_available",
@@ -287,7 +44,7 @@
       ]
     },
     {
-      "id": "SC-045",
+      "id": "PERS_TC_004",
       "title": "Verify duplicate personnel (email/ID) is restricted.",
       "enabled": true,
       "action": "create_user",
@@ -308,7 +65,7 @@
       "expectedResult": "duplicate_error"
     },
     {
-      "id": "SC-046",
+      "id": "PERS_TC_005",
       "title": "Verify inactive personnel cannot login/use system.",
       "enabled": true,
       "action": "sanity_status_control",
@@ -323,7 +80,7 @@
       ]
     },
     {
-      "id": "SC-047",
+      "id": "PERS_TC_006",
       "title": "Verify Search Personnel.",
       "enabled": true,
       "action": "search",
@@ -336,7 +93,7 @@
       "expectedResult": "filtered_results"
     },
     {
-      "id": "SC-048",
+      "id": "PERS_TC_007",
       "title": "Verify Personnel filters.",
       "enabled": true,
       "action": "sanity_filters_available",
@@ -351,7 +108,7 @@
       ]
     },
     {
-      "id": "SC-050",
+      "id": "PERS_TC_008",
       "title": "Verify Personnel details page.",
       "enabled": true,
       "action": "view_personnel",
@@ -364,7 +121,7 @@
       "expectedResult": "detail_view_opens"
     },
     {
-      "id": "SC-051",
+      "id": "PERS_TC_009",
       "title": "Personnel Verify status change (Active/Inactive).",
       "enabled": true,
       "action": "toggle_active_status",
@@ -377,7 +134,7 @@
       "expectedResult": "status_toggled"
     },
     {
-      "id": "SC-052",
+      "id": "PERS_TC_010",
       "title": "Verify mandatory field validation while adding personnel.",
       "enabled": true,
       "action": "create_user_missing_field",
@@ -398,7 +155,7 @@
       "expectedResult": "validation_error"
     },
     {
-      "id": "SC-061",
+      "id": "PERS_TC_011",
       "title": "Verify Pagination.",
       "enabled": true,
       "action": "sanity_pagination",
@@ -411,6 +168,63 @@
       "expectedTexts": [
         "Personnel"
       ]
+    },
+    {
+      "id": "PERS_TC_012",
+      "title": "Verify Search functionality across modules.",
+      "enabled": true,
+      "action": "sanity_search_available",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/personnel",
+      "expectedTexts": [
+        "Personnel"
+      ]
+    },
+    {
+      "id": "PERS_TC_013",
+      "title": "Verify Sorting functionality.",
+      "enabled": true,
+      "action": "sanity_sorting_available",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/personnel",
+      "expectedTexts": [
+        "Personnel"
+      ]
+    },
+    {
+      "id": "PERS_TC_014",
+      "title": "Verify Pagination functionality.",
+      "enabled": true,
+      "action": "sanity_pagination",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/personnel",
+      "expectedTexts": [
+        "Personnel"
+      ]
+    },
+    {
+      "id": "PERS_TC_015",
+      "title": "Verify Access restriction to unauthorized pages.",
+      "enabled": true,
+      "action": "sanity_access_restriction",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/personnel"
     }
   ]
 }

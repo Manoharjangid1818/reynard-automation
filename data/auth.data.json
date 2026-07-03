@@ -165,7 +165,7 @@
       ]
     },
     {
-      "id": "SC-004",
+      "id": "AUTH_TC_013",
       "title": "Verify Login page loads successfully.",
       "enabled": true,
       "expectedResult": "page_elements_present",
@@ -176,7 +176,7 @@
       ]
     },
     {
-      "id": "SC-005",
+      "id": "AUTH_TC_014",
       "title": "Verify all login page controls are displayed.",
       "enabled": true,
       "expectedResult": "page_elements_present",
@@ -187,7 +187,7 @@
       ]
     },
     {
-      "id": "SC-006",
+      "id": "AUTH_TC_015",
       "title": "Verify login with valid credentials.",
       "enabled": true,
       "expectedResult": "redirect_to_dashboard",
@@ -200,7 +200,7 @@
       "password": "Test@1234"
     },
     {
-      "id": "SC-007",
+      "id": "AUTH_TC_016",
       "title": "Verify invalid login validation.",
       "enabled": true,
       "expectedResult": "error_message",
@@ -213,7 +213,7 @@
       "password": "WrongPassword123"
     },
     {
-      "id": "SC-008",
+      "id": "AUTH_TC_017",
       "title": "Verify mandatory field validation.",
       "enabled": true,
       "expectedResult": "validation_error",
@@ -226,7 +226,7 @@
       "password": ""
     },
     {
-      "id": "SC-009",
+      "id": "AUTH_TC_018",
       "title": "Verify Forgot Password navigation.",
       "enabled": true,
       "expectedResult": "navigates_to_forgot_password",
@@ -235,6 +235,84 @@
       "tags": [
         "sanity"
       ]
+    },
+    {
+      "id": "AUTH_TC_019",
+      "title": "Verify application URL loads successfully.",
+      "enabled": true,
+      "action": "sanity_page_load",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/authentication/sign-in",
+      "expectedTexts": [
+        "Log In"
+      ]
+    },
+    {
+      "id": "AUTH_TC_020",
+      "title": "Verify application is accessible without console errors.",
+      "enabled": true,
+      "action": "sanity_console_clean",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/authentication/sign-in",
+      "expectedTexts": [
+        "Log In"
+      ]
+    },
+    {
+      "id": "AUTH_TC_021",
+      "title": "Verify Error messages.",
+      "enabled": true,
+      "action": "sanity_invalid_login_error",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "email": "wrong@example.com",
+      "password": "WrongPassword123"
+    },
+    {
+      "id": "AUTH_TC_022",
+      "title": "Verify Mandatory field validations.",
+      "enabled": true,
+      "action": "sanity_mandatory_login_validation",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ]
+    },
+    {
+      "id": "AUTH_TC_023",
+      "title": "Verify Logout functionality.",
+      "enabled": true,
+      "action": "sanity_logout",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ]
+    },
+    {
+      "id": "AUTH_TC_024",
+      "title": "Verify Field format validations (Email, Phone, URL, etc.).",
+      "enabled": true,
+      "action": "sanity_invalid_login_error",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "email": "notanemail",
+      "password": "Test@1234"
     }
   ]
 }
