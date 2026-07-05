@@ -1,0 +1,247 @@
+{
+  "module": "Navigation",
+  "testCases": [
+    {
+      "id": "SC-025",
+      "title": "Verify all sidebar menus are visible.",
+      "enabled": true,
+      "action": "sanity_sidebar_visible",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/setting",
+      "expectedTexts": [
+        "Project Management",
+        "Shift Details",
+        "Toolbox Talk",
+        "Report",
+        "Project Tracker",
+        "DPR",
+        "QHSE Management",
+        "QHSE Cards",
+        "Feedback",
+        "Equipment Management",
+        "Personnel",
+        "Settings"
+      ]
+    },
+    {
+      "id": "SC-026",
+      "title": "Verify each sidebar menu redirects correctly.",
+      "enabled": true,
+      "action": "sanity_sidebar_navigation",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/setting",
+      "targets": [
+        {
+          "label": "Project Management",
+          "path": "/client/project-management"
+        },
+        {
+          "label": "Shift Details",
+          "path": "/client/shifts"
+        },
+        {
+          "label": "Toolbox Talk",
+          "path": "/client/toolbox-talk"
+        },
+        {
+          "label": "Report",
+          "path": "/client/report"
+        },
+        {
+          "label": "Project Tracker",
+          "path": "/client/project-tracker"
+        },
+        {
+          "label": "DPR",
+          "path": "/client/dpr"
+        },
+        {
+          "label": "QHSE Management",
+          "path": "/client/qhse-management"
+        },
+        {
+          "label": "QHSE Cards",
+          "path": "/client/qhse-cards"
+        },
+        {
+          "label": "Feedback",
+          "path": "/client/feedback"
+        },
+        {
+          "label": "Equipment Management",
+          "path": "/client/equipment-management"
+        },
+        {
+          "label": "Personnel",
+          "path": "/client/personnel"
+        },
+        {
+          "label": "Settings",
+          "path": "/client/setting"
+        }
+      ]
+    },
+    {
+      "id": "SC-027",
+      "title": "Verify breadcrumb updates correctly.",
+      "enabled": true,
+      "action": "sanity_breadcrumb",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/project-management",
+      "expectedTexts": [
+        "Project Management"
+      ]
+    },
+    {
+      "id": "SC-028",
+      "title": "Verify browser Back/Forward navigation.",
+      "enabled": true,
+      "action": "sanity_browser_history",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "paths": [
+        "/client/setting",
+        "/client/personnel"
+      ]
+    },
+    {
+      "id": "SC-029",
+      "title": "Verify Project Management menu expands/collapses.",
+      "enabled": true,
+      "action": "sanity_sidebar_visible",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/project-management",
+      "expectedTexts": [
+        "Shift Details",
+        "Toolbox Talk",
+        "Report",
+        "Project Tracker",
+        "DPR"
+      ]
+    },
+    {
+      "id": "SC-030",
+      "title": "Verify Shift Details menu item navigates correctly.",
+      "enabled": true,
+      "action": "sanity_page_load",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/shifts",
+      "expectedTexts": [
+        "Shift Details"
+      ]
+    },
+    {
+      "id": "SC-031",
+      "title": "Verify Toolbox Talk menu item navigates correctly.",
+      "enabled": true,
+      "action": "sanity_page_load",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/toolbox-talk",
+      "expectedTexts": [
+        "Toolbox Talk"
+      ]
+    },
+    {
+      "id": "SC-032",
+      "title": "Verify Report menu item navigates correctly.",
+      "enabled": true,
+      "action": "sanity_page_load",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/report",
+      "expectedTexts": [
+        "Report"
+      ]
+    },
+    {
+      "id": "SC-033",
+      "title": "Verify Project Tracker menu item navigates correctly.",
+      "enabled": true,
+      "action": "sanity_page_load",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/project-tracker",
+      "expectedTexts": [
+        "Project Tracker"
+      ]
+    },
+    {
+      "id": "SC-035",
+      "title": "Verify DPR menu item navigates correctly.",
+      "enabled": true,
+      "action": "sanity_page_load",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/dpr",
+      "expectedTexts": [
+        "DPR"
+      ]
+    },
+    {
+      "id": "SC-036",
+      "title": "Verify QHSE Management menu item navigates correctly.",
+      "enabled": true,
+      "action": "sanity_page_load",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/qhse-management",
+      "expectedTexts": [
+        "QHSE Management"
+      ]
+    },
+    {
+      "id": "SC-037",
+      "title": "Verify QHSE Cards menu item navigates correctly.",
+      "enabled": true,
+      "action": "sanity_page_load",
+      "sourceSheet": "Sanity Check",
+      "automationStatus": "Yes",
+      "tags": [
+        "sanity"
+      ],
+      "path": "/client/qhse-cards",
+      "expectedTexts": [
+        "QHSE Cards"
+      ]
+    }
+  ]
+}
