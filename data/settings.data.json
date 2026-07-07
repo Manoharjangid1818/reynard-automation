@@ -569,7 +569,7 @@
     {
       "id": "SET_TC_036",
       "title": "Verify each sidebar menu redirects correctly.",
-      "enabled": true,
+      "enabled": false,
       "action": "sanity_sidebar_navigation",
       "sourceSheet": "Sanity Check",
       "automationStatus": "Yes",

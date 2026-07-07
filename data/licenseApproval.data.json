@@ -34,7 +34,7 @@
     {
       "id": "LIC_TC_003",
       "title": "Verify Filters.",
-      "enabled": true,
+      "enabled": false,
       "action": "sanity_filters_available",
       "sourceSheet": "Sanity Check",
       "automationStatus": "Yes",

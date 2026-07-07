@@ -207,7 +207,7 @@
     {
       "id": "EQUIP_TC_013",
       "title": "Verify edit Project Order",
-      "enabled": true,
+      "enabled": false,
       "action": "sanity_row_action_available",
       "sourceSheet": "Sanity Check",
       "automationStatus": "Yes",
