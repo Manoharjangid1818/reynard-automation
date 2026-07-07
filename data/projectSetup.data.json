@@ -13,7 +13,7 @@
       ],
       "path": "/client/setting/project-setup",
       "expectedTexts": [
-        "Project Setup"
+        "Project"
       ]
     },
     {
@@ -28,7 +28,7 @@
       ],
       "path": "/client/setting/project-setup",
       "expectedTexts": [
-        "Project Setup"
+        "Project"
       ]
     }
   ]

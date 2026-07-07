@@ -43,7 +43,7 @@
       ],
       "path": "/client/shifts",
       "expectedTexts": [
-        "Shift Details"
+        "Shifts"
       ]
     },
     {
@@ -58,7 +58,7 @@
       ],
       "path": "/client/shifts",
       "expectedTexts": [
-        "Shift Details"
+        "Shifts"
       ]
     },
     {
@@ -73,9 +73,10 @@
       ],
       "path": "/client/shifts",
       "expectedTexts": [
-        "Shift Details"
+        "Shifts"
       ],
       "labels": [
+        "Shift Card",
         "Create New Shift",
         "New Shift",
         "New",
@@ -94,7 +95,7 @@
       ],
       "path": "/client/shifts",
       "expectedTexts": [
-        "Shift Details"
+        "Shifts"
       ],
       "labels": [
         "View"
@@ -112,7 +113,7 @@
       ],
       "path": "/client/shifts",
       "expectedTexts": [
-        "Shift Details"
+        "Shifts"
       ],
       "labels": [
         "Edit"
@@ -130,7 +131,7 @@
       ],
       "path": "/client/shifts",
       "expectedTexts": [
-        "Shift Details"
+        "Shifts"
       ],
       "labels": [
         "Delete"
@@ -148,7 +149,7 @@
       ],
       "path": "/client/shifts",
       "expectedTexts": [
-        "Shift Details"
+        "Shifts"
       ]
     },
     {
@@ -282,7 +283,7 @@
     },
     {
       "id": "PM_TC_018",
-      "title": "Verify Project Tracker page loads successfully.",
+      "title": "Verify Project Inventory page loads successfully.",
       "enabled": true,
       "action": "sanity_page_load",
       "sourceSheet": "Sanity Check",
@@ -290,9 +291,9 @@
       "tags": [
         "sanity"
       ],
-      "path": "/client/project-tracker",
+      "path": "/client/project-inventory",
       "expectedTexts": [
-        "Project Tracker"
+        "Project Inventory"
       ]
     },
     {
@@ -305,9 +306,9 @@
       "tags": [
         "sanity"
       ],
-      "path": "/client/project-tracker",
+      "path": "/client/project-inventory",
       "expectedTexts": [
-        "Project Tracker"
+        "Project Inventory"
       ]
     },
     {
@@ -320,9 +321,9 @@
       "tags": [
         "sanity"
       ],
-      "path": "/client/project-tracker",
+      "path": "/client/project-inventory",
       "expectedTexts": [
-        "Project Tracker"
+        "Project Inventory"
       ]
     },
     {
@@ -355,6 +356,7 @@
         "DPR"
       ],
       "labels": [
+        "DPR",
         "Create DPR",
         "New",
         "Create"
@@ -459,7 +461,7 @@
         "Shift Details",
         "Toolbox Talk",
         "Report",
-        "Project Tracker",
+        "Project Inventory",
         "DPR"
       ]
     },
@@ -475,7 +477,7 @@
       ],
       "path": "/client/shifts",
       "expectedTexts": [
-        "Shift Details"
+        "Shifts"
       ]
     },
     {
@@ -510,7 +512,7 @@
     },
     {
       "id": "PM_TC_032",
-      "title": "Verify Project Tracker menu item navigates correctly.",
+      "title": "Verify Project Inventory menu item navigates correctly.",
       "enabled": true,
       "action": "sanity_page_load",
       "sourceSheet": "Sanity Check",
@@ -518,9 +520,9 @@
       "tags": [
         "sanity"
       ],
-      "path": "/client/project-tracker",
+      "path": "/client/project-inventory",
       "expectedTexts": [
-        "Project Tracker"
+        "Project Inventory"
       ]
     },
     {

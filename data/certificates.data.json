@@ -13,8 +13,10 @@
       ],
       "expectedColumns": [
         "Name",
-        "Certificate Type",
-        "Status",
+        "Email",
+        "Certificates",
+        "Start Date",
+        "End Date",
         "Action"
       ]
     },

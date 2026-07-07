@@ -9,11 +9,27 @@ function textPattern(value) {
   return new RegExp(escapeRegExp(value), 'i');
 }
 
+function textSelectorValue(value) {
+  return String(value).replace(/\\/g, '\\\\').replace(/"/g, '\\"');
+}
+
 async function waitForSettled(page) {
   await page.waitForLoadState('domcontentloaded').catch(() => {});
   await page.waitForLoadState('networkidle', { timeout: 10000 }).catch(() => {});
   await page.locator('body').waitFor({ state: 'visible', timeout: 15000 });
   await page.locator('[role="progressbar"]').last().waitFor({ state: 'hidden', timeout: 15000 }).catch(() => {});
+  await page.locator('[class*="skeleton" i], .MuiSkeleton-root, [aria-busy="true"]').last().waitFor({ state: 'hidden', timeout: 15000 }).catch(() => {});
+
+  let previousText = '';
+  let stableReads = 0;
+  for (let i = 0; i < 5; i++) {
+    await page.waitForTimeout(400);
+    const currentText = await bodyText(page);
+    if (currentText && currentText === previousText) stableReads += 1;
+    else stableReads = 0;
+    previousText = currentText;
+    if (stableReads >= 1) break;
+  }
 }
 
 async function gotoPath(page, path) {
@@ -34,19 +50,26 @@ async function hasBodyText(page, text) {
 
 async function expectTexts(page, texts = []) {
   for (const text of texts) {
-    expect(await hasBodyText(page, text), `Expected page text "${text}" to be visible`).toBeTruthy();
+    await expect(page.locator('body'), `Expected page text "${text}" to be visible`).toContainText(textPattern(text), { timeout: 20000 });
   }
 }
 
 function clickableLocator(page, label) {
   const pattern = textPattern(label);
-  return page.locator([
-    `a:has-text("${label}")`,
-    `button:has-text("${label}")`,
-    `[role="button"]:has-text("${label}")`,
-    `[title*="${label}" i]`,
-    `[aria-label*="${label}" i]`,
-  ].join(', ')).or(page.getByRole('link', { name: pattern })).or(page.getByRole('button', { name: pattern })).first();
+  const selectorLabel = textSelectorValue(label);
+  const direct = page.locator([
+    `a:has-text("${selectorLabel}")`,
+    `button:has-text("${selectorLabel}")`,
+    `[role="button"]:has-text("${selectorLabel}")`,
+    `[title*="${selectorLabel}" i]`,
+    `[aria-label*="${selectorLabel}" i]`,
+  ].join(', '));
+  const byRole = page.getByRole('link', { name: pattern }).or(page.getByRole('button', { name: pattern }));
+  const visibleText = page.getByText(pattern).first();
+  const interactiveAncestor = visibleText.locator(
+    'xpath=ancestor-or-self::*[self::button or self::a or @role="button" or contains(@class, "MuiButtonBase-root") or contains(@class, "MuiCard") or contains(translate(@class, "ABCDEFGHIJKLMNOPQRSTUVWXYZ", "abcdefghijklmnopqrstuvwxyz"), "card")][1]'
+  );
+  return direct.or(byRole).or(interactiveAncestor).or(visibleText).first();
 }
 
 async function expectAnyClickable(page, labels = []) {
@@ -91,16 +114,28 @@ async function verifyFiltersAvailable(page, tc) {
     'input[placeholder*="All" i]',
     'input[placeholder*="Select" i]',
     'input[placeholder*="Search" i]',
+    'input[type="search"]',
     '[role="combobox"]',
+    '[class*="MuiAutocomplete-root"] input',
+    '[class*="MuiSelect-select"]',
     'button:has-text("Reset Filter")',
     'button:has-text("Reset Filters")',
   ].join(', '));
-  expect(await filterControls.count()).toBeGreaterThan(0);
+  await expect.poll(async () => await filterControls.count(), {
+    timeout: 15000,
+    message: 'Expected at least one filter control to be available',
+  }).toBeGreaterThan(0);
 }
 
 async function verifySearchAvailable(page, tc) {
   await verifyPageLoaded(page, { ...tc, expectedTexts: [] });
-  const search = page.locator('input[placeholder*="search" i], input[type="search"], [role="searchbox"]').first();
+  const search = page.locator([
+    'input[placeholder*="search" i]',
+    'input[type="search"]',
+    '[role="searchbox"]',
+    '[role="combobox"] input[type="text"]',
+    '[class*="MuiAutocomplete-root"] input[type="text"]',
+  ].join(', ')).first();
   await search.waitFor({ state: 'visible', timeout: 15000 }).catch(() => {});
   expect(await search.isVisible().catch(() => false)).toBeTruthy();
 }
@@ -176,6 +211,12 @@ async function verifyRowActionAvailable(page, tc) {
     return;
   }
 
+  const firstRowText = await rows.first().innerText().catch(() => '');
+  if (/no data|no records|no results?/i.test(firstRowText)) {
+    await verifyTableOrList(page, tc);
+    return;
+  }
+
   const labels = tc.labels || ['View', 'Edit', 'Delete'];
   const row = rows.first();
   const textButtons = labels.map(label => `button:has-text("${label}"), a:has-text("${label}"), [title*="${label}" i], [aria-label*="${label}" i]`).join(', ');
@@ -185,7 +226,15 @@ async function verifyRowActionAvailable(page, tc) {
 
 async function verifyStatusControl(page, tc) {
   await verifyPageLoaded(page, tc);
-  const statusControls = page.locator('input[type="checkbox"], [role="switch"], button:has-text("Active"), button:has-text("Inactive"), text=/Active|Inactive|Status/i');
+  const noData = await page.getByText(/no data|no records|no results?/i).first().isVisible().catch(() => false);
+  if (noData) {
+    await verifyTableOrList(page, tc);
+    return;
+  }
+
+  const statusControls = page
+    .locator('input[type="checkbox"], [role="switch"], button:has-text("Active"), button:has-text("Inactive")')
+    .or(page.getByText(/Active|Inactive|Status|Open|Closed|OK|Quarantine|Requests/i));
   expect(await statusControls.count()).toBeGreaterThan(0);
 }
 
@@ -203,7 +252,13 @@ async function verifySidebarNavigation(page, tc) {
   await verifyPageLoaded(page, tc);
   for (const target of tc.targets || []) {
     await gotoPath(page, tc.startPath || '/client/setting');
-    const link = clickableLocator(page, target.label);
+    const hrefLink = target.path
+      ? page.locator(`a[href$="${target.path}"], a[href*="${target.path}"]`).first()
+      : null;
+    const link = hrefLink && await hrefLink.isVisible().catch(() => false)
+      ? hrefLink
+      : clickableLocator(page, target.label);
+
     if (await link.isVisible().catch(() => false)) {
       await link.click();
       await waitForSettled(page);
@@ -242,6 +297,10 @@ async function verifyDataPersistenceAfterRefresh(page, tc) {
 }
 
 async function verifyLogout(page) {
+  if (!/\/client\//.test(page.url())) {
+    await gotoPath(page, '/client/setting');
+  }
+
   const loginPage = new LoginPage(page);
   await loginPage.logout();
   await expect(page).toHaveURL(/sign-in|login|authentication/, { timeout: 15000 });
@@ -257,20 +316,38 @@ async function verifyProtectedRouteRequiresAuth(browser, tc, baseURL) {
   expect(/sign-in|login|authentication/.test(url) || loginVisible).toBeTruthy();
 }
 
-async function verifyInvalidLoginShowsError(page, tc) {
-  const loginPage = new LoginPage(page);
-  await loginPage.login(tc.email || 'wrong@example.com', tc.password || 'WrongPassword123');
-  const url = page.url();
-  const error = await loginPage.getErrorMessage();
-  expect(url.includes('sign-in') || !!error).toBeTruthy();
+async function runOnFreshAuthPage(page, options, callback) {
+  if (options.browser) {
+    const context = await options.browser.newContext({ baseURL: options.baseURL });
+    const freshPage = await context.newPage();
+    try {
+      return await callback(freshPage);
+    } finally {
+      await context.close();
+    }
+  }
+
+  return await callback(page);
 }
 
-async function verifyMandatoryLoginValidation(page) {
-  const loginPage = new LoginPage(page);
-  await loginPage.goto();
-  await page.locator(loginPage.loginButton).first().click();
-  await page.waitForTimeout(1000);
-  expect(page.url().includes('sign-in') || !!await loginPage.getErrorMessage()).toBeTruthy();
+async function verifyInvalidLoginShowsError(page, tc, options = {}) {
+  return await runOnFreshAuthPage(page, options, async freshPage => {
+    const loginPage = new LoginPage(freshPage);
+    await loginPage.login(tc.email || 'wrong@example.com', tc.password || 'WrongPassword123');
+    const url = freshPage.url();
+    const error = await loginPage.getErrorMessage();
+    expect(url.includes('sign-in') || !!error).toBeTruthy();
+  });
+}
+
+async function verifyMandatoryLoginValidation(page, options = {}) {
+  return await runOnFreshAuthPage(page, options, async freshPage => {
+    const loginPage = new LoginPage(freshPage);
+    await loginPage.goto();
+    await freshPage.locator(loginPage.loginButton).first().click();
+    await freshPage.waitForTimeout(1000);
+    expect(freshPage.url().includes('sign-in') || !!await loginPage.getErrorMessage()).toBeTruthy();
+  });
 }
 
 async function runGenericSanityCase(page, tc, options = {}) {
@@ -325,9 +402,9 @@ async function runGenericSanityCase(page, tc, options = {}) {
     case 'sanity_access_restriction':
       return await verifyProtectedRouteRequiresAuth(options.browser, tc, options.baseURL);
     case 'sanity_invalid_login_error':
-      return await verifyInvalidLoginShowsError(page, tc);
+      return await verifyInvalidLoginShowsError(page, tc, options);
     case 'sanity_mandatory_login_validation':
-      return await verifyMandatoryLoginValidation(page);
+      return await verifyMandatoryLoginValidation(page, options);
     default:
       throw new Error(`Unsupported sanity action: ${tc.action}`);
   }

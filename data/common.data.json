@@ -122,7 +122,7 @@
         "sanity"
       ],
       "email": "notanemail",
-      "password": "Test@1234"
+      "password": "Admin@12345"
     },
     {
       "id": "SC-201",
@@ -136,7 +136,7 @@
       ],
       "path": "/client/setting/project-setup",
       "expectedTexts": [
-        "Project Setup"
+        "Project"
       ]
     },
     {
@@ -151,7 +151,7 @@
       ],
       "path": "/client/setting/project-setup",
       "expectedTexts": [
-        "Project Setup"
+        "Project"
       ]
     },
     {

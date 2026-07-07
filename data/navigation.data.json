@@ -17,7 +17,7 @@
         "Shift Details",
         "Toolbox Talk",
         "Report",
-        "Project Tracker",
+        "Project Inventory",
         "DPR",
         "QHSE Management",
         "QHSE Cards",
@@ -56,8 +56,8 @@
           "path": "/client/report"
         },
         {
-          "label": "Project Tracker",
-          "path": "/client/project-tracker"
+          "label": "Project Inventory",
+          "path": "/client/project-inventory"
         },
         {
           "label": "DPR",
@@ -134,7 +134,7 @@
         "Shift Details",
         "Toolbox Talk",
         "Report",
-        "Project Tracker",
+        "Project Inventory",
         "DPR"
       ]
     },
@@ -150,7 +150,7 @@
       ],
       "path": "/client/shifts",
       "expectedTexts": [
-        "Shift Details"
+        "Shifts"
       ]
     },
     {
@@ -185,7 +185,7 @@
     },
     {
       "id": "SC-033",
-      "title": "Verify Project Tracker menu item navigates correctly.",
+      "title": "Verify Project Inventory menu item navigates correctly.",
       "enabled": true,
       "action": "sanity_page_load",
       "sourceSheet": "Sanity Check",
@@ -193,9 +193,9 @@
       "tags": [
         "sanity"
       ],
-      "path": "/client/project-tracker",
+      "path": "/client/project-inventory",
       "expectedTexts": [
-        "Project Tracker"
+        "Project Inventory"
       ]
     },
     {

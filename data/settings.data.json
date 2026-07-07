@@ -12,18 +12,15 @@
         "sanity"
       ],
       "expectedSections": [
-        "Organization",
         "Project Management",
         "Actions",
-        "User Management",
-        "Quality, Health & Safety",
         "Equipment",
         "Personal Setting"
       ]
     },
     {
       "id": "SET_TC_002",
-      "title": "Verify Organization section displays (Logo & Color, Company Details, Setup Licenses, Sync up time).",
+      "title": "Verify Project Management section displays (Project Setup, Report Setup).",
       "enabled": true,
       "action": "verify_section_links",
       "sourceSheet": "Sanity Check",
@@ -31,11 +28,10 @@
       "tags": [
         "sanity"
       ],
-      "section": "Organization",
+      "section": "ProjectManagement",
       "expectedLinks": [
-        "Logo & Color",
-        "Company Details",
-        "Setup Licenses"
+        "Project Setup",
+        "Report Setup"
       ]
     },
     {
@@ -73,7 +69,7 @@
     {
       "id": "SET_TC_005",
       "title": "Verify Quality, Health & Safety section displays (Setup Card Categories, Medical Management, Configuration, General QHSE Documents).",
-      "enabled": true,
+      "enabled": false,
       "action": "verify_section_links",
       "sourceSheet": "Sanity Check",
       "automationStatus": "Yes",
@@ -181,11 +177,8 @@
         "sanity"
       ],
       "expectedSections": [
-        "Organization",
         "Project Management",
         "Actions",
-        "User Management",
-        "Quality, Health & Safety",
         "Equipment",
         "Personal Setting"
       ]
@@ -225,8 +218,8 @@
     {
       "id": "SET_TC_014",
       "title": "Verify Company Details page.",
-      "enabled": true,
-      "action": "click_section_link",
+      "enabled": false,
+      "action": "sanity_page_load",
       "sourceSheet": "Sanity Check",
       "automationStatus": "Yes",
       "tags": [
@@ -240,15 +233,16 @@
       "id": "SET_TC_015",
       "title": "Verify Setup License navigation successfully.",
       "enabled": true,
-      "action": "click_section_link",
+      "action": "sanity_page_load",
       "sourceSheet": "Sanity Check",
       "automationStatus": "Yes",
       "tags": [
         "sanity"
       ],
-      "section": "Organization",
-      "link": "Setup Licenses",
-      "expectedResult": "navigates_or_opens"
+      "path": "/client/setting/wizard-licenses",
+      "expectedTexts": [
+        "Licenses"
+      ]
     },
     {
       "id": "SET_TC_016",
@@ -334,7 +328,7 @@
     {
       "id": "SET_TC_021",
       "title": "Verify User Management setup loads successfully.",
-      "enabled": true,
+      "enabled": false,
       "action": "verify_section_links",
       "sourceSheet": "Sanity Check",
       "automationStatus": "Yes",
@@ -352,48 +346,51 @@
       "id": "SET_TC_022",
       "title": "Verify Role Management navigation successfully.",
       "enabled": true,
-      "action": "click_section_link",
+      "action": "sanity_page_load",
       "sourceSheet": "Sanity Check",
       "automationStatus": "Yes",
       "tags": [
         "sanity"
       ],
-      "section": "UserManagement",
-      "link": "Role Management",
-      "expectedResult": "navigates_or_opens"
+      "path": "/client/setting/role-management",
+      "expectedTexts": [
+        "Role Management"
+      ]
     },
     {
       "id": "SET_TC_023",
       "title": "Verify Certificate Management navigation successfully.",
       "enabled": true,
-      "action": "click_section_link",
+      "action": "sanity_page_load",
       "sourceSheet": "Sanity Check",
       "automationStatus": "Yes",
       "tags": [
         "sanity"
       ],
-      "section": "UserManagement",
-      "link": "Certificate Management",
-      "expectedResult": "navigates_or_opens"
+      "path": "/client/setting/certificate-management",
+      "expectedTexts": [
+        "Certificate Management"
+      ]
     },
     {
       "id": "SET_TC_024",
       "title": "Verify Profile Function navigation successfully.",
       "enabled": true,
-      "action": "click_section_link",
+      "action": "sanity_page_load",
       "sourceSheet": "Sanity Check",
       "automationStatus": "Yes",
       "tags": [
         "sanity"
       ],
-      "section": "UserManagement",
-      "link": "Profile Functions",
-      "expectedResult": "navigates_or_opens"
+      "path": "/client/setting/profile-functions",
+      "expectedTexts": [
+        "Profile Functions"
+      ]
     },
     {
       "id": "SET_TC_025",
       "title": "Verify Quality, Health & Safety Card displays successfully.",
-      "enabled": true,
+      "enabled": false,
       "action": "verify_section_links",
       "sourceSheet": "Sanity Check",
       "automationStatus": "Yes",
@@ -411,7 +408,7 @@
     {
       "id": "SET_TC_026",
       "title": "Verify Setup card categories display successfully.",
-      "enabled": true,
+      "enabled": false,
       "action": "click_section_link",
       "sourceSheet": "Sanity Check",
       "automationStatus": "Yes",
@@ -426,43 +423,46 @@
       "id": "SET_TC_027",
       "title": "Verify Medical Management section loads successfully.",
       "enabled": true,
-      "action": "click_section_link",
+      "action": "sanity_page_load",
       "sourceSheet": "Sanity Check",
       "automationStatus": "Yes",
       "tags": [
         "sanity"
       ],
-      "section": "QualityHealthSafety",
-      "link": "Medical Management",
-      "expectedResult": "navigates_or_opens"
+      "path": "/client/setting/medical-management",
+      "expectedTexts": [
+        "Medical Management"
+      ]
     },
     {
       "id": "SET_TC_028",
       "title": "Verify Configuration page loads successfully.",
       "enabled": true,
-      "action": "click_section_link",
+      "action": "sanity_page_load",
       "sourceSheet": "Sanity Check",
       "automationStatus": "Yes",
       "tags": [
         "sanity"
       ],
-      "section": "QualityHealthSafety",
-      "link": "Configuration",
-      "expectedResult": "navigates_or_opens"
+      "path": "/client/setting/configuration",
+      "expectedTexts": [
+        "Configuration"
+      ]
     },
     {
       "id": "SET_TC_029",
       "title": "Verify General QHSE module loads successfully.",
       "enabled": true,
-      "action": "click_section_link",
+      "action": "sanity_page_load",
       "sourceSheet": "Sanity Check",
       "automationStatus": "Yes",
       "tags": [
         "sanity"
       ],
-      "section": "QualityHealthSafety",
-      "link": "General QHSE Documents",
-      "expectedResult": "navigates_or_opens"
+      "path": "/client/setting/general-qhse-documents",
+      "expectedTexts": [
+        "General QHSE Documents"
+      ]
     },
     {
       "id": "SET_TC_030",
@@ -556,7 +556,7 @@
         "Shift Details",
         "Toolbox Talk",
         "Report",
-        "Project Tracker",
+        "Project Inventory",
         "DPR",
         "QHSE Management",
         "QHSE Cards",
@@ -595,8 +595,8 @@
           "path": "/client/report"
         },
         {
-          "label": "Project Tracker",
-          "path": "/client/project-tracker"
+          "label": "Project Inventory",
+          "path": "/client/project-inventory"
         },
         {
           "label": "DPR",

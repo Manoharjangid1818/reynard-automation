@@ -5,7 +5,7 @@
   "credentials": {
     "validAdmin": {
       "email": "manan.hathi+2@kiwiqa.com",
-      "password": "Test@1234"
+      "password": "Admin@12345"
     }
   },
   "testCases": [
@@ -14,7 +14,7 @@
       "title": "Successful login with valid credentials",
       "enabled": true,
       "email": "manan.hathi+2@kiwiqa.com",
-      "password": "Test@1234",
+      "password": "Admin@12345",
       "expectedResult": "redirect_to_dashboard",
       "expectedUrlContains": "/client/",
       "tags": [
@@ -111,7 +111,7 @@
       "title": "Password field masks input",
       "enabled": true,
       "email": null,
-      "password": "Test@1234",
+      "password": "Admin@12345",
       "expectedResult": "password_masked",
       "tags": [
         "regression",
@@ -123,7 +123,7 @@
       "title": "Remember me checkbox is functional",
       "enabled": true,
       "email": "manan.hathi+2@kiwiqa.com",
-      "password": "Test@1234",
+      "password": "Admin@12345",
       "expectedResult": "remember_me_checked",
       "tags": [
         "regression"
@@ -145,7 +145,7 @@
       "title": "Successful logout after login",
       "enabled": true,
       "email": "manan.hathi+2@kiwiqa.com",
-      "password": "Test@1234",
+      "password": "Admin@12345",
       "expectedResult": "redirected_to_login",
       "tags": [
         "smoke",
@@ -197,7 +197,7 @@
         "sanity"
       ],
       "email": "manan.hathi+2@kiwiqa.com",
-      "password": "Test@1234"
+      "password": "Admin@12345"
     },
     {
       "id": "AUTH_TC_016",
@@ -312,7 +312,7 @@
         "sanity"
       ],
       "email": "notanemail",
-      "password": "Test@1234"
+      "password": "Admin@12345"
     }
   ]
 }
