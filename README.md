@@ -8,8 +8,8 @@ Playwright + JavaScript | Page Object Model | Data-Driven | History Reporting
 
 ```
 reynard-automation/
-├── config/                  # (reserved for env-specific configs)
 ├── data/                    # ← TEST DATA — only file you edit to add test cases
+
 │   ├── auth.data.json
 │   ├── personnel.data.json
 │   ├── certificates.data.json
