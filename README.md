@@ -41,6 +41,11 @@ reynard-automation/
 │   ├── history/             # run_history.csv (cumulative) + per-run CSVs
 │   ├── screenshots/         # Failure screenshots
 │   └── test-results/        # Traces, videos
+├── playwright-report/      # Auto-generated (Playwright HTML report) — never commit
+│   ├── index.html
+│   └── data/
+│       └── (attachments/artifacts)
+└── playwright-help.txt     # Helper output — should not be committed
 ├── .env                     # Credentials & base URL (do NOT commit)
 ├── playwright.config.js
 └── package.json
