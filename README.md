@@ -77,12 +77,22 @@ npx playwright install chromium firefox
 npm run test:all
 
 # Run by module
-npm run test:auth
+npm run tests:auth
 npm run test:personnel
 npm run test:certificates
 npm run test:training
 npm run test:settings
 npm run test:projects
+npm run test:application
+npm run test:common
+npm run test:feedback
+npm run test:licenseApproval
+npm run test:navigation
+npm run test:projectSetup
+npm run test:sync
+npm run test:projectManagement
+npm run test:qhseManagement
+
 
 # Run with browser visible
 npm run test:headed
