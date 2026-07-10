@@ -13,10 +13,12 @@ function textSelectorValue(value) {
   return String(value).replace(/\\/g, '\\\\').replace(/"/g, '\\"');
 }
 
-async function waitForSettled(page) {
+async function waitForSettled(page, stepWaitMs = 500) {
   await page.waitForLoadState('domcontentloaded').catch(() => {});
   await page.waitForLoadState('networkidle', { timeout: 10000 }).catch(() => {});
   await page.locator('body').waitFor({ state: 'visible', timeout: 15000 });
+  await page.waitForTimeout(stepWaitMs);
+
   await page.locator('[role="progressbar"]').last().waitFor({ state: 'hidden', timeout: 15000 }).catch(() => {});
   await page.locator('[class*="skeleton" i], .MuiSkeleton-root, [aria-busy="true"]').last().waitFor({ state: 'hidden', timeout: 15000 }).catch(() => {});
 
@@ -32,12 +34,16 @@ async function waitForSettled(page) {
   }
 }
 
-async function gotoPath(page, path) {
+async function gotoPath(page, path, options = {}) {
+  const stepWaitMs = options.stepWaitMs ?? 500;
   if (path) {
     await page.goto(path, { waitUntil: 'domcontentloaded', timeout: 45000 });
   }
-  await waitForSettled(page);
+  await waitForSettled(page, stepWaitMs);
+  // Note: waitForSettled already applies the step wait.
 }
+
+
 
 async function bodyText(page) {
   return await page.locator('body').innerText().catch(() => '');
@@ -351,9 +357,16 @@ async function verifyMandatoryLoginValidation(page, options = {}) {
 }
 
 async function runGenericSanityCase(page, tc, options = {}) {
+const stepWaitMs = options.stepWaitMs ?? 500;
   switch (tc.action) {
+
+
     case 'sanity_page_load':
+      await page.waitForTimeout(stepWaitMs);
       return await verifyPageLoaded(page, tc);
+
+
+
     case 'sanity_console_clean': {
       const consoleErrors = [];
       page.on('console', msg => {

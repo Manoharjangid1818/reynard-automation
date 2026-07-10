@@ -644,8 +644,16 @@ const moduleRunners = {
 };
 
 async function runDataDrivenCase(ctx) {
+  const stepWaitMs = ctx.stepWaitMs ?? Number(process.env.STEP_WAIT_MS || 500);
   const runner = moduleRunners[ctx.moduleKey] || runFallbackCase;
+  if (ctx.tc?.action) {
+    // Small delay before starting each test case so steps are visually separated.
+    await ctx.page.waitForTimeout(stepWaitMs).catch(() => {});
+  }
+  // Provide stepWaitMs to sanity helpers (used by runGenericSanityCase)
+  ctx.stepWaitMs = stepWaitMs;
   await runner(ctx);
 }
+
 
 module.exports = { runDataDrivenCase };

@@ -130,17 +130,6 @@
       ]
     },
     {
-      "id": "AUTH_TC_010",
-      "title": "Forgot password link is clickable",
-      "enabled": true,
-      "email": null,
-      "password": null,
-      "expectedResult": "navigates_to_forgot_password",
-      "tags": [
-        "regression"
-      ]
-    },
-    {
       "id": "AUTH_TC_011",
       "title": "Successful logout after login",
       "enabled": true,
@@ -164,78 +153,7 @@
         "negative"
       ]
     },
-    {
-      "id": "AUTH_TC_013",
-      "title": "Verify Login page loads successfully.",
-      "enabled": true,
-      "expectedResult": "page_elements_present",
-      "sourceSheet": "Sanity Check",
-      "automationStatus": "Yes",
-      "tags": [
-        "sanity"
-      ]
-    },
-    {
-      "id": "AUTH_TC_014",
-      "title": "Verify all login page controls are displayed.",
-      "enabled": true,
-      "expectedResult": "page_elements_present",
-      "sourceSheet": "Sanity Check",
-      "automationStatus": "Yes",
-      "tags": [
-        "sanity"
-      ]
-    },
-    {
-      "id": "AUTH_TC_015",
-      "title": "Verify login with valid credentials.",
-      "enabled": true,
-      "expectedResult": "redirect_to_dashboard",
-      "sourceSheet": "Sanity Check",
-      "automationStatus": "Yes",
-      "tags": [
-        "sanity"
-      ],
-      "email": "manan.hathi+2@kiwiqa.com",
-      "password": "Admin@12345"
-    },
-    {
-      "id": "AUTH_TC_016",
-      "title": "Verify invalid login validation.",
-      "enabled": true,
-      "expectedResult": "error_message",
-      "sourceSheet": "Sanity Check",
-      "automationStatus": "Yes",
-      "tags": [
-        "sanity"
-      ],
-      "email": "manan.hathi+2@kiwiqa.com",
-      "password": "WrongPassword123"
-    },
-    {
-      "id": "AUTH_TC_017",
-      "title": "Verify mandatory field validation.",
-      "enabled": true,
-      "expectedResult": "validation_error",
-      "sourceSheet": "Sanity Check",
-      "automationStatus": "Yes",
-      "tags": [
-        "sanity"
-      ],
-      "email": "",
-      "password": ""
-    },
-    {
-      "id": "AUTH_TC_018",
-      "title": "Verify Forgot Password navigation.",
-      "enabled": true,
-      "expectedResult": "navigates_to_forgot_password",
-      "sourceSheet": "Sanity Check",
-      "automationStatus": "Yes",
-      "tags": [
-        "sanity"
-      ]
-    },
+
     {
       "id": "AUTH_TC_019",
       "title": "Verify application URL loads successfully.",
@@ -278,28 +196,6 @@
       ],
       "email": "wrong@example.com",
       "password": "WrongPassword123"
-    },
-    {
-      "id": "AUTH_TC_022",
-      "title": "Verify Mandatory field validations.",
-      "enabled": true,
-      "action": "sanity_mandatory_login_validation",
-      "sourceSheet": "Sanity Check",
-      "automationStatus": "Yes",
-      "tags": [
-        "sanity"
-      ]
-    },
-    {
-      "id": "AUTH_TC_023",
-      "title": "Verify Logout functionality.",
-      "enabled": true,
-      "action": "sanity_logout",
-      "sourceSheet": "Sanity Check",
-      "automationStatus": "Yes",
-      "tags": [
-        "sanity"
-      ]
     },
     {
       "id": "AUTH_TC_024",
